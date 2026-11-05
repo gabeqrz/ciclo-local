@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CicloLocal | Resultados do Bairro</title>
+    <meta name="description" content="Resultados do bairro: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
+    <meta name="theme-color" content="#F7F5F0">
+    <link rel="canonical" href="https://gabeqrz.github.io/ciclo-local/dashboard.html">
+
+    <!-- Ícones -->
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+
+    <!-- Prévia social: Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="CicloLocal">
+    <meta property="og:title" content="CicloLocal | Resultados do Bairro">
+    <meta property="og:description" content="Resultados do bairro: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
+    <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta property="og:url" content="https://gabeqrz.github.io/ciclo-local/dashboard.html">
+
+    <!-- Prévia para X (Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CicloLocal | Resultados do Bairro">
+    <meta name="twitter:description" content="Resultados do bairro: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
+    <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta name="twitter:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+
+    <!-- Fontes: Plus Jakarta Sans (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos (a ordem importa: reset, tokens, estilo da página) -->
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./tokens.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <img src="./img/logo-ciclolocal.svg" alt="logo CicloLocal" width="170" height="32">
+    </header>
+    <main>
+        <p>Modo demonstração</p>
+
+        <h1>Resultados do bairro</h1>
+        <p>Resultados de São Paulo - SP</p>
+
+        <section aria-labelledby="t-meta">
+            <h2 id="t-meta">Meta do mês</h2>
+            <p><strong>351,5 kg</strong> de 500 kg (70%)</p>
+            <progress value="351.5" max="500" aria-labelledby="t-meta">70%</progress>
+        </section>
+
+        <section aria-labelledby="t-num">
+            <h2 id="t-num">Em números</h2>
+            <dl>
+                <div><dt>recolhidos até agora</dt><dd>1.424 kg</dd></div>
+                <div><dt>coletas feitas</dt><dd>24</dd></div>
+                <div><dt>pessoas participando</dt><dd>9</dd></div>
+                <div><dt>pedidos esperando</dt><dd>3</dd></div>
+                <div><dt>de poluição (CO₂) que deixou de ir para o ar (valor estimado)</dt><dd>3.341 kg</dd></div>
+            </dl>
+        </section>
+
+        <section aria-labelledby="t-mat">
+            <h2 id="t-mat">O que foi recolhido</h2>
+            <table>
+                <caption>Material recolhido</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Material</th>
+                        <th scope="col">Quilos (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Papelão</th>
+                        <td>453,5</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">PET</th>
+                        <td>284</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Garrafas e potes de vidro</th>
+                        <td>226,5</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Outros plásticos</th>
+                        <td>204</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Papel branco</th>
+                        <td>170</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Alumínio</th>
+                        <td>68</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cobre</th>
+                        <td>18</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-labelledby="t-mes">
+            <h2 id="t-mes">Mês a mês</h2>
+            <table>
+                <caption>Quilos recolhidos por mês</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Mês</th>
+                        <th scope="col">Quilos (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Junho</th>
+                        <td>142</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Julho</th>
+                        <td>176</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Agosto</th>
+                        <td>211</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Setembro</th>
+                        <td>246</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Outubro</th>
+                        <td>299</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Novembro</th>
+                        <td>352</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-labelledby="t-bai">
+            <h2 id="t-bai">Bairros participando</h2>
+            <table>
+                <caption>Quilos recolhidos por bairro</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Bairro</th>
+                        <th scope="col">Quilos (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Sé</th>
+                        <td>509</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Liberdade</th>
+                        <td>406</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Bela Vista</th>
+                        <td>306</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Consolação</th>
+                        <td>203</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <p><small>Estimativa de CO₂ feita com fatores da EPA WARM v16 (EUA). Só entra o que foi confirmado como recolhido. Dados de exemplo do modo demonstração.</small></p>
+
+        <button type="button">Baixar relatório em PDF</button>
+    </main>
+    <nav aria-label="Menu principal">
+        <ul>
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./selecao-de-perfil.html">Perfil</a></li>
+            <li><a href="./perfil-coletor.html">Coletas</a></li>
+            <li><a href="./dashboard.html" aria-current="page">Resultados</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

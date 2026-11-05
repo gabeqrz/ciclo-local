@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CicloLocal | Coleta Aceita</title>
+    <meta name="description" content="Acompanhe suas coletas em aberto e concluídas e confirme o que você recolheu.">
+    <meta name="theme-color" content="#F7F5F0">
+    <link rel="canonical" href="https://gabeqrz.github.io/ciclo-local/confirmacao-coletor.html">
+
+    <!-- Ícones -->
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+
+    <!-- Prévia social: Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="CicloLocal">
+    <meta property="og:title" content="CicloLocal | Coleta Aceita">
+    <meta property="og:description" content="Acompanhe suas coletas em aberto e concluídas e confirme o que você recolheu.">
+    <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta property="og:url" content="https://gabeqrz.github.io/ciclo-local/confirmacao-coletor.html">
+
+    <!-- Prévia para X (Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CicloLocal | Coleta Aceita">
+    <meta name="twitter:description" content="Acompanhe suas coletas em aberto e concluídas e confirme o que você recolheu.">
+    <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta name="twitter:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+
+    <!-- Fontes: Plus Jakarta Sans (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos (a ordem importa: reset, tokens, estilo da página) -->
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./tokens.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <img src="./img/logo-ciclolocal.svg" alt="CicloLocal" width="170" height="32">
+    </header>
+    <main>
+        <p>Modo demonstração</p>
+
+        <section aria-labelledby="titulo">
+            <h1 id="titulo">Coleta aceita!</h1>
+            <p>Retire o material no endereço e depois marque como concluída.</p>
+        </section>
+
+        <section aria-labelledby="t-aberto">
+            <h2 id="t-aberto">Em aberto (2)</h2>
+            <article>
+                <p>Nova</p>
+                <h3>Sé</h3>
+                <p>Retirar em: <strong>Praça da Sé, 100</strong></p>
+                <ul>
+                    <li>PET: 2 kg</li>
+                    <li>Papelão: 5 kg</li>
+                </ul>
+
+                <details>
+                    <summary>Marcar como concluída</summary>
+                    <form>
+                        <fieldset>
+                            <legend>Quanto você recolheu?</legend>
+                            <p>Ajuste o peso de cada material se for diferente do combinado.</p>
+                        <div>
+                            <label for="kg-1-pet">PET</label>
+                            <select id="kg-1-pet" name="kg-pet">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5">1,5 kg</option>
+                                <option value="2" selected>2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5">5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="kg-1-papelao">Papelão</label>
+                            <select id="kg-1-papelao" name="kg-papelao">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5">1,5 kg</option>
+                                <option value="2">2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5" selected>5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </div>
+                        </fieldset>
+                        <p>Total recolhido: <output>7 kg</output></p>
+                        <button type="submit">Coleta feita</button>
+                    </form>
+                </details>
+            </article>
+            <article>
+                <p>Aceita</p>
+                <h3>Liberdade</h3>
+                <p>Retirar em: <strong>Rua Galvão Bueno, 200</strong></p>
+                <ul>
+                    <li>Alumínio: 1,5 kg</li>
+                </ul>
+
+                <details>
+                    <summary>Marcar como concluída</summary>
+                    <form>
+                        <fieldset>
+                            <legend>Quanto você recolheu?</legend>
+                            <p>Ajuste o peso de cada material se for diferente do combinado.</p>
+                        <div>
+                            <label for="kg-2-aluminio">Alumínio</label>
+                            <select id="kg-2-aluminio" name="kg-aluminio">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5" selected>1,5 kg</option>
+                                <option value="2">2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5">5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </div>
+                        </fieldset>
+                        <p>Total recolhido: <output>1,5 kg</output></p>
+                        <button type="submit">Coleta feita</button>
+                    </form>
+                </details>
+            </article>
+        </section>
+
+        <section aria-labelledby="t-feitas">
+            <h2 id="t-feitas">Concluídas (3)</h2>
+            <ul>
+                <li><strong>Bela Vista</strong> · Vidro 3 kg · Papel branco 2 kg · <time datetime="2026-10-28">28 out</time></li>
+                <li><strong>Consolação</strong> · Papelão 6 kg · <time datetime="2026-10-21">21 out</time></li>
+                <li><strong>Sé</strong> · PET 4 kg · Alumínio 1 kg · <time datetime="2026-10-14">14 out</time></li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="t-cta">
+            <h2 id="t-cta">Suas coletas concluídas contam na meta do bairro</h2>
+            <p>352 kg este mês · meta de 500 kg</p>
+            <progress value="352" max="500">70%</progress>
+            <a href="./dashboard.html">Ver resultados do bairro</a>
+        </section>
+    </main>
+    <nav aria-label="Menu principal">
+        <ul>
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./selecao-de-perfil.html">Perfil</a></li>
+            <li><a href="./perfil-coletor.html" aria-current="page">Coletas</a></li>
+            <li><a href="./dashboard.html">Resultados</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* CicloLocal — Design Tokens v1.0 (Direção 2: Industrial Orgânico)
+   Mobile-first. Contrastes calculados pelo WCAG 2.1 (AA = 4,5:1 texto normal). */
+:root {
+  /* Marca */
+  --cl-areia-100: #F7F5F0;
+  --cl-areia-200: #ECE7DC;
+  --cl-areia-300: #DDD5C4;
+  --cl-branco: #FFFFFF;
+  --cl-petroleo-900: #1D3557;
+  --cl-petroleo-700: #2F4B73;
+  --cl-petroleo-100: #E4E9F0;
+  --cl-terracota-100: #F8E3DA;
+  --cl-terracota-400: #D96B43; /* destaque decorativo / texto grande */
+  --cl-terracota-600: #B5502B; /* AÇÃO: botões e links (AA com branco e com areia) */
+  --cl-terracota-700: #933F20; /* hover / pressed */
+  --cl-cinza-600: #4B5563;
+
+  /* Estados */
+  --cl-verde-700: #2F6B3F;
+  --cl-ambar-700: #8A5A00;
+  --cl-vermelho-700: #B42318;
+
+  /* Semânticos (use estes no código) */
+  --cor-fundo: var(--cl-areia-100);
+  --cor-superficie: var(--cl-branco);
+  --cor-superficie-alt: var(--cl-areia-200);
+  --cor-borda: #E3DDCF;
+  --cor-texto: var(--cl-petroleo-900);
+  --cor-texto-suave: var(--cl-cinza-600);
+  --cor-acao: var(--cl-terracota-600);
+  --cor-acao-hover: var(--cl-terracota-700);
+  --cor-sobre-acao: var(--cl-branco);
+  --cor-destaque: var(--cl-terracota-400);
+  --cor-foco: var(--cl-petroleo-900);
+  --cor-sucesso: var(--cl-verde-700);
+  --cor-aviso: var(--cl-ambar-700);
+  --cor-erro: var(--cl-vermelho-700);
+
+  /* Tipografia */
+  --fonte-base: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.375rem;
+  --fs-5xl: 3rem;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --lh-tight: 1.2;
+  --lh-base: 1.6;
+
+  /* Espaçamento (escala de 4 px) */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+  --esp-7: 3rem;
+  --esp-8: 4rem;
+
+  /* Forma e profundidade */
+  --raio-sm: 8px;
+  --raio-md: 12px;
+  --raio-lg: 20px;
+  --raio-pill: 999px;
+  --borda: 1px solid var(--cor-borda);
+  --sombra-sm: 0 1px 2px rgba(29, 53, 87, 0.08);
+  --sombra-md: 0 6px 18px rgba(29, 53, 87, 0.12);
+
+  /* Interação */
+  --alvo-min: 2.75rem; /* 44 px: alvo de toque mínimo */
+  --tempo-rapido: 150ms;
+  --tempo-base: 250ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  /* Breakpoints (mobile-first, use em @media): 480px · 768px · 1024px */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --tempo-rapido: 0.01ms; --tempo-base: 0.01ms; }
+}

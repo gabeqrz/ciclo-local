@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CicloLocal | Colete os Materiais</title>
+    <meta name="description" content="Veja os pedidos de coleta de recicláveis perto de você e aceite os que quiser recolher.">
+    <meta name="theme-color" content="#F7F5F0">
+    <link rel="canonical" href="https://gabeqrz.github.io/ciclo-local/perfil-coletor.html">
+
+    <!-- Ícones -->
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+
+    <!-- Prévia social: Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="CicloLocal">
+    <meta property="og:title" content="CicloLocal | Colete os Materiais">
+    <meta property="og:description" content="Veja os pedidos de coleta de recicláveis perto de você e aceite os que quiser recolher.">
+    <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta property="og:url" content="https://gabeqrz.github.io/ciclo-local/perfil-coletor.html">
+
+    <!-- Prévia para X (Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CicloLocal | Colete os Materiais">
+    <meta name="twitter:description" content="Veja os pedidos de coleta de recicláveis perto de você e aceite os que quiser recolher.">
+    <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta name="twitter:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+
+    <!-- Fontes: Plus Jakarta Sans (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos (a ordem importa: reset, tokens, estilo da página) -->
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./tokens.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <img src="./img/logo-ciclolocal.svg" alt="logo CicloLocal" width="170" height="32">
+    </header>
+    <main>
+        <a href="./selecao-de-perfil.html">Voltar</a>
+        <p>Modo demonstração</p>
+
+        <h1>Coletas perto de você</h1>
+
+        <section aria-labelledby="t-local">
+            <h2 id="t-local">Onde você quer coletar?</h2>
+            <p><img src="./img/icones/ui-pin.svg" alt="" width="24" height="24"> São Paulo - SP</p>
+            <button type="button">Trocar cidade</button>
+
+            <div role="group" aria-label="Filtrar por bairro">
+                <button type="button" aria-pressed="true">Todos</button>
+                <button type="button" aria-pressed="false">Sé</button>
+                <button type="button" aria-pressed="false">Liberdade</button>
+                <button type="button" aria-pressed="false">Bela Vista</button>
+            </div>
+        </section>
+
+        <section aria-labelledby="t-lista">
+            <h2 id="t-lista">Esperando um coletor</h2>
+            <article aria-labelledby="c1">
+                <h3 id="c1">Sé</h3>
+                <ul>
+                    <li>PET: 2 kg</li>
+                    <li>Papelão: 5 kg</li>
+                </ul>
+                <p>Total: <strong>7 kg</strong></p>
+                <!-- Por enquanto é um link; vira <button> quando o JavaScript registrar a coleta -->
+                <a class="botao" href="./confirmacao-coletor.html" aria-label="Aceitar coleta em Sé">Aceitar coleta</a>
+            </article>
+            <article aria-labelledby="c2">
+                <h3 id="c2">Liberdade</h3>
+                <ul>
+                    <li>Alumínio: 1,5 kg</li>
+                </ul>
+                <p>Total: <strong>1,5 kg</strong></p>
+                <!-- Por enquanto é um link; vira <button> quando o JavaScript registrar a coleta -->
+                <a class="botao" href="./confirmacao-coletor.html" aria-label="Aceitar coleta em Liberdade">Aceitar coleta</a>
+            </article>
+        </section>
+
+        <p>O endereço completo aparece depois que você aceita a coleta.</p>
+    </main>
+    <nav aria-label="Menu principal">
+        <ul>
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./selecao-de-perfil.html">Perfil</a></li>
+            <li><a href="./perfil-coletor.html" aria-current="page">Coletas</a></li>
+            <li><a href="./dashboard.html">Resultados</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
