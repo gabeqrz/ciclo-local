@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CicloLocal — Manual de Identidade da Marca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* CicloLocal — Design Tokens v1.0 (Direção 2: Industrial Orgânico)
+   Mobile-first. Contrastes calculados pelo WCAG 2.1 (AA = 4,5:1 texto normal). */
+:root {
+  /* Marca */
+  --cl-areia-100: #F7F5F0;
+  --cl-areia-200: #ECE7DC;
+  --cl-areia-300: #DDD5C4;
+  --cl-branco: #FFFFFF;
+  --cl-petroleo-900: #1D3557;
+  --cl-petroleo-700: #2F4B73;
+  --cl-petroleo-100: #E4E9F0;
+  --cl-terracota-100: #F8E3DA;
+  --cl-terracota-400: #D96B43; /* destaque decorativo / texto grande */
+  --cl-terracota-600: #B5502B; /* AÇÃO: botões e links (AA com branco e com areia) */
+  --cl-terracota-700: #933F20; /* hover / pressed */
+  --cl-cinza-600: #4B5563;
+
+  /* Estados */
+  --cl-verde-700: #2F6B3F;
+  --cl-ambar-700: #8A5A00;
+  --cl-vermelho-700: #B42318;
+
+  /* Semânticos (use estes no código) */
+  --cor-fundo: var(--cl-areia-100);
+  --cor-superficie: var(--cl-branco);
+  --cor-superficie-alt: var(--cl-areia-200);
+  --cor-borda: #E3DDCF;
+  --cor-texto: var(--cl-petroleo-900);
+  --cor-texto-suave: var(--cl-cinza-600);
+  --cor-acao: var(--cl-terracota-600);
+  --cor-acao-hover: var(--cl-terracota-700);
+  --cor-sobre-acao: var(--cl-branco);
+  --cor-destaque: var(--cl-terracota-400);
+  --cor-foco: var(--cl-petroleo-900);
+  --cor-sucesso: var(--cl-verde-700);
+  --cor-aviso: var(--cl-ambar-700);
+  --cor-erro: var(--cl-vermelho-700);
+
+  /* Tipografia */
+  --fonte-base: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.375rem;
+  --fs-5xl: 3rem;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --lh-tight: 1.2;
+  --lh-base: 1.6;
+
+  /* Espaçamento (escala de 4 px) */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+  --esp-7: 3rem;
+  --esp-8: 4rem;
+
+  /* Forma e profundidade */
+  --raio-sm: 8px;
+  --raio-md: 12px;
+  --raio-lg: 20px;
+  --raio-pill: 999px;
+  --borda: 1px solid var(--cor-borda);
+  --sombra-sm: 0 1px 2px rgba(29, 53, 87, 0.08);
+  --sombra-md: 0 6px 18px rgba(29, 53, 87, 0.12);
+
+  /* Interação */
+  --alvo-min: 2.75rem; /* 44 px: alvo de toque mínimo */
+  --tempo-rapido: 150ms;
+  --tempo-base: 250ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  /* Breakpoints (mobile-first, use em @media): 480px · 768px · 1024px */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --tempo-rapido: 0.01ms; --tempo-base: 0.01ms; }
+}
+
+*{box-sizing:border-box}
+:root{--pg-bg:var(--cor-fundo);--pg-card:#fff;--pg-text:var(--cor-texto);--pg-soft:var(--cor-texto-suave);--pg-line:var(--cor-borda);--pg-focus:var(--cl-petroleo-900);--la:var(--cl-petroleo-900);--lb:var(--cl-terracota-600);color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pg-bg:#14171C;--pg-card:#1E232B;--pg-text:#F7F5F0;--pg-soft:#C4BFB3;--pg-line:#343B46;--pg-focus:#F7F5F0;--la:#F7F5F0;--lb:#E8815A;color-scheme:dark}}
+:root[data-theme="dark"]{--pg-bg:#14171C;--pg-card:#1E232B;--pg-text:#F7F5F0;--pg-soft:#C4BFB3;--pg-line:#343B46;--pg-focus:#F7F5F0;--la:#F7F5F0;--lb:#E8815A;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--pg-bg);color:var(--pg-text);font-family:var(--fonte-base);font-size:var(--fs-base);line-height:var(--lh-base)}
+:focus-visible{outline:3px solid var(--pg-focus);outline-offset:2px}
+main{max-width:960px;margin:0 auto;padding:var(--esp-5) var(--esp-4) var(--esp-8)}
+h1,h2,h3{line-height:var(--lh-tight);margin:0 0 var(--esp-3)}
+h1{font-size:clamp(2rem,7vw,3rem);font-weight:800}
+h2{font-size:var(--fs-3xl);font-weight:800;margin-top:var(--esp-8);padding-top:var(--esp-4);border-top:2px solid var(--pg-text)}
+h3{font-size:var(--fs-lg);font-weight:700;margin-top:var(--esp-5)}
+p{margin:0 0 var(--esp-3)}.soft{color:var(--pg-soft)}
+.eyebrow{font-size:var(--fs-sm);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pg-soft)}
+nav{display:flex;flex-wrap:wrap;gap:var(--esp-2);margin:var(--esp-5) 0}
+nav a{color:var(--pg-text);border:1px solid var(--pg-line);border-radius:var(--raio-pill);padding:var(--esp-2) var(--esp-4);text-decoration:none;font-size:var(--fs-sm);font-weight:700;min-height:var(--alvo-min);display:inline-flex;align-items:center}
+.grid{display:grid;gap:var(--esp-4);grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--pg-card);border:1px solid var(--pg-line);border-radius:var(--raio-md);padding:var(--esp-4)}
+.tile{border-radius:var(--raio-md);min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--esp-3);padding:var(--esp-4);border:1px solid var(--pg-line)}
+.mk{width:64px;height:64px}.mk.lg{width:96px;height:96px}
+.wm{font-size:1.75rem;font-weight:800;letter-spacing:-.02em;line-height:1}.wm b{color:var(--la)}.wm span{color:var(--lb)}
+.lock{display:flex;align-items:center;gap:var(--esp-3)}
+.cap{font-size:var(--fs-sm);margin:0}
+.sw i{display:block;height:64px;border-radius:var(--raio-sm);border:1px solid var(--pg-line);margin-bottom:var(--esp-2)}
+.sw b{display:block}.sw code,code{font-size:.85em}.sw small{display:block;color:var(--pg-soft)}
+table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+.scroll{overflow-x:auto}
+th,td{text-align:left;padding:var(--esp-2) var(--esp-3);border-bottom:1px solid var(--pg-line);vertical-align:top}
+pre{background:#1D3557;color:#F7F5F0;border-radius:var(--raio-md);padding:var(--esp-4);overflow-x:auto;font-size:.8rem;line-height:1.5;margin:0;max-height:480px}
+.demo{background:var(--cl-areia-100);color:var(--cl-petroleo-900);border-radius:var(--raio-md);padding:var(--esp-5);display:grid;gap:var(--esp-4);border:1px solid var(--pg-line)}
+.demo :focus-visible{outline-color:var(--cl-petroleo-900)}
+.btn{min-height:var(--alvo-min);padding:0 var(--esp-5);border-radius:var(--raio-pill);font:inherit;font-weight:700;border:2px solid transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:var(--esp-2);transition:background var(--tempo-rapido) var(--ease)}
+.btn-p{background:var(--cor-acao);color:var(--cor-sobre-acao)}.btn-p:hover{background:var(--cor-acao-hover)}
+.btn-s{background:transparent;border-color:var(--cl-petroleo-900);color:var(--cl-petroleo-900)}.btn-s:hover{background:var(--cl-petroleo-100)}
+.btn-lg{min-height:3.5rem;font-size:var(--fs-lg);width:100%}
+.dcard{background:#fff;border:var(--borda);border-radius:var(--raio-md);padding:var(--esp-4);box-shadow:var(--sombra-sm)}
+.dcard h4{margin:0 0 var(--esp-1);font-size:var(--fs-lg);font-weight:800;text-transform:uppercase}
+.badge{display:inline-block;background:var(--cl-terracota-100);color:var(--cl-terracota-700);font-size:var(--fs-xs);font-weight:700;padding:2px var(--esp-3);border-radius:var(--raio-pill)}
+label{font-weight:700;font-size:var(--fs-sm);display:block;margin-bottom:var(--esp-1)}
+input{width:100%;min-height:var(--alvo-min);border:2px solid var(--cl-petroleo-900);border-radius:var(--raio-sm);padding:0 var(--esp-3);font:inherit;background:#fff;color:var(--cl-petroleo-900)}
+ul{padding-left:1.2rem;margin:0 0 var(--esp-3)}li{margin-bottom:var(--esp-1)}
+.no li::marker{content:"✕  ";color:var(--cor-erro)}.yes li::marker{content:"✓  ";color:var(--cor-sucesso)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<g id="half"><path d="M10 32A22 22 0 0 1 46.1 15.2" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><polygon points="42.2,19.8 49.9,10.6 52.2,20.3" fill="currentColor"/></g>
+<symbol id="mark" viewBox="0 0 64 64"><g style="color:var(--la)"><use href="#half"/></g><g style="color:var(--lb)" transform="rotate(180 32 32)"><use href="#half"/></g><circle cx="32" cy="32" r="5.5" fill="var(--lb)"/></symbol>
+</defs></svg>
+<main>
+<header>
+<p class="eyebrow">Manual de Identidade da Marca · v1.0 · versão consolidada</p>
+<div class="lock" style="margin:var(--esp-4) 0"><svg class="mk lg" role="img" aria-label="Símbolo CicloLocal"><use href="#mark"/></svg><span class="wm" style="font-size:clamp(2rem,9vw,3.25rem)"><b>Ciclo</b><span>Local</span></span></div>
+<h1>Coleta seletiva que começa no bairro.</h1>
+<p class="soft">Direção visual “Industrial Orgânico”: a cor do papel reciclado, a firmeza de um manual de instruções e a calma de quem resolve em poucos cliques.</p>
+<nav aria-label="Seções"><a href="#essencia">Essência</a><a href="#logo">Logo</a><a href="#cores">Cores</a><a href="#tipografia">Tipografia</a><a href="#componentes">Componentes</a><a href="#a11y">Acessibilidade</a><a href="#tokens">Tokens</a><a href="#icones">Ícones</a><a href="#preloader">Preloader</a><a href="#arquivos">Arquivos</a></nav>
+</header>
+
+<section id="essencia">
+<h2>1. Essência</h2>
+<p><strong>Propósito:</strong> conectar quem quer descartar recicláveis a quem faz a coleta, com previsibilidade e transparência para o bairro.</p>
+<div class="grid">
+<div class="card"><h3 style="margin-top:0">Acolhedora</h3><p class="cap soft">Tons terrosos e linguagem simples. Nada de cara de software corporativo.</p></div>
+<div class="card"><h3 style="margin-top:0">Direta</h3><p class="cap soft">Poucos cliques, botões grandes, um objetivo por tela.</p></div>
+<div class="card"><h3 style="margin-top:0">Transparente</h3><p class="cap soft">Números reais do bairro, sempre visíveis e fáceis de exportar.</p></div>
+<div class="card"><h3 style="margin-top:0">Respeitosa</h3><p class="cap soft">Valoriza o trabalho do catador como profissão, nunca como favor.</p></div>
+</div>
+<h3>Voz e tom</h3>
+<div class="grid">
+<div class="card yes"><strong>Faça</strong><ul><li>Frases curtas e verbos de ação: “Avisar coleta”, “Aceitar coleta”.</li><li>Trate o catador como parceiro e profissional.</li><li>Mostre o resultado: “1.240 kg reciclados no bairro”.</li></ul></div>
+<div class="card no"><strong>Evite</strong><ul><li>Jargão técnico e termos em inglês.</li><li>Culpa ou tom de campanha moralista.</li><li>Clichês visuais como folhinha verde isolada.</li></ul></div>
+</div>
+</section>
+
+<section id="logo">
+<h2>2. Logo</h2>
+<p>O símbolo une duas setas que se completam, o <strong>morador</strong> (petróleo) e o <strong>catador</strong> (terracota), em torno de um ponto central: o <strong>local</strong>. O logotipo usa Plus Jakarta Sans ExtraBold, com “Ciclo” em petróleo e “Local” em terracota.</p>
+<div class="grid">
+<div class="tile" style="background:#F7F5F0"><div class="lock"><svg class="mk" style="--la:#1D3557;--lb:#B5502B"><use href="#mark"/></svg><span class="wm" style="--la:#1D3557;--lb:#B5502B"><b>Ciclo</b><span>Local</span></span></div><p class="cap" style="color:#4B5563">Principal · fundo areia ou branco</p></div>
+<div class="tile" style="background:#1D3557"><div class="lock"><svg class="mk" style="--la:#F7F5F0;--lb:#D96B43"><use href="#mark"/></svg><span class="wm" style="--la:#F7F5F0;--lb:#D96B43"><b>Ciclo</b><span>Local</span></span></div><p class="cap" style="color:#ECE7DC">Negativa · fundo petróleo</p></div>
+<div class="tile" style="background:#fff"><div class="lock"><svg class="mk" style="--la:#1D3557;--lb:#1D3557"><use href="#mark"/></svg><span class="wm" style="--la:#1D3557;--lb:#1D3557"><b>Ciclo</b><span>Local</span></span></div><p class="cap" style="color:#4B5563">Monocromática · impressão e carimbo</p></div>
+<div class="tile" style="background:#F7F5F0"><svg class="mk lg" style="--la:#F7F5F0;--lb:#D96B43;background:#1D3557;border-radius:22px;padding:14px;width:96px;height:96px"><use href="#mark"/></svg><p class="cap" style="color:#4B5563">Ícone do app · PWA e favicon</p></div>
+</div>
+<h3>Regras de uso</h3>
+<ul>
+<li><strong>Área de proteção:</strong> mantenha ao redor do logo um espaço livre de pelo menos ¼ da largura do símbolo.</li>
+<li><strong>Tamanho mínimo:</strong> símbolo com 24 px; logotipo completo com 96 px de largura.</li>
+<li><strong>Fundo:</strong> use a versão principal sobre claro e a negativa sobre petróleo ou fotos escuras.</li>
+<li><strong>Arquivos:</strong> o símbolo e o ícone do app já vêm em SVG com as cores fixas. Os logotipos usam texto ao vivo em Plus Jakarta Sans: no Figma, converta o texto em contornos (outline) antes de usá-los fora do projeto.</li>
+</ul>
+<div class="card no"><strong>Não faça</strong><ul><li>Esticar, girar ou inclinar o logo.</li><li>Trocar as cores das duas setas entre si.</li><li>Usar o terracota claro (#D96B43) em texto pequeno sobre fundo claro.</li><li>Aplicar sombras, contornos ou efeitos.</li></ul></div>
+</section>
+
+<section id="cores">
+<h2>3. Cores</h2>
+<p>Os valores abaixo são os mesmos do arquivo de tokens. As razões de contraste são aproximadas (WCAG 2.1).</p>
+<h3>Marca</h3>
+<div class="grid">
+<div class="sw card"><i style="background:#F7F5F0"></i><b>Areia 100</b><code>#F7F5F0</code><small>Fundo base das telas</small></div>
+<div class="sw card"><i style="background:#1D3557"></i><b>Petróleo 900</b><code>#1D3557</code><small>Texto e títulos · 11,3:1 sobre areia</small></div>
+<div class="sw card"><i style="background:#B5502B"></i><b>Terracota 600</b><code>#B5502B</code><small>Ação: botões e links · 5,1:1 com branco</small></div>
+<div class="sw card"><i style="background:#D96B43"></i><b>Terracota 400</b><code>#D96B43</code><small>Só decorativo e texto grande · 3,4:1 com branco</small></div>
+<div class="sw card"><i style="background:#933F20"></i><b>Terracota 700</b><code>#933F20</code><small>Hover e pressed · 7:1 com branco</small></div>
+<div class="sw card"><i style="background:#ECE7DC"></i><b>Areia 200</b><code>#ECE7DC</code><small>Superfícies secundárias</small></div>
+</div>
+<h3>Apoio e estados</h3>
+<div class="grid">
+<div class="sw card"><i style="background:#4B5563"></i><b>Cinza 600</b><code>#4B5563</code><small>Texto secundário · 6,9:1 sobre areia</small></div>
+<div class="sw card"><i style="background:#2F6B3F"></i><b>Sucesso</b><code>#2F6B3F</code><small>Coleta concluída · 6,4:1 com branco</small></div>
+<div class="sw card"><i style="background:#8A5A00"></i><b>Aviso</b><code>#8A5A00</code><small>Atenção · 5,9:1 com branco</small></div>
+<div class="sw card"><i style="background:#B42318"></i><b>Erro</b><code>#B42318</code><small>Falhas · 6,5:1 com branco</small></div>
+</div>
+<p class="soft cap" style="margin-top:var(--esp-4)">Proporção sugerida: 60% areia, 25% petróleo, 10% terracota, 5% estados. Nunca transmita informação só pela cor: acompanhe com texto ou ícone.</p>
+</section>
+
+<section id="tipografia">
+<h2>4. Tipografia</h2>
+<p><strong>Plus Jakarta Sans</strong> para tudo (Google Fonts, pesos 400, 500, 700 e 800). Fallback: system-ui.</p>
+<div class="card">
+<p style="font-size:var(--fs-5xl);font-weight:800;line-height:1.1;margin:0">Aa Bb Cc 123</p>
+<p class="cap soft">ExtraBold 800 · títulos e logotipo</p>
+</div>
+<div class="scroll" style="margin-top:var(--esp-4)"><table>
+<tr><th>Token</th><th>Tamanho</th><th>Uso</th></tr>
+<tr><td><code>--fs-5xl</code></td><td>48 px</td><td>Título de capa (ExtraBold)</td></tr>
+<tr><td><code>--fs-3xl</code></td><td>30 px</td><td>Título de seção</td></tr>
+<tr><td><code>--fs-xl</code></td><td>20 px</td><td>Título de card (Bold, caixa-alta nos pedidos)</td></tr>
+<tr><td><code>--fs-base</code></td><td>16 px</td><td>Texto corrido (Regular, linha 1,6)</td></tr>
+<tr><td><code>--fs-sm</code></td><td>14 px</td><td>Legendas e rótulos (Medium)</td></tr>
+<tr><td><code>--fs-xs</code></td><td>12 px</td><td>Selos e metadados (Bold)</td></tr>
+</table></div>
+<p class="cap soft" style="margin-top:var(--esp-3)">Nunca use texto menor que 12 px. Para o corpo, prefira 16 px ou mais.</p>
+</section>
+
+<section id="componentes">
+<h2>5. Componentes</h2>
+<p>Alvos de toque de pelo menos 44 px, cantos arredondados (8, 12 e 999 px) e linhas finas no estilo “manual de instrução”.</p>
+<div class="demo">
+<button class="btn btn-p btn-lg" type="button">Quero doar recicláveis</button>
+<button class="btn btn-s btn-lg" type="button">Quero recolher materiais</button>
+<div class="dcard"><span class="badge">Disponível agora</span><h4>2 sacas de PET e papelão</h4><p class="cap" style="color:#4B5563;margin-bottom:var(--esp-3)">Santana · a 600 m de você</p><button class="btn btn-p" type="button">Aceitar coleta</button></div>
+<div><label for="cidade">Cidade</label><input id="cidade" placeholder="Digite sua cidade"></div>
+</div>
+<p class="cap soft" style="margin-top:var(--esp-3)">Foco visível: contorno de 3 px em petróleo com 2 px de distância. Botão primário: terracota 600 com texto branco; hover em terracota 700.</p>
+</section>
+
+<section id="a11y">
+<h2>6. Acessibilidade</h2>
+<ul>
+<li>Texto normal com contraste mínimo de 4,5:1; texto grande (18 px bold ou 24 px) e ícones de interface, 3:1.</li>
+<li>Todo elemento interativo é alcançável por Tab, com foco visível e fechamento por Esc em janelas e menus.</li>
+<li>Alvos de toque de pelo menos 44 × 44 px (<code>--alvo-min</code>).</li>
+<li>Respeite <code>prefers-reduced-motion</code>: os tokens de tempo já caem para quase zero.</li>
+<li>Estados nunca dependem só da cor: use rótulo, ícone ou texto junto.</li>
+</ul>
+</section>
+
+<section id="tokens">
+<h2>7. Design tokens (CSS)</h2>
+<p>Use as variáveis semânticas (<code>--cor-*</code>) no código e deixe as cores de marca (<code>--cl-*</code>) só para a definição. O mesmo conteúdo está no arquivo <code>cicloLocal-tokens.css</code>.</p>
+<pre tabindex="0"><code>/* CicloLocal — Design Tokens v1.0 (Direção 2: Industrial Orgânico)
+   Mobile-first. Contrastes calculados pelo WCAG 2.1 (AA = 4,5:1 texto normal). */
+:root {
+  /* Marca */
+  --cl-areia-100: #F7F5F0;
+  --cl-areia-200: #ECE7DC;
+  --cl-areia-300: #DDD5C4;
+  --cl-branco: #FFFFFF;
+  --cl-petroleo-900: #1D3557;
+  --cl-petroleo-700: #2F4B73;
+  --cl-petroleo-100: #E4E9F0;
+  --cl-terracota-100: #F8E3DA;
+  --cl-terracota-400: #D96B43; /* destaque decorativo / texto grande */
+  --cl-terracota-600: #B5502B; /* AÇÃO: botões e links (AA com branco e com areia) */
+  --cl-terracota-700: #933F20; /* hover / pressed */
+  --cl-cinza-600: #4B5563;
+
+  /* Estados */
+  --cl-verde-700: #2F6B3F;
+  --cl-ambar-700: #8A5A00;
+  --cl-vermelho-700: #B42318;
+
+  /* Semânticos (use estes no código) */
+  --cor-fundo: var(--cl-areia-100);
+  --cor-superficie: var(--cl-branco);
+  --cor-superficie-alt: var(--cl-areia-200);
+  --cor-borda: #E3DDCF;
+  --cor-texto: var(--cl-petroleo-900);
+  --cor-texto-suave: var(--cl-cinza-600);
+  --cor-acao: var(--cl-terracota-600);
+  --cor-acao-hover: var(--cl-terracota-700);
+  --cor-sobre-acao: var(--cl-branco);
+  --cor-destaque: var(--cl-terracota-400);
+  --cor-foco: var(--cl-petroleo-900);
+  --cor-sucesso: var(--cl-verde-700);
+  --cor-aviso: var(--cl-ambar-700);
+  --cor-erro: var(--cl-vermelho-700);
+
+  /* Tipografia */
+  --fonte-base: &quot;Plus Jakarta Sans&quot;, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.375rem;
+  --fs-5xl: 3rem;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --lh-tight: 1.2;
+  --lh-base: 1.6;
+
+  /* Espaçamento (escala de 4 px) */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+  --esp-7: 3rem;
+  --esp-8: 4rem;
+
+  /* Forma e profundidade */
+  --raio-sm: 8px;
+  --raio-md: 12px;
+  --raio-lg: 20px;
+  --raio-pill: 999px;
+  --borda: 1px solid var(--cor-borda);
+  --sombra-sm: 0 1px 2px rgba(29, 53, 87, 0.08);
+  --sombra-md: 0 6px 18px rgba(29, 53, 87, 0.12);
+
+  /* Interação */
+  --alvo-min: 2.75rem; /* 44 px: alvo de toque mínimo */
+  --tempo-rapido: 150ms;
+  --tempo-base: 250ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  /* Breakpoints (mobile-first, use em @media): 480px · 768px · 1024px */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --tempo-rapido: 0.01ms; --tempo-base: 0.01ms; }
+}
+</code></pre>
+</section>
+
+<section id="icones">
+<h2>8. Ícones</h2>
+<p>Estilo de linha: grade de 24 px, traço de 2 px, pontas arredondadas e cor <code>currentColor</code>, para herdar a cor do texto. São 19 ícones de interface e 7 de materiais, todos em SVG.</p>
+<h3>Interface</h3><div style="display:grid;gap:var(--esp-3);grid-template-columns:repeat(auto-fill,minmax(120px,1fr))"><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8v10H3z"/><path d="M9 21v-7h6v7"/></svg><small style="margin-top:6px"><code>ui-home</code><br/>Início</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><small style="margin-top:6px"><code>ui-user</code><br/>Perfil</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><small style="margin-top:6px"><code>ui-list</code><br/>Coletas</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><small style="margin-top:6px"><code>ui-file</code><br/>Relatório</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><small style="margin-top:6px"><code>ui-pin</code><br/>Local</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><small style="margin-top:6px"><code>ui-check</code><br/>Certo</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><small style="margin-top:6px"><code>ui-back</code><br/>Voltar</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M4 20h16"/></svg><small style="margin-top:6px"><code>ui-download</code><br/>Baixar</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><small style="margin-top:6px"><code>ui-info</code><br/>Informação</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><small style="margin-top:6px"><code>ui-plus</code><br/>Mais</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg><small style="margin-top:6px"><code>ui-minus</code><br/>Menos</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6h13v10H1zM14 9h4l3 3v4h-7"/><circle cx="5.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg><small style="margin-top:6px"><code>ui-truck</code><br/>Recolher</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><small style="margin-top:6px"><code>ui-gift</code><br/>Doar</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7M21 3l-10 10M19 14v6H4V5h6"/></svg><small style="margin-top:6px"><code>ui-external</code><br/>Abrir site</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><small style="margin-top:6px"><code>ui-alert</code><br/>Atenção</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><small style="margin-top:6px"><code>ui-close</code><br/>Fechar</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.5-8A6 6 0 0 1 18 9a4.5 4.5 0 0 1 0 9z"/></svg><small style="margin-top:6px"><code>ui-cloud</code><br/>CO₂</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 8l7-3 7 3M5 8l-3 7a3 3 0 0 0 6 0zM19 8l-3 7a3 3 0 0 0 6 0zM8 21h8"/></svg><small style="margin-top:6px"><code>ui-scale</code><br/>Peso</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 0-13.7-5.6L4 8"/><path d="M4 3v5h5"/><path d="M4 12a8 8 0 0 0 13.7 5.6L20 16"/><path d="M20 21v-5h-5"/></svg><small style="margin-top:6px"><code>ui-recycle</code><br/>Reciclar</small></div></div>
+<h3>Materiais</h3><div style="display:grid;gap:var(--esp-3);grid-template-columns:repeat(auto-fill,minmax(120px,1fr))"><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9c3-3 5 3 9 0s6 3 9 0"/><path d="M3 15c3-3 5 3 9 0s6 3 9 0"/></svg><small style="margin-top:6px"><code>mat-cobre</code><br/>Cobre</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8l1 3v10l-1 3H8l-1-3V7z"/><path d="M7 8h10"/></svg><small style="margin-top:6px"><code>mat-aluminio</code><br/>Alumínio</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4v3l2 3v11a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9l2-3z"/><path d="M8 13h8"/></svg><small style="margin-top:6px"><code>mat-pet</code><br/>PET</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-2 12H7z"/><path d="M4 8h16M8 8V6a4 4 0 0 1 8 0v2"/></svg><small style="margin-top:6px"><code>mat-outros_plasticos</code><br/>Outros plásticos</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></svg><small style="margin-top:6px"><code>mat-papel_branco</code><br/>Papel branco</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg><small style="margin-top:6px"><code>mat-papelao</code><br/>Papelão</small></div><div class="card" style="text-align:center;padding:var(--esp-3)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v3a3 3 0 0 1 3 3v10a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9a3 3 0 0 1 3-3z"/><path d="M6 12h12"/></svg><small style="margin-top:6px"><code>mat-vidro</code><br/>Vidro</small></div></div>
+<h3>Regras de uso</h3>
+<ul><li>Tamanho: 24 px no texto e nos menus; 48 px em destaque. Nunca abaixo de 20 px.</li>
+<li>O ícone sempre acompanha um texto. Se for decorativo, use <code>aria-hidden="true"</code>; se estiver sozinho, dê um <code>aria-label</code>.</li>
+<li>Cor: petróleo ou terracota 600 sobre fundo claro; areia sobre petróleo. Não misture duas cores no mesmo ícone.</li>
+<li>No projeto: <code>&lt;span data-icone="pet"&gt;&lt;/span&gt;</code> com <code>js/icons.js</code>, ou os arquivos soltos e o <code>sprite.svg</code>.</li></ul>
+</section>
+<section id="preloader">
+<h2>9. Preloader</h2>
+<p>A tela de carregamento usa a própria marca girando sobre um fundo areia com desfoque. Ela aparece quando a pessoa clica em um botão que leva a outra tela, como o “Entrar com gov.br”, e some sozinha quando a nova página abre.</p>
+<style>@keyframes clgirar{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.pl-demo svg{animation:none!important}}</style>
+<div class="demo pl-demo" style="justify-items:center;text-align:center"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" style="animation:clgirar 1.4s linear infinite"><path d="M10 32A22 22 0 0 1 46.1 15.2" fill="none" stroke="#1D3557" stroke-width="6" stroke-linecap="round"/><polygon fill="#1D3557" points="42.2,19.8 49.9,10.6 52.2,20.3"/><g transform="rotate(180 32 32)"><path d="M10 32A22 22 0 0 1 46.1 15.2" fill="none" stroke="#B5502B" stroke-width="6" stroke-linecap="round"/><polygon fill="#B5502B" points="42.2,19.8 49.9,10.6 52.2,20.3"/></g><circle cx="32" cy="32" r="5.5" fill="#B5502B"/></svg><strong>Carregando…</strong></div>
+<ul style="margin-top:var(--esp-3)"><li>Acessível: tem <code>role="status"</code> e <code>aria-live</code>, e o texto “Carregando…” fica visível.</li>
+<li>Respeita <code>prefers-reduced-motion</code>: sem giro para quem pede menos movimento.</li>
+<li>Uso: <code>&lt;a href="pagina.html" data-carregar&gt;</code> ou <code>Preloader.ir('pagina.html', {texto: 'Entrando…'})</code>.</li>
+<li>Arquivos: <code>cicloLocal-preloader.css</code> e <code>cicloLocal-preloader.js</code>.</li></ul>
+</section>
+
+<section id="arquivos">
+<h2>10. Arquivos e aplicação no projeto</h2>
+<div class="scroll"><table>
+<tr><th>Arquivo</th><th>Uso</th></tr>
+<tr><td><code>cicloLocal-simbolo.svg</code></td><td>Símbolo principal, fundo claro</td></tr>
+<tr><td><code>cicloLocal-simbolo-negativo.svg</code></td><td>Símbolo sobre petróleo ou escuro</td></tr>
+<tr><td><code>cicloLocal-simbolo-mono.svg</code></td><td>Impressão, carimbo, uma cor</td></tr>
+<tr><td><code>cicloLocal-logotipo.svg</code> e <code>-negativo.svg</code></td><td>Símbolo + nome (converter texto em contornos)</td></tr>
+<tr><td><code>cicloLocal-icone-app.svg</code></td><td>Favicon e ícone do PWA</td></tr>
+<tr><td><code>icons/ui-*.svg</code>, <code>mat-*.svg</code>, <code>sprite.svg</code></td><td>26 ícones de interface e materiais</td></tr>
+<tr><td><code>cicloLocal-preloader.css</code> e <code>.js</code></td><td>Tela de carregamento com a marca</td></tr>
+<tr><td><code>cicloLocal-tokens.css</code></td><td>Cores, tipografia, espaçamento, formas</td></tr>
+</table></div>
+<h3>No HTML e no manifest do PWA</h3>
+<pre tabindex="0"><code>&lt;link rel="icon" href="assets/cicloLocal-icone-app.svg" type="image/svg+xml"&gt;
+&lt;meta name="theme-color" content="#F7F5F0"&gt;
+&lt;link rel="stylesheet" href="css/cicloLocal-tokens.css"&gt;
+
+/* manifest.webmanifest */
+"background_color": "#F7F5F0",
+"theme_color": "#F7F5F0"</code></pre>
+<p class="cap soft" style="margin-top:var(--esp-3)">O PWA instalável também pede ícones em PNG (192 × 192 e 512 × 512): exporte-os do ícone do app no Figma.</p>
+</section>
+</main>
+</body>
+</html>

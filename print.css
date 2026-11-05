@@ -1,0 +1,9 @@
+/* Relatório em PDF (window.print). Só vale na impressão. */
+@page{size:A4;margin:16mm}
+@media print{
+  body{background:#fff;padding:0}
+  .topo .selo,.menu-fixo,.pular,.voltar,button,.demo-acoes,.preloader{display:none!important}
+  .tela{max-width:none;padding:0}
+  .cartao,.metrica{break-inside:avoid;border:1px solid #999}
+  a{color:#000;text-decoration:none}
+}

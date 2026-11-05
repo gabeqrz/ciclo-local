@@ -1,0 +1,17 @@
+CicloLocal — Pacote de Identidade Visual (v1.0)
+================================================
+manual/           Manual de identidade da marca (abra no navegador)
+tokens/           cicloLocal-tokens.css: cores, tipografia, espaçamento, formas
+logo/             Símbolo, logotipo, versões negativa e monocromática, ícone do app (SVG)
+icons/            26 ícones em SVG (ui-*.svg e mat-*.svg) + sprite.svg
+preloader/        Tela de carregamento: .css, .js e exemplo.html (abra e clique no botão)
+previas-sociais/  previa-social-1200x630.png (Open Graph e X), previa-github-1280x640.png (GitHub),
+                  favicon.svg e apple-touch-icon.png
+
+Observações
+- Os logotipos têm texto em Plus Jakarta Sans. Antes de usar fora do projeto,
+  converta o texto em contornos (outline) no Figma.
+- As imagens de prévia usam a fonte Inter (a Plus Jakarta Sans não estava disponível
+  para gerá-las). Se quiser, refaça no Figma com a fonte da marca.
+- O manual carrega a fonte do Google Fonts; com internet ele aparece completo.
+- GitHub: Settings > General > Social preview > envie previa-github-1280x640.png.

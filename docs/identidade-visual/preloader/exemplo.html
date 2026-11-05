@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exemplo do preloader | CicloLocal</title>
+<link rel="stylesheet" href="../tokens/cicloLocal-tokens.css">
+<link rel="stylesheet" href="cicloLocal-preloader.css">
+<style>body{margin:0;padding:2rem;background:var(--cor-fundo);color:var(--cor-texto);font-family:var(--fonte-base)}
+button{min-height:var(--alvo-min);padding:0 1.5rem;border:0;border-radius:999px;background:var(--cor-acao);color:#fff;font:inherit;font-weight:700;cursor:pointer}</style>
+</head>
+<body>
+<h1>Preloader do CicloLocal</h1>
+<p>Clique para ver a tela de carregamento por 2 segundos.</p>
+<button type="button" id="teste">Mostrar o preloader</button>
+<script src="cicloLocal-preloader.js"></script>
+<script>
+Preloader.iniciar();
+document.getElementById('teste').addEventListener('click', () => {
+  Preloader.mostrar('Entrando com gov.br…');
+  setTimeout(() => Preloader.esconder(), 2000);
+});
+</script>
+</body>
+</html>
