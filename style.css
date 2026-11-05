@@ -1,0 +1,178 @@
+/* CicloLocal — style.css (mobile-first)
+   Ordem no <head>: reset.css, tokens.css, style.css. Usa só variáveis do tokens.css. */
+
+/* ===== 1. Complementos do reset =====
+   O reset deixa strong, em, small, th, summary e legend sem destaque (font: inherit),
+   não cobre campos de formulário e põe line-height: 1 no body. Aqui corrigimos isso. */
+*, *::before, *::after { box-sizing: border-box; }
+button, input, select, textarea { font: inherit; color: inherit; }
+strong, b, th, legend, summary { font-weight: var(--fw-bold); }
+em, i { font-style: italic; }
+small { font-size: var(--fs-sm); color: var(--cor-texto-suave); }
+[hidden] { display: none !important; }   /* o reset força display:block em section, nav, etc. */
+img { max-width: 100%; height: auto; }
+
+/* ===== 2. Base ===== */
+body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-base);
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+}
+body:has(> nav[aria-label="Menu principal"]) { padding-bottom: 4.75rem; }  /* espaço do menu fixo */
+:focus-visible { outline: 3px solid var(--cor-foco); outline-offset: 2px; }
+
+h1 { font-size: clamp(1.75rem, 7vw, var(--fs-4xl)); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); }
+h2, legend { font-size: var(--fs-xl); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); }
+h3 { font-size: var(--fs-lg); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); }
+a { color: var(--cor-acao); font-weight: var(--fw-bold); text-underline-offset: 0.2em; }
+a:hover { color: var(--cor-acao-hover); }
+
+/* Link de salto: escondido até receber foco */
+.pular { position: absolute; left: -9999px; top: 0; }
+.pular:focus {
+    left: var(--esp-3); top: var(--esp-3); z-index: 10000;
+    padding: var(--esp-3) var(--esp-4);
+    background: var(--cor-superficie); color: var(--cor-texto);
+    border: 2px solid var(--cor-foco); border-radius: var(--raio-sm);
+}
+main:focus { outline: none; }  /* o <main> só recebe foco pelo link de salto */
+
+/* ===== 3. Estrutura ===== */
+header, main, footer { max-width: 32rem; margin-inline: auto; padding: var(--esp-4); }
+header { padding-top: calc(var(--esp-4) + env(safe-area-inset-top, 0px)); }
+header img { display: block; height: 2rem; width: auto; }
+main > * + * { margin-top: var(--esp-5); }                                   /* espaço entre blocos */
+section > * + *, form > * + *, article > * + *, fieldset > * + *, details > * + * { margin-top: var(--esp-3); }
+footer { text-align: center; }
+main > a, footer a { display: inline-flex; align-items: center; min-height: var(--alvo-min); }  /* links soltos com alvo de toque de 44 px */
+
+p[data-demo] {   /* selo "Modo demonstração" */
+    width: fit-content; padding: 2px var(--esp-3);
+    background: var(--cl-terracota-100); color: var(--cl-terracota-700);
+    font-size: var(--fs-xs); font-weight: var(--fw-bold); border-radius: var(--raio-pill);
+}
+
+/* ===== 4. Botões e links-botão ===== */
+button, .botao, summary {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--esp-2);
+    min-height: var(--alvo-min); padding: 0 var(--esp-5);
+    border: 2px solid var(--cl-petroleo-900); border-radius: var(--raio-pill);
+    background: transparent; color: var(--cl-petroleo-900);
+    font-weight: var(--fw-bold); text-decoration: none; text-align: center; cursor: pointer;
+    transition: background var(--tempo-rapido) var(--ease);
+}
+button:hover, summary:hover { background: var(--cl-petroleo-100); }
+.botao, button[type="submit"] { width: 100%; min-height: 3.25rem; font-size: var(--fs-lg); background: var(--cor-acao); border-color: var(--cor-acao); color: var(--cor-sobre-acao); }
+.botao:hover, button[type="submit"]:hover { background: var(--cor-acao-hover); border-color: var(--cor-acao-hover); color: var(--cor-sobre-acao); }
+.botao-gov { gap: 0.3em; background: #1351B4; border-color: #1351B4; font-weight: var(--fw-medium); }
+.botao-gov:hover { background: #0C326F; border-color: #0C326F; }
+button:disabled, select:disabled { opacity: 0.5; cursor: not-allowed; }
+summary { width: 100%; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+#reiniciar, #zerar { border: 0; min-height: var(--alvo-min); padding: 0 var(--esp-3); color: var(--cor-acao); text-decoration: underline; }
+#pdf { width: 100%; }
+
+/* ===== 5. Escolha de perfil ===== */
+.opcao {
+    display: block; padding: var(--esp-4);
+    background: var(--cor-superficie); border: 2px solid var(--cl-petroleo-900); border-radius: var(--raio-lg);
+    color: var(--cor-texto); text-decoration: none;
+}
+.opcao:hover { background: var(--cl-petroleo-100); color: var(--cor-texto); }
+.opcao strong { display: block; font-size: var(--fs-lg); font-weight: var(--fw-extrabold); }
+main > ul > li + li { margin-top: var(--esp-3); }
+
+/* ===== 6. Formulário do doador ===== */
+label { display: block; margin-bottom: var(--esp-1); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
+input[type="text"], select {
+    width: 100%; min-height: 3.25rem; padding: 0 var(--esp-3);
+    background: #fff; color: var(--cl-petroleo-900);
+    border: 2px solid var(--cl-petroleo-900); border-radius: var(--raio-sm); font-size: var(--fs-lg);
+}
+input[type="checkbox"] { width: 1.5rem; height: 1.5rem; accent-color: var(--cor-acao); }
+#endereco { display: flex; align-items: center; gap: var(--esp-2); }
+#endereco:empty { display: none; }
+#endereco p + p { font-size: var(--fs-sm); color: var(--cor-texto-suave); }
+#erro, [data-erro], p[role="alert"] { color: var(--cor-erro); font-weight: var(--fw-bold); }
+#erro:empty, [data-erro]:empty { display: none; }
+#endereco-manual { padding: var(--esp-3); border: 1px dashed var(--cor-borda); border-radius: var(--raio-md); }
+fieldset > legend + * { margin-top: var(--esp-2); }
+fieldset ul > li {   /* uma linha por material: caixa, nome e peso */
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--esp-3);
+    padding: var(--esp-2) var(--esp-3); background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda); border-radius: var(--raio-md);
+}
+fieldset ul > li + li { margin-top: var(--esp-2); }
+fieldset ul > li:has(input:checked) { border: 2px solid var(--cor-acao); }
+fieldset li label { margin: 0; font-size: var(--fs-base); cursor: pointer; }
+fieldset li label small { display: block; }
+fieldset li select { width: 7rem; min-height: var(--alvo-min); font-size: var(--fs-base); }
+output { font-weight: var(--fw-extrabold); }
+
+/* ===== 7. Cartões (coletas e pedidos) ===== */
+article {
+    padding: var(--esp-4); background: var(--cor-superficie);
+    border: var(--borda); border-radius: var(--raio-md); box-shadow: var(--sombra-sm);
+}
+article + article { margin-top: var(--esp-3); }
+article h3 { font-size: var(--fs-xl); }
+article li + li { margin-top: var(--esp-1); }
+article p:first-child:not(:has(strong)) { /* etiqueta "Nova" */
+    width: fit-content; padding: 2px var(--esp-3); background: var(--cl-terracota-100);
+    color: var(--cl-terracota-700); font-size: var(--fs-xs); font-weight: var(--fw-bold); border-radius: var(--raio-pill);
+}
+article details form > * + * { margin-top: var(--esp-3); }
+article details select { margin-bottom: var(--esp-2); }
+[role="group"] { display: flex; flex-wrap: wrap; gap: var(--esp-2); }
+[role="group"] button { padding: 0 var(--esp-4); }
+[role="group"] button[aria-pressed="true"] { background: var(--cl-petroleo-900); color: #fff; }
+#concluidas li { padding: var(--esp-3); background: var(--cor-superficie); border: var(--borda); border-radius: var(--raio-md); }
+#concluidas li + li { margin-top: var(--esp-2); }
+
+/* ===== 8. Andamento do pedido e chamada para os resultados ===== */
+#andamento > li + li { margin-top: var(--esp-3); }
+#andamento li { display: flex; align-items: center; gap: var(--esp-3); color: var(--cor-texto-suave); }
+#andamento li::before { content: ""; flex: none; width: 1.5rem; height: 1.5rem; border: 2px solid #8A93A0; border-radius: 50%; }
+#andamento li[aria-current="step"], #andamento li.feito { color: var(--cor-texto); font-weight: var(--fw-bold); }
+#andamento li[aria-current="step"]::before { border-color: var(--cl-petroleo-900); }
+#andamento li.feito::before {
+    background: var(--cor-sucesso) center / 70% no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E");
+    border-color: var(--cor-sucesso);
+}
+progress { display: block; width: 100%; height: 0.875rem; border: 0; border-radius: var(--raio-pill); overflow: hidden; appearance: none; -webkit-appearance: none; background: var(--cor-superficie-alt); color: var(--cor-acao); }
+progress::-webkit-progress-bar { background: var(--cor-superficie-alt); }
+progress::-webkit-progress-value { background: var(--cor-acao); border-radius: var(--raio-pill); }
+progress::-moz-progress-bar { background: var(--cor-acao); border-radius: var(--raio-pill); }
+section[aria-labelledby="t-cta"] { padding: var(--esp-5); background: var(--cl-petroleo-900); color: var(--cor-fundo); border-radius: var(--raio-lg); }
+section[aria-labelledby="t-cta"] progress { background: rgba(247, 245, 240, .25); }
+section[aria-labelledby="t-cta"] a { display: flex; align-items: center; justify-content: center; min-height: 3.25rem; background: var(--cor-fundo); color: var(--cl-petroleo-900); border-radius: var(--raio-pill); text-decoration: none; }
+
+/* ===== 9. Dashboard ===== */
+main:has(#numeros) > section { padding: var(--esp-4); background: var(--cor-superficie); border: var(--borda); border-radius: var(--raio-md); }
+#numeros { display: grid; grid-template-columns: 1fr 1fr; gap: var(--esp-3); }
+#numeros > div { display: flex; flex-direction: column-reverse; padding: var(--esp-3); text-align: center; background: var(--cor-superficie-alt); border-radius: var(--raio-md); }
+#numeros > div:last-child { grid-column: 1 / -1; }
+#numeros dd { font-size: var(--fs-3xl); font-weight: var(--fw-extrabold); line-height: 1.1; }
+#numeros dt { font-size: var(--fs-sm); color: var(--cor-texto-suave); }
+table { width: 100%; }
+caption { text-align: left; padding-bottom: var(--esp-2); font-size: var(--fs-sm); color: var(--cor-texto-suave); }
+th, td { padding: var(--esp-2) var(--esp-3); text-align: left; }
+thead th { font-size: var(--fs-sm); color: var(--cor-texto-suave); border-bottom: 2px solid var(--cl-petroleo-900); }
+td { text-align: right; font-weight: var(--fw-bold); }
+tbody tr { border-bottom: 1px solid var(--cor-borda); background: linear-gradient(to right, var(--cl-terracota-100) var(--pct, 0%), transparent var(--pct, 0%)); }  /* barra pela variável --pct */
+main > p:has(> small) { font-size: var(--fs-sm); }
+
+/* ===== 10. Menu inferior fixo ===== */
+nav[aria-label="Menu principal"] {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
+    background: var(--cor-superficie); border-top: var(--borda); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+nav[aria-label="Menu principal"] ul { display: flex; max-width: 32rem; margin-inline: auto; }
+nav[aria-label="Menu principal"] li { flex: 1; }
+nav[aria-label="Menu principal"] a {
+    display: flex; align-items: center; justify-content: center; min-height: 3.75rem;
+    color: var(--cor-texto); font-size: var(--fs-sm); font-weight: var(--fw-medium); text-decoration: none;
+}
+nav[aria-label="Menu principal"] a[aria-current="page"] { color: var(--cor-acao); font-weight: var(--fw-extrabold); box-shadow: inset 0 3px 0 var(--cor-acao); }
