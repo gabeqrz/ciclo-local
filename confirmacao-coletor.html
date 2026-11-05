@@ -44,10 +44,11 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
         <img src="./img/logo-ciclolocal.svg" alt="CicloLocal" width="170" height="32">
     </header>
-    <main>
+    <main id="conteudo" tabindex="-1">
         <p>Modo demonstração</p>
 
         <section aria-labelledby="titulo">
@@ -171,8 +172,8 @@
 
         <section aria-labelledby="t-cta">
             <h2 id="t-cta">Suas coletas concluídas contam na meta do bairro</h2>
-            <p>352 kg este mês · meta de 500 kg</p>
-            <progress value="352" max="500">70%</progress>
+            <label for="meta-bairro">352 kg este mês · meta de 500 kg</label>
+            <progress id="meta-bairro" value="352" max="500">70%</progress>
             <a href="./dashboard.html">Ver resultados do bairro</a>
         </section>
     </main>
@@ -180,7 +181,7 @@
         <ul>
             <li><a href="./index.html">Início</a></li>
             <li><a href="./selecao-de-perfil.html">Perfil</a></li>
-            <li><a href="./perfil-coletor.html" aria-current="page">Coletas</a></li>
+            <li><a href="./perfil-coletor.html" aria-current="true">Coletas</a></li>
             <li><a href="./dashboard.html">Resultados</a></li>
         </ul>
     </nav>

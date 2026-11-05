@@ -44,10 +44,11 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
         <img src="./img/logo-ciclolocal.svg" alt="logo CicloLocal" width="170" height="32">
     </header>
-    <main>
+    <main id="conteudo" tabindex="-1">
         <a href="./selecao-de-perfil.html">Voltar</a>
         <p>Modo demonstração</p>
 
@@ -80,7 +81,7 @@
                     <li>
                         <input type="checkbox" id="m-cobre" name="material" value="cobre">
                         <label for="m-cobre">Cobre</label>
-                        <select id="kg-cobre" name="kg-cobre" aria-label="Peso aproximado de Cobre">
+                        <select id="kg-cobre" name="kg-cobre" aria-label="Peso aproximado de Cobre em kg">
                             <option value="0.5">0,5 kg</option>
                             <option value="1">1 kg</option>
                             <option value="1.5">1,5 kg</option>
@@ -101,7 +102,7 @@
                     <li>
                         <input type="checkbox" id="m-aluminio" name="material" value="aluminio">
                         <label for="m-aluminio">Alumínio <small>latinhas e panelas</small></label>
-                        <select id="kg-aluminio" name="kg-aluminio" aria-label="Peso aproximado de Alumínio">
+                        <select id="kg-aluminio" name="kg-aluminio" aria-label="Peso aproximado de Alumínio em kg">
                             <option value="0.5">0,5 kg</option>
                             <option value="1">1 kg</option>
                             <option value="1.5">1,5 kg</option>
@@ -122,7 +123,7 @@
                     <li>
                         <input type="checkbox" id="m-pet" name="material" value="pet" aria-describedby="dica-pet">
                         <label for="m-pet">PET</label>
-                        <select id="kg-pet" name="kg-pet" aria-label="Peso aproximado de PET">
+                        <select id="kg-pet" name="kg-pet" aria-label="Peso aproximado de PET em kg">
                             <option value="0.5">0,5 kg</option>
                             <option value="1">1 kg</option>
                             <option value="1.5">1,5 kg</option>
@@ -143,7 +144,7 @@
                     <li>
                         <input type="checkbox" id="m-outros-plasticos" name="material" value="outros-plasticos">
                         <label for="m-outros-plasticos">Outros plásticos <small>baldes, potes e sacolas</small></label>
-                        <select id="kg-outros-plasticos" name="kg-outros-plasticos" aria-label="Peso aproximado de Outros plásticos">
+                        <select id="kg-outros-plasticos" name="kg-outros-plasticos" aria-label="Peso aproximado de Outros plásticos em kg">
                             <option value="0.5">0,5 kg</option>
                             <option value="1">1 kg</option>
                             <option value="1.5">1,5 kg</option>
@@ -164,7 +165,7 @@
                     <li>
                         <input type="checkbox" id="m-papel-branco" name="material" value="papel-branco">
                         <label for="m-papel-branco">Papel branco <small>folhas e cadernos</small></label>
-                        <select id="kg-papel-branco" name="kg-papel-branco" aria-label="Peso aproximado de Papel branco">
+                        <select id="kg-papel-branco" name="kg-papel-branco" aria-label="Peso aproximado de Papel branco em kg">
                             <option value="0.5">0,5 kg</option>
                             <option value="1">1 kg</option>
                             <option value="1.5">1,5 kg</option>
@@ -185,7 +186,7 @@
                     <li>
                         <input type="checkbox" id="m-papelao" name="material" value="papelao">
                         <label for="m-papelao">Papelão</label>
-                        <select id="kg-papelao" name="kg-papelao" aria-label="Peso aproximado de Papelão">
+                        <select id="kg-papelao" name="kg-papelao" aria-label="Peso aproximado de Papelão em kg">
                             <option value="0.5">0,5 kg</option>
                             <option value="1">1 kg</option>
                             <option value="1.5">1,5 kg</option>
@@ -206,7 +207,7 @@
                     <li>
                         <input type="checkbox" id="m-vidro" name="material" value="vidro">
                         <label for="m-vidro">Garrafas e potes de vidro</label>
-                        <select id="kg-vidro" name="kg-vidro" aria-label="Peso aproximado de Garrafas e potes de vidro">
+                        <select id="kg-vidro" name="kg-vidro" aria-label="Peso aproximado de Garrafas e potes de vidro em kg">
                             <option value="0.5">0,5 kg</option>
                             <option value="1">1 kg</option>
                             <option value="1.5">1,5 kg</option>

@@ -39,15 +39,17 @@
 
     <!-- Estilos (a ordem importa: reset, tokens, estilo da página) -->
     <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./tokens.css">,
+    <link rel="stylesheet" href="./tokens.css">
     <link rel="stylesheet" href="./print.css" media="print">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
         <img src="./img/logo-ciclolocal.svg" alt="logo CicloLocal" width="170" height="32">
     </header>
-    <main>
+    <main id="conteudo" tabindex="-1">
         <p>Modo demonstração</p>
 
         <section aria-labelledby="titulo">
@@ -74,8 +76,8 @@
 
         <section aria-labelledby="t-cta">
             <h2 id="t-cta">Veja o que o seu bairro já recicla</h2>
-            <p>352 kg este mês · meta de 500 kg</p>
-            <progress value="352" max="500">70%</progress>
+            <label for="meta-bairro">352 kg este mês · meta de 500 kg</label>
+            <progress id="meta-bairro" value="352" max="500">70%</progress>
             <a href="./dashboard.html">Ver resultados do bairro</a>
         </section>
 
@@ -84,7 +86,7 @@
     <nav aria-label="Menu principal">
         <ul>
             <li><a href="./index.html">Início</a></li>
-            <li><a href="./selecao-de-perfil.html" aria-current="page">Perfil</a></li>
+            <li><a href="./selecao-de-perfil.html" aria-current="true">Perfil</a></li>
             <li><a href="./perfil-coletor.html">Coletas</a></li>
             <li><a href="./dashboard.html">Resultados</a></li>
         </ul>
