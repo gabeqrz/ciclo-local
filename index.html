@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="./print.css" media="print">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body class="pagina-entrada">
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
         <img src="./img/logo-ciclolocal.svg" alt="logo CicloLocal" width="170" height="32">
@@ -56,12 +56,17 @@
         <p>Conectamos pessoas e comunidades para promover a coleta seletiva e a reciclagem sustentável.</p>
 
         <!-- É um link (navega para outra página), com aparência de botão no CSS -->
-        <a class="botao botao-gov" href="./selecao-de-perfil.html">Entrar com <strong>gov.br</strong></a>
+        <a class="botao botao-gov" href="./selecao-de-perfil.html" data-preloader="Entrando com gov.br…">Entrar com <strong>gov.br</strong></a>
 
-        <p>Clique para criar ou acessar sua conta gov.br. Esta entrada é uma simulação: nenhum dado real é usado.</p>
+        <p>Clique para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br.<br>Esta entrada é uma simulação: nenhum dado real é usado.</p>
     </main>
     <footer>
         <a href="./dashboard.html">Confira o impacto positivo no seu bairro</a>
     </footer>
+    <div class="preloader" id="preloader" role="status" aria-live="polite">
+        <img class="preloader__marca" src="./img/cicloLocal-simbolo.svg" alt="" width="72" height="72">
+        <p class="preloader__texto"></p>
+    </div>
+    <script src="./js/preloader.js" defer></script>
 </body>
 </html>

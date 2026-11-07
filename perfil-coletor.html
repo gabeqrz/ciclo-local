@@ -56,22 +56,39 @@
 
         <section aria-labelledby="t-local">
             <h2 id="t-local">Onde você quer coletar?</h2>
-            <p><img src="./img/icones/ui-pin.svg" alt="" width="24" height="24"> São Paulo - SP</p>
-            <button type="button">Trocar cidade</button>
-
-            <div role="group" aria-label="Filtrar por bairro">
-                <button type="button" aria-pressed="true">Todos</button>
-                <button type="button" aria-pressed="false">Sé</button>
-                <button type="button" aria-pressed="false">Liberdade</button>
-                <button type="button" aria-pressed="false">Bela Vista</button>
+            <div class="cidade">
+                <p><img src="./img/icones/ui-pin.svg" alt="" width="24" height="24"> São Paulo - SP</p>
+                <button type="button" class="botao-cidade">Trocar cidade</button>
+            </div>
+            
+            <div class="bairros">
+                <p class="rotulo" id="t-bairro">Bairro</p>
+                <div role="group" aria-labelledby="t-bairro">
+                    <button type="button" aria-pressed="true">Todos</button>
+                    <button type="button" aria-pressed="false">Sé</button>
+                    <button type="button" aria-pressed="false">Liberdade</button>
+                    <button type="button" aria-pressed="false">Bela Vista</button>
+                    <button type="button" class="chip-mais" aria-expanded="false" aria-controls="outro-bairro">Outro bairro</button>
+                </div>
+                <div id="outro-bairro" hidden>
+                    <label for="sel-bairro">Escolha o bairro</label>
+                    <select id="sel-bairro" name="bairro">
+                        <option value="">Selecione</option>
+                        <option>Bom Retiro</option>
+                        <option>Cambuci</option>
+                        <option>Consolação</option>
+                        <option>República</option>
+                        <!-- a lista completa virá dos dados da cidade -->
+                    </select>
+                </div>
             </div>
         </section>
 
         <section aria-labelledby="t-lista">
-            <h2 id="t-lista">Esperando um coletor</h2>
+            <h2 id="t-lista">Pedidos esperando você</h2>
             <article aria-labelledby="c1">
                 <h3 id="c1">Sé</h3>
-                <ul>
+                <ul class="materiais">
                     <li>PET: 2 kg</li>
                     <li>Papelão: 5 kg</li>
                 </ul>
@@ -81,7 +98,7 @@
             </article>
             <article aria-labelledby="c2">
                 <h3 id="c2">Liberdade</h3>
-                <ul>
+                <ul class="materiais">
                     <li>Alumínio: 1,5 kg</li>
                 </ul>
                 <p>Total: <strong>1,5 kg</strong></p>
