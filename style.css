@@ -40,7 +40,8 @@ a:hover { color: var(--cor-acao-hover); }
 main:focus { outline: none; }  /* o <main> só recebe foco pelo link de salto */
 
 /* ===== 3. Estrutura ===== */
-header, main, footer { max-width: 32rem; margin-inline: auto; padding: var(--esp-4); }
+:root { --largura: 32rem; }
+header, main, footer { max-width: var(--largura); margin-inline: auto; padding: var(--esp-4); }
 header { padding-top: calc(var(--esp-4) + env(safe-area-inset-top, 0px)); }
 header img { display: block; height: 2rem; width: auto; }
 main > * + * { margin-top: var(--esp-5); }                                   /* espaço entre blocos */
@@ -185,7 +186,7 @@ article details form button { width: 100%; min-height: 3.25rem; font-size: var(-
 .barra-aceite {
   position: fixed; left: 0; right: 0; bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px)); z-index: 4;
   display: flex; align-items: center; justify-content: space-between; gap: var(--esp-4);
-  padding: var(--esp-3) max(var(--esp-4), calc((100% - 32rem) / 2 + var(--esp-4)));
+  padding: var(--esp-3) max(var(--esp-4), calc((100% - var(--largura)) / 2 + var(--esp-4)));
   background: var(--cor-superficie); border-top: var(--borda); box-shadow: var(--sombra-md);
 }
 .barra-aceite p { font-weight: var(--fw-bold); }
@@ -245,7 +246,7 @@ nav[aria-label="Menu principal"] {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
     background: var(--cor-superficie); border-top: var(--borda); padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-nav[aria-label="Menu principal"] ul { display: flex; max-width: 32rem; margin-inline: auto; }
+nav[aria-label="Menu principal"] ul { display: flex; max-width: var(--largura); margin-inline: auto; }
 nav[aria-label="Menu principal"] li { flex: 1; }
 nav[aria-label="Menu principal"] a {
     display: flex; align-items: center; justify-content: center; min-height: 3.75rem;
@@ -295,3 +296,79 @@ section[aria-labelledby="t-feitas"] li time { grid-area: data; font-size: 0.8125
 .logo { display: inline-flex; align-items: center; gap: var(--esp-2); font-size: var(--fs-xl); font-weight: var(--fw-extrabold); letter-spacing: -0.02em; color: var(--cl-petroleo-900); text-decoration: none; }
 .logo b { color: var(--cl-terracota-600); font-weight: inherit; }
 .logo img { width: 2.125rem; height: 2.125rem; margin: 0; }
+
+/* ===== 13. Telas maiores (mobile-first: abaixo de 48rem nada muda) ===== */
+:root { --largura: 32rem; }
+
+@media screen and (min-width: 48rem) {
+  :root { --largura: 48rem; }
+
+  /* --- Menu no topo, na mesma linha do logo --- */
+  body:has(> nav[aria-label='Menu principal']) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, var(--largura)) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    padding-bottom: 0;
+  }
+  body:has(> nav[aria-label='Menu principal'])::before { content: ''; grid-column: 1 / -1; grid-row: 1; background: var(--cor-superficie); border-bottom: var(--borda); }
+  body:has(> nav[aria-label='Menu principal']) > header { grid-column: 2; grid-row: 1; width: 100%; }
+  body:has(> nav[aria-label='Menu principal']) > main { grid-column: 2; grid-row: 2; width: 100%; }
+  nav[aria-label='Menu principal'] { position: static; grid-column: 2; grid-row: 1; justify-self: end; align-self: center; margin-right: var(--esp-2); background: transparent; border-top: 0; padding-bottom: 0; }
+  nav[aria-label='Menu principal'] ul { max-width: none; margin: 0; gap: var(--esp-1); }
+  nav[aria-label='Menu principal'] li { flex: none; }
+  nav[aria-label='Menu principal'] a { flex-direction: row; gap: var(--esp-2); min-height: var(--alvo-min); padding: 0 var(--esp-4); border-radius: var(--raio-pill); font-size: var(--fs-base); }
+  nav[aria-label='Menu principal'] a:hover { background: var(--cl-petroleo-100); }
+  nav[aria-label='Menu principal'] a:is([aria-current='page'], [aria-current='true']) { background: var(--cl-terracota-100); color: var(--cl-terracota-700); box-shadow: none; }
+
+  /* --- Texto com largura de leitura confortável --- */
+  main > p { max-width: 65ch; }
+
+  /* --- Entrada: conteúdo centralizado e mais estreito --- */
+  .pagina-entrada > main { justify-content: center; max-width: 36rem; padding-bottom: 0; }
+
+  /* --- Escolha de perfil: os dois cartões lado a lado --- */
+  main:has(.opcao) { max-width: 48rem; }
+  main > ul:has(.opcao) { display: grid; grid-template-columns: 1fr 1fr; gap: var(--esp-4); }
+  main > ul:has(.opcao) > li + li { margin-top: 0; }
+  .opcao { height: 100%; }
+
+  /* --- Doador: materiais em duas colunas, campos com largura limitada --- */
+  fieldset ul { display: grid; grid-template-columns: 1fr 1fr; gap: var(--esp-2) var(--esp-3); }
+  fieldset ul > li + li { margin-top: 0; }
+  section:has(#cep) { max-width: 40rem; }
+  form > div > :is(p, button) { max-width: 28rem; }
+
+  /* --- Coletor: pedidos em grade --- */
+  section[aria-labelledby='t-lista'] { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--esp-4); align-items: start; }
+  section[aria-labelledby='t-lista'] > * { margin-top: 0; }
+  section[aria-labelledby='t-lista'] > h2 { grid-column: 1 / -1; }
+  .barra-aceite { bottom: 0; }
+  body:has(.barra-aceite:not([hidden])) { padding-bottom: 6rem; }
+
+  /* --- Pedido enviado: cartão do pedido e chamada lado a lado --- */
+  main:has([aria-labelledby='t-pedido']) { display: grid; grid-template-columns: 1fr 1fr; gap: var(--esp-4) var(--esp-5); }
+  main:has([aria-labelledby='t-pedido']) > * { margin-top: 0; grid-column: 1 / -1; }
+  main:has([aria-labelledby='t-pedido']) > :is([aria-labelledby='t-pedido'], [aria-labelledby='t-cta']) { grid-column: auto; }
+
+  /* --- Resultados: grade de duas colunas e quatro números por linha --- */
+  main:has(dl) { display: grid; grid-template-columns: 1fr 1fr; gap: var(--esp-4) var(--esp-5); }
+  main:has(dl) > * { margin-top: 0; grid-column: 1 / -1; }
+  main:has(dl) > :is([aria-labelledby='t-mat'], [aria-labelledby='t-mes']) { grid-column: auto; }
+  main:has(dl) > button { justify-self: start; width: auto; padding: 0 var(--esp-6); }
+  :is(#numeros, dl) { grid-template-columns: repeat(4, 1fr); }
+  .colunas li { grid-template-rows: auto 10rem auto; }
+}
+
+@media screen and (min-width: 64rem) {
+  :root { --largura: 64rem; }
+
+  /* --- Coleta aceita: "Em aberto" à esquerda, "Concluídas" e meta à direita --- */
+  main:has([aria-labelledby='t-aberto']) { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--esp-4) var(--esp-5); align-items: start; }
+  main:has([aria-labelledby='t-aberto']) > * { margin-top: 0; grid-column: 1 / -1; }
+  main:has([aria-labelledby='t-aberto']) > [aria-labelledby='t-aberto'] { grid-column: 1; grid-row: span 2; }
+  main:has([aria-labelledby='t-aberto']) > :is([aria-labelledby='t-feitas'], [aria-labelledby='t-cta']) { grid-column: 2; }
+
+  /* --- Resultados: gráfico mais alto --- */
+  .colunas li { grid-template-rows: auto 12rem auto; }
+}
