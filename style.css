@@ -57,9 +57,29 @@ p[data-demo], main > p:first-child, main > a:first-child + p {   /* selo "Modo d
 /* Entrada: logo no topo, conteúdo centralizado na vertical, link no rodapé */
 .pagina-entrada { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
 .pagina-entrada > :is(header, main, footer) { width: 100%; }
-.pagina-entrada > main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.pagina-entrada > main { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: var(--esp-7); }
+.nota { text-align: center; }
 .pagina-entrada main > * + * { margin-top: var(--esp-4); }
-.link-centro { display: flex; justify-content: center; }
+/* Botão secundário (contorno) e links centralizados */
+.botao-sec { background: transparent; border-color: var(--cl-petroleo-900); color: var(--cl-petroleo-900); }
+.botao-sec:hover { background: var(--cl-petroleo-100); border-color: var(--cl-petroleo-900); color: var(--cl-petroleo-900); }
+.link-centro { display: flex; align-items: center; justify-content: center; min-height: var(--alvo-min); }
+
+/* Desistir da coleta */
+.desistir { width: 100%; border-color: var(--cor-erro); color: var(--cor-erro); }
+.desistir:hover { background: #FBEAE8; }
+.botao-perigo { background: var(--cor-erro); border-color: var(--cor-erro); color: #fff; }
+.botao-perigo:hover { background: #8E1B12; border-color: #8E1B12; }
+
+/* Mensagem de confirmação das ações */
+.aviso { padding: var(--esp-3) var(--esp-4); background: var(--cl-petroleo-100); border-radius: var(--raio-md); font-weight: var(--fw-bold); }
+.aviso:empty { display: none; }
+
+/* Janela de confirmação */
+dialog { width: min(90vw, 24rem); padding: var(--esp-5); border: var(--borda); border-radius: var(--raio-lg); background: var(--cor-superficie); color: var(--cor-texto); box-shadow: var(--sombra-md); }
+dialog::backdrop { background: rgba(29, 53, 87, 0.45); }
+dialog > * + * { margin-top: var(--esp-3); }
+dialog button { width: 100%; }
 
 /* ===== 4. Botões e links-botão ===== */
 button, .botao, summary {
@@ -95,9 +115,9 @@ main > ul > li + li { margin-top: var(--esp-3); }
 /* ===== 6. Formulário do doador ===== */
 label { display: block; margin-bottom: var(--esp-1); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
 input[type="text"], select {
-    width: 100%; min-height: 3.25rem; padding: 0 var(--esp-3);
-    background: #fff; color: var(--cl-petroleo-900);
-    border: 2px solid var(--cl-petroleo-900); border-radius: var(--raio-sm); font-size: var(--fs-lg);
+  appearance: none; -webkit-appearance: none;
+  padding-right: 2.5rem;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D3557' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right var(--esp-3) center / 1.25rem;
 }
 input[type="checkbox"] { width: 1.5rem; height: 1.5rem; accent-color: var(--cor-acao); }
 #endereco {   /* resultado do CEP: cartão com o pin à esquerda */
@@ -122,6 +142,7 @@ fieldset li label { margin: 0; font-size: var(--fs-base); cursor: pointer; }
 fieldset li label small { display: block; }
 fieldset li select { width: 7rem; min-height: var(--alvo-min); font-size: var(--fs-base); }
 output { font-weight: var(--fw-extrabold); }
+form > div > * + * { margin-top: var(--esp-4); }
 
 /* ===== 7. Cartões (coletas e pedidos) ===== */
 article {
@@ -152,11 +173,24 @@ article details form button { width: 100%; min-height: 3.25rem; font-size: var(-
 .materiais li:not(:last-child)::after { content: " · "; content: " · " / ""; }
 
 .bairros > * + * { margin-top: var(--esp-2); }
-.rotulo { font-size: var(--fs-sm); font-weight: var(--fw-bold); }
+.rotulo { font-size: var(--fs-lg); font-weight: var(--fw-bold); }
 [role="group"] .chip-mais { border-style: dashed; }
 [role="group"] .chip-mais::after { content: "▾"; }
 [role="group"] .chip-mais[aria-expanded="true"]::after { content: "▴"; }
 
+.cabeca-cartao { display: flex; align-items: center; justify-content: space-between; gap: var(--esp-3); }
+.selecionar { display: flex; align-items: center; gap: var(--esp-2); margin: 0; font-size: var(--fs-base); cursor: pointer; }
+
+/* Barra fixa acima do menu inferior */
+.barra-aceite {
+  position: fixed; left: 0; right: 0; bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px)); z-index: 4;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--esp-4);
+  padding: var(--esp-3) max(var(--esp-4), calc((100% - 32rem) / 2 + var(--esp-4)));
+  background: var(--cor-superficie); border-top: var(--borda); box-shadow: var(--sombra-md);
+}
+.barra-aceite p { font-weight: var(--fw-bold); }
+.barra-aceite .botao { width: auto; flex: none; padding: 0 var(--esp-5); }
+body:has(.barra-aceite:not([hidden])) { padding-bottom: 9rem; }
 
 /* ===== 8. Andamento do pedido e chamada para os resultados ===== */
 :is(#andamento, ol[aria-label="Andamento do pedido"]) > li + li { margin-top: var(--esp-3); }
@@ -182,7 +216,7 @@ section[aria-labelledby="t-cta"] progress::-moz-progress-bar { background: var(-
 /* ===== 9. Dashboard ===== */
 main:has(dl) > section:not([aria-labelledby="t-num"]) { padding: var(--esp-4); background: var(--cor-superficie); border: var(--borda); border-radius: var(--raio-md); }
 :is(#numeros, dl) { display: grid; grid-template-columns: 1fr 1fr; gap: var(--esp-3); }
-:is(#numeros, dl) > div { display: flex; flex-direction: column-reverse; padding: var(--esp-4); text-align: center; background: var(--cor-superficie); border: var(--borda); border-radius: var(--raio-md); }
+:is(#numeros, dl) > div { display: flex; flex-direction: column-reverse; justify-content: center; padding: var(--esp-4); text-align: center; background: var(--cor-superficie); border: var(--borda); border-radius: var(--raio-md); }
 :is(#numeros, dl) > div:last-child { grid-column: 1 / -1; }
 :is(#numeros, dl) dd { font-size: var(--fs-3xl); font-weight: var(--fw-extrabold); line-height: 1.1; }
 :is(#numeros, dl) dt { font-size: var(--fs-sm); color: var(--cor-texto-suave); }

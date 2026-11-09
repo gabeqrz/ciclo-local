@@ -57,7 +57,9 @@
         </section>
 
         <section aria-labelledby="t-aberto">
-            <h2 id="t-aberto">Em aberto (2)</h2>
+            <h2 id="t-aberto">Em aberto (<span id="n-abertas">2</span>)</h2>
+            <p class="aviso" id="aviso" role="status" tabindex="-1"></p>
+            <p id="sem-abertas" hidden>Nenhuma coleta em aberto por enquanto.</p>
             <article>
                 <p class="etiqueta">Nova</p>
                 <h3>Sé</h3>
@@ -68,7 +70,7 @@
                 </ul>
 
                 <details>
-                    <summary>Marcar como concluída</summary>
+                    <summary>Coleta feita</summary>
                     <form>
                         <fieldset>
                             <legend>Quanto você recolheu?</legend>
@@ -115,12 +117,14 @@
                         </div>
                         </fieldset>
                         <p>Total recolhido: <output>7 kg</output></p>
-                        <button type="submit">Coleta feita</button>
+                        <button type="submit">Marcar como concluída</button>
+                        <button type="reset">Cancelar</button>
                     </form>
                 </details>
+                <button type="button" class="desistir">Desistir da coleta</button>
             </article>
             <article>
-                <p class="etiqueta etiqueta-aceita">Aceita</p>
+                <p class="etiqueta etiqueta-aceita">A coletar</p>
                 <h3>Liberdade</h3>
                 <p>Retirar em: <strong>Rua Galvão Bueno, 200</strong></p>
                 <ul class="materiais">
@@ -128,7 +132,7 @@
                 </ul>
 
                 <details>
-                    <summary>Marcar como concluída</summary>
+                    <summary>Coleta feita</summary>
                     <form>
                         <fieldset>
                             <legend>Quanto você recolheu?</legend>
@@ -155,19 +159,24 @@
                         </div>
                         </fieldset>
                         <p>Total recolhido: <output>1,5 kg</output></p>
-                        <button type="submit">Coleta feita</button>
+                        <button type="submit">Marcar como concluída</button>
+                        <button type="reset">Cancelar</button>
                     </form>
                 </details>
+                <button type="button" class="desistir">Desistir da coleta</button>
             </article>
+
+            <a class="botao botao-sec" href="./perfil-coletor.html">Ver mais pedidos</a>
         </section>
 
         <section aria-labelledby="t-feitas">
-            <h2 id="t-feitas">Concluídas (3)</h2>
+            <h2 id="t-feitas">Concluídas (<span id="n-concluidas">3</span>)</h2>
             <ul>
                 <li><strong>Bela Vista</strong> <small>Vidro 3 kg · Papel branco 2 kg</small> <time datetime="2026-10-28">28 out</time></li>
                 <li><strong>Consolação</strong> <small>Papelão 6 kg</small> <time datetime="2026-10-21">21 out</time></li>
                 <li><strong>Sé</strong> <small>PET 4 kg · Alumínio 1 kg</small> <time datetime="2026-10-14">14 out</time></li>
             </ul>
+            <a class="link-centro" href="./historico-coletas.html">Ver coletas anteriores</a>
         </section>
 
         <section aria-labelledby="t-cta">
@@ -185,5 +194,13 @@
             <li><a href="./dashboard.html">Resultados</a></li>
         </ul>
     </nav>
+
+<dialog id="dialogo-desistir" aria-labelledby="t-desistir">
+    <h2 id="t-desistir">Desistir desta coleta?</h2>
+    <p>Ela volta para a lista de pedidos esperando você, e outro coletor poderá aceitá-la.</p>
+    <button type="button" class="botao-perigo" id="confirma-desistir">Sim, desistir</button>
+    <button type="button" id="cancela-desistir">Voltar</button>
+</dialog>
+<script src="./js/coletor.js" defer></script>    
 </body>
 </html>
