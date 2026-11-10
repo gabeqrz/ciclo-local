@@ -46,7 +46,9 @@
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
-        <img src="./img/logo-ciclolocal.svg" alt="logo CicloLocal" width="170" height="32">
+        <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
+        <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
+        </a>
     </header>
     <nav aria-label="Menu principal">
         <ul>
@@ -97,7 +99,7 @@
             <article aria-labelledby="c1">
                 <div class="cabeca-cartao">
                     <h3 id="c1">Sé</h3>
-                    <label class="selecionar"><input type="checkbox" name="pedido" value="se" data-kg="7" aria-label="Selecionar pedido em Sé"> Selecionar</label>
+                    <label class="selecionar"><input type="checkbox" name="pedido" value="se" data-kg="7" aria-label="Selecionar pedido em Sé">Selecionar</label>
                 </div>
                 <ul class="materiais">
                     <li>PET: 2 kg</li>
@@ -106,16 +108,16 @@
                 <p>Total: <strong>7 kg</strong></p>
                 <a class="botao" href="./confirmacao-coletor.html" aria-label="Aceitar coleta em Sé">Aceitar coleta</a>
             </article>
-            <article aria-labelledby="c1">
+            <article aria-labelledby="c2">
                 <div class="cabeca-cartao">
                     <h3 id="c1">Liberdade</h3>
                     <label class="selecionar"><input type="checkbox" name="pedido" value="liberdade" data-kg="1.5" aria-label="Selecionar pedido em Liberdade"> Selecionar</label>
                 </div>
                 <ul class="materiais">
-                    <li>Alumínio 1.5 kg<li>               
+                    <li>Alumínio: 1.5 kg</li>               
                 </ul>
                 <p>Total: <strong>1.5 kg</strong></p>
-                <a class="botao" href="./confirmacao-coletor.html" aria-label="Aceitar coleta em Sé">Aceitar coleta</a>
+                <a class="botao" href="./confirmacao-coletor.html" aria-label="Aceitar coleta em Liberdade">Aceitar coleta</a>
             </article>
         </section>
 
@@ -126,6 +128,6 @@
         <a class="botao" href="./confirmacao-coletor.html">Aceitar selecionados</a>
     </div>
     
-<script src="./js/coletor.js" defer></script>
+<script type="module" src="./js/perfil-coletor.js" defer></script> 
 </body>
 </html>

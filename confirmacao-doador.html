@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CicloLocal | Pedido Enviado</title>
-    <meta name="description" content="Seu pedido de coleta foi enviado. Acompanhe o andamento e veja os resultados do bairro.">
+    <meta name="description" content="Seu pedido de coleta foi enviado. Acompanhe o andamento e veja os resultados da reciclagem.">
     <meta name="theme-color" content="#F7F5F0">
     <link rel="canonical" href="https://gabeqrz.github.io/ciclo-local/confirmacao-doador.html">
 
@@ -17,7 +17,7 @@
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="CicloLocal">
     <meta property="og:title" content="CicloLocal | Pedido Enviado">
-    <meta property="og:description" content="Seu pedido de coleta foi enviado. Acompanhe o andamento e veja os resultados do bairro.">
+    <meta property="og:description" content="Seu pedido de coleta foi enviado. Acompanhe o andamento e veja os resultados da reciclagem.">
     <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
@@ -28,7 +28,7 @@
     <!-- Prévia para X (Twitter) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CicloLocal | Pedido Enviado">
-    <meta name="twitter:description" content="Seu pedido de coleta foi enviado. Acompanhe o andamento e veja os resultados do bairro.">
+    <meta name="twitter:description" content="Seu pedido de coleta foi enviado. Acompanhe o andamento e veja os resultados da reciclagem.">
     <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
     <meta name="twitter:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
 
@@ -47,7 +47,9 @@
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
-        <img src="./img/logo-ciclolocal.svg" alt="logo CicloLocal" width="170" height="32">
+        <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
+        <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
+        </a>
     </header>
     <nav aria-label="Menu principal">
         <ul>
@@ -79,18 +81,18 @@
                 <li aria-current="step">Aceito por um coletor</li>
                 <li>Material recolhido</li>
             </ol>
-            <p>Quando o material for recolhido, ele entra nos resultados do bairro.</p>
+            <p>Quando o material for recolhido, ele entra nos resultados da reciclagem.</p>
         </section>
 
         <section aria-labelledby="t-cta">
             <h2 id="t-cta">Veja o que o seu bairro já recicla</h2>
             <label for="meta-bairro">352 kg este mês · meta de 500 kg</label>
             <progress id="meta-bairro" value="352" max="500">70%</progress>
-            <a href="./dashboard.html">Ver resultados do bairro</a>
+            <a href="./dashboard.html">Ver resultados da reciclagem</a>
         </section>
 
         <a class="link-centro" href="./perfil-doador.html">Fazer outro aviso</a>
     </main>
-    
+    <script type="module" src="./js/confirmacao-doador.js" defer></script> 
 </body>
 </html>

@@ -29,6 +29,8 @@ h3 { font-size: var(--fs-lg); font-weight: var(--fw-extrabold); line-height: var
 a { color: var(--cor-acao); font-weight: var(--fw-bold); text-underline-offset: 0.2em; }
 a:hover { color: var(--cor-acao-hover); }
 
+
+
 /* Link de salto: escondido até receber foco */
 .pular { position: absolute; left: -9999px; top: 0; }
 .pular:focus {
@@ -116,6 +118,11 @@ main > ul > li + li { margin-top: var(--esp-3); }
 /* ===== 6. Formulário do doador ===== */
 label { display: block; margin-bottom: var(--esp-1); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
 input[type="text"], select {
+  width: 100%; min-height: 3.25rem; padding: 0 var(--esp-3);
+  background: #fff; color: var(--cl-petroleo-900);
+  border: 2px solid var(--cl-petroleo-900); border-radius: var(--raio-sm); font-size: var(--fs-lg);
+}
+select {
   appearance: none; -webkit-appearance: none;
   padding-right: 2.5rem;
   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D3557' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right var(--esp-3) center / 1.25rem;
@@ -296,6 +303,8 @@ section[aria-labelledby="t-feitas"] li time { grid-area: data; font-size: 0.8125
 .logo { display: inline-flex; align-items: center; gap: var(--esp-2); font-size: var(--fs-xl); font-weight: var(--fw-extrabold); letter-spacing: -0.02em; color: var(--cl-petroleo-900); text-decoration: none; }
 .logo b { color: var(--cl-terracota-600); font-weight: inherit; }
 .logo img { width: 2.125rem; height: 2.125rem; margin: 0; }
+.logo { font-size: 1.375rem; min-height: var(--alvo-min); }
+.logo:hover { color: var(--cl-petroleo-900); }
 
 /* ===== 13. Telas maiores (mobile-first: abaixo de 48rem nada muda) ===== */
 :root { --largura: 32rem; }

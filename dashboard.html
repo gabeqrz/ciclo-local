@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CicloLocal | Resultados do Bairro</title>
-    <meta name="description" content="Resultados do bairro: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
+    <title>CicloLocal | Resultados da Reciclagem</title>
+    <meta name="description" content="Resultados da reciclagem: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
     <meta name="theme-color" content="#F7F5F0">
     <link rel="canonical" href="https://gabeqrz.github.io/ciclo-local/dashboard.html">
 
@@ -16,8 +16,8 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="CicloLocal">
-    <meta property="og:title" content="CicloLocal | Resultados do Bairro">
-    <meta property="og:description" content="Resultados do bairro: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
+    <meta property="og:title" content="CicloLocal | Resultados da Reciclagem">
+    <meta property="og:description" content="Resultados da reciclagem: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
     <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
@@ -27,8 +27,8 @@
 
     <!-- Prévia para X (Twitter) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CicloLocal | Resultados do Bairro">
-    <meta name="twitter:description" content="Resultados do bairro: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
+    <meta name="twitter:title" content="CicloLocal | Resultados da reciclagem">
+    <meta name="twitter:description" content="Resultados da reciclagem: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
     <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
     <meta name="twitter:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
 
@@ -46,7 +46,9 @@
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
-        <img src="./img/logo-ciclolocal.svg" alt="logo CicloLocal" width="170" height="32">
+        <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
+        <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
+        </a>
     </header>
      <nav aria-label="Menu principal">
         <ul>
@@ -59,7 +61,7 @@
     <main id="conteudo" tabindex="-1">
         <p>Modo demonstração</p>
 
-        <h1>Resultados do bairro</h1>
+        <h1>Resultados da reciclagem</h1>
         <section class="filtros" aria-label="Filtros dos resultados">
             <div class="cidade">
                 <p><img src="./img/icones/ui-pin.svg" alt="" width="24" height="24"> São Paulo - SP</p>
@@ -133,6 +135,6 @@
 
         <button type="button">Baixar relatório em PDF</button>
     </main>
-   
+    <script type="module" src="./js/dashboard.js" defer></script> 
 </body>
 </html>

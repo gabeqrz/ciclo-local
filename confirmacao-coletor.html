@@ -46,7 +46,9 @@
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
-        <img src="./img/logo-ciclolocal.svg" alt="CicloLocal" width="170" height="32">
+        <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
+        <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
+        </a>
     </header>
     <nav aria-label="Menu principal">
         <ul>
@@ -132,7 +134,7 @@
                 <button type="button" class="desistir">Desistir da coleta</button>
             </article>
             <article>
-                <p class="etiqueta etiqueta-aceita">A coletar</p>
+                <p class="etiqueta etiqueta-aceita">Aguardando coleta</p>
                 <h3>Liberdade</h3>
                 <p>Retirar em: <strong>Rua Galvão Bueno, 200</strong></p>
                 <ul class="materiais">
@@ -177,7 +179,7 @@
             <a class="botao botao-sec" href="./perfil-coletor.html">Ver mais pedidos</a>
         </section>
         <section aria-labelledby="t-feitas">
-            <h2 id="t-feitas">Concluídas (<span id="n-concluidas">3</span>)</h2>
+            <h2 id="t-feitas">Últimas entregas concluídas(<span id="n-concluidas">3</span>)</h2>
             <ul>
                 <li><strong>Bela Vista</strong> <small>Vidro 3 kg · Papel branco 2 kg</small> <time datetime="2026-10-28">28 out</time></li>
                 <li><strong>Consolação</strong> <small>Papelão 6 kg</small> <time datetime="2026-10-21">21 out</time></li>
@@ -190,7 +192,7 @@
             <h2 id="t-cta">Suas coletas concluídas contam na meta do bairro</h2>
             <label for="meta-bairro">352 kg este mês · meta de 500 kg</label>
             <progress id="meta-bairro" value="352" max="500">70%</progress>
-            <a href="./dashboard.html">Ver resultados do bairro</a>
+            <a href="./dashboard.html">Ver resultados da reciclagem</a>
         </section>
     </main>
     
@@ -201,6 +203,6 @@
     <button type="button" class="botao-perigo" id="confirma-desistir">Sim, desistir</button>
     <button type="button" id="cancela-desistir">Voltar</button>
 </dialog>
-<script src="./js/coletor.js" defer></script>    
+<script type="module" src="./js/confirmacao-coletor.js" defer></script>    
 </body>
 </html>

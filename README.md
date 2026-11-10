@@ -16,7 +16,7 @@ Projeto de TCC feito só com **HTML, CSS e JavaScript puro**, sem backend, sem b
 
 - **Doador:** informa o CEP, marca os materiais que tem e escolhe o peso aproximado. O pedido fica disponível para os coletores do bairro.
 - **Coletor:** vê os pedidos esperando, filtra por bairro e aceita uma coleta. O endereço completo só aparece depois do aceite. Depois de recolher, marca a coleta como concluída e confirma o peso de cada material.
-- **Resultados do bairro:** um painel público, aberto sem entrar, com meta do mês, quilos recolhidos, coletas feitas, pessoas participando, evolução mês a mês, comparação entre bairros e CO₂ estimado que deixou de ir para o ar.
+- **Resultados da reciclagem:** um painel público, aberto sem entrar, com meta do mês, quilos recolhidos, coletas feitas, pessoas participando, evolução mês a mês, comparação entre bairros e CO₂ estimado que deixou de ir para o ar.
 
 **Regra de ouro:** pedido publicado ou aceito não é material coletado. Só entram nos totais as coletas **concluídas**, com o peso confirmado pelo coletor.
 
@@ -30,7 +30,7 @@ Já existem soluções que conectam quem gera recicláveis a catadores. O CicloL
 |---|---|
 | **E** Ambiental | Cada quilo confirmado deixou de seguir para o lixo comum. O painel estima o CO₂ evitado por tipo de material. |
 | **S** Social | Pedidos organizados por bairro, material e peso dão previsibilidade ao coletor. O histórico registra o trabalho feito. A interface usa palavras simples, é mobile-first e acessível. |
-| **G** Governança | Painel público com fonte do cálculo sempre citada, status do pedido (publicada, aceita, concluída) e dados de exemplo sempre identificados. |
+| **G** Governança | Painel público com fonte do cálculo sempre citada, status do pedido (esperando, aceita, concluída) e dados de exemplo sempre identificados. |
 
 **O que o projeto não promete:** aumento de renda medido, o destino final do material ou o atendimento garantido de todos os pedidos.
 
@@ -46,9 +46,9 @@ Já existem soluções que conectam quem gera recicláveis a catadores. O CicloL
 | 4A | `confirmacao-doador.html` | Pedido enviado, andamento em 3 passos e link para os resultados |
 | 3B | `perfil-coletor.html` | Pedidos esperando, filtro por bairro e "Aceitar coleta" |
 | 4B | `confirmacao-coletor.html` | Coletas em aberto, histórico e "Marcar como concluída" com o peso confirmado |
-| 5 | `dashboard.html` | Resultados do bairro |
+| 5 | `dashboard.html` | Resultados da reciclagem |
 
-**Status do pedido:** `publicada` → `aceita` → `concluida`.
+**Status do pedido:** `esperando` → `aceita` → `concluida`.
 
 **Materiais (7):** cobre, alumínio, PET, outros plásticos, papel branco, papelão e garrafas e potes de vidro. O peso é escolhido em números fechados, a partir de 0,5 kg.
 
@@ -58,7 +58,7 @@ Já existem soluções que conectam quem gera recicláveis a catadores. O CicloL
 2. Abra a pasta no VS Code e use a extensão **Live Server** (abrir o arquivo direto, sem servidor, pode bloquear partes do JavaScript).
 3. Abra `index.html`.
 
-Na primeira abertura o app cria **dados de exemplo** (inventados) de 6 meses e 4 bairros, com o selo "Modo demonstração". No painel há os botões "Recomeçar exemplos" e "Começar do zero".
+Na primeira abertura o app cria **dados de exemplo** (inventados) de 6 meses e 7 bairros, com o selo "Modo demonstração". No painel há os botões "Recomeçar exemplos" e "Começar do zero".
 
 > **Limite importante:** os dados ficam no `localStorage`, só no navegador do aparelho. Um pedido criado em um celular não aparece em outro. Na apresentação, use um único aparelho. O login com gov.br é **simulado**: nenhum dado real é pedido ou guardado.
 
