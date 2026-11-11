@@ -1,7 +1,7 @@
 // confirmacao-doador.js
 import { ler } from './storage.js';
 import { el, formatarKg, totalKg } from './util.js';
-import { MATERIAIS } from './dados.js';
+import { linhaMaterial } from './util.js';
 import { preencherChamada } from './resultados.js';
 
 const { pedidoDoador: pedido, coletas } = ler();
@@ -19,9 +19,8 @@ if (!pedido) {
   document.getElementById('pedido-local').replaceChildren(...primeira);
   document.getElementById('pedido-endereco').textContent = `${pedido.logradouro ? `${pedido.logradouro}, ` : ''}${pedido.numero}`;
   document.getElementById('pedido-materiais').replaceChildren(
-    ...pedido.materiais.map((m) => el('li', {}, `${MATERIAIS[m.id]} ${formatarKg(m.kg)}`)),
-    el('li', {}, `Total ${formatarKg(totalKg(pedido.materiais))}`),
-  );
+    ...pedido.materiais.map((m) => el('li', {}, linhaMaterial(m))));
+  document.getElementById('pedido-total').textContent = formatarKg(totalKg(pedido.materiais));
 
   // andamento: acompanha o que o coletor fez com este pedido
   const status = coletas.find((c) => c.id === pedido.id)?.status;

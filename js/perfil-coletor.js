@@ -1,7 +1,7 @@
 // perfil-coletor.js: perfil-coletor.html
 import { ler, atualizar } from './storage.js';
 import { el, formatarKg, totalKg, rotuloCidade } from './util.js';
-import { MATERIAIS } from './dados.js';
+import { linhaMaterial } from './util.js';
 import { obterLocal, abrirTrocaDeCidade } from './local.js';
 import { montarFiltroBairro } from './filtro-bairro.js';
 import { resultados } from './resultados.js';
@@ -24,9 +24,9 @@ function cartao(coleta) {
   }, aceita ? 'Coleta aceita · Desfazer' : 'Aceitar coleta');
   return el('article', { 'aria-labelledby': `p-${coleta.id}` },
     el('h3', { id: `p-${coleta.id}` }, coleta.bairro),
-    el('ul', { class: 'materiais' }, ...coleta.materiais.map((m) => el('li', {}, `${MATERIAIS[m.id]} ${formatarKg(m.kg)}`))),
+    el('ul', { class: 'materiais' }, ...coleta.materiais.map((m) => el('li', {}, linhaMaterial(m))),
     el('p', {}, 'Total: ', el('strong', {}, formatarKg(totalKg(coleta.materiais)))),
-    botao);
+    botao));
 }
 
 function renderizar() {

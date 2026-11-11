@@ -78,62 +78,42 @@
                 </div>
             </div>
             <p class="escopo" id="escopo" role="status">Mostrando todos os bairros de São Paulo - SP</p>
+            <p id="sem-dados" hidden></p>
         </section>
-        <section aria-labelledby="t-meta">
+        <section aria-labelledby="t-meta" data-resultado>
             <h2 id="t-meta">Meta do mês</h2>
-            <p><strong data-base="351.5" data-tipo="kg">351,5 kg</strong> de <span data-base="500" data-tipo="kg">500 kg</span> (70%)</p>
-            <progress id="barra-meta" value="351.5" max="500" data-valor="351.5" data-max="500" aria-labelledby="t-meta">70%</progress>
+            <p id="meta-texto"><strong>352 kg</strong> de 500 kg (70%)</p>
+            <progress id="barra-meta" value="352" max="500">70%</progress>
         </section>
 
-        <section aria-labelledby="t-num">
+        <section aria-labelledby="t-num" data-resultado>
             <h2 id="t-num">Em números</h2>
-            <dl>
-                <div><dt>recolhidos até agora</dt><dd data-base="1424" data-tipo="kg">1.424 kg</dd></div>
-                <div><dt>coletas feitas</dt><dd data-base="24" data-tipo="int">24</dd></div>
-                <div><dt>pessoas participando</dt><dd data-base="9" data-tipo="int">9</dd></div>
-                <div><dt>pedidos esperando</dt><dd data-base="3" data-tipo="int">3</dd></div>
-                <div><dt>de poluição (CO₂) que deixou de ir para o ar (valor estimado)</dt><dd data-base="3341" data-tipo="kg">3.341 kg</dd></div>
+            <dl id="numeros">                
             </dl>
         </section>
 
-        <section aria-labelledby="t-mat">
+        <section aria-labelledby="t-mat" data-resultado>
             <h2 id="t-mat">O que foi recolhido</h2>
-            <ul class="barras">
-                <li style="--pct: 100%"><span>Papelão</span><span class="trilho" aria-hidden="true"></span><b data-base="453.5" data-tipo="kg">453,5 kg</b></li>
-                <li style="--pct: 63%"><span>PET</span><span class="trilho" aria-hidden="true"></span><b data-base="284" data-tipo="kg">284 kg</b></li>
-                <li style="--pct: 50%"><span>Vidro</span><span class="trilho" aria-hidden="true"></span><b data-base="226.5" data-tipo="kg">226,5 kg</b></li>
-                <li style="--pct: 45%"><span>Outros plásticos</span><span class="trilho" aria-hidden="true"></span><b data-base="204" data-tipo="kg">204 kg</b></li>
-                <li style="--pct: 37%"><span>Papel branco</span><span class="trilho" aria-hidden="true"></span><b data-base="170" data-tipo="kg">170 kg</b></li>
-                <li style="--pct: 15%"><span>Alumínio</span><span class="trilho" aria-hidden="true"></span><b data-base="68" data-tipo="kg">68 kg</b></li>
-                <li style="--pct: 4%"><span>Cobre</span><span class="trilho" aria-hidden="true"></span><b data-base="18" data-tipo="kg">18 kg</b></li>
+            <ul class="barras" id="lista-materiais">                
             </ul>
         </section>
 
-        <section aria-labelledby="t-mes">
+        <section aria-labelledby="t-mes" data-resultado>
             <h2 id="t-mes">Mês a mês (kg)</h2>
-            <ol class="colunas">
-                <li style="--pct: 40%"><span class="mes">jun</span><b data-base="142" data-tipo="int">142</b><span class="coluna" aria-hidden="true"></span></li>
-                <li style="--pct: 50%"><span class="mes">jul</span><b data-base="176" data-tipo="int">176</b><span class="coluna" aria-hidden="true"></span></li>
-                <li style="--pct: 60%"><span class="mes">ago</span><b data-base="211" data-tipo="int">211</b><span class="coluna" aria-hidden="true"></span></li>
-                <li style="--pct: 70%"><span class="mes">set</span><b data-base="246" data-tipo="int">246</b><span class="coluna" aria-hidden="true"></span></li>
-                <li style="--pct: 85%"><span class="mes">out</span><b data-base="299" data-tipo="int">299</b><span class="coluna" aria-hidden="true"></span></li>
-                <li style="--pct: 100%"><span class="mes">nov</span><b data-base="352" data-tipo="int">352</b><span class="coluna" aria-hidden="true"></span></li>
+            <ol class="colunas" id="colunas-mes">                
             </ol>
         </section>
 
-        <section aria-labelledby="t-bai">
+        <section aria-labelledby="t-bai" data-resultado>
             <h2 id="t-bai">Bairros participando</h2>
-            <ul class="barras">
-                <li style="--pct: 100%"><span>Sé</span><span class="trilho" aria-hidden="true"></span><b>509 kg</b></li>
-                <li style="--pct: 80%"><span>Liberdade</span><span class="trilho" aria-hidden="true"></span><b>406 kg</b></li>
-                <li style="--pct: 60%"><span>Bela Vista</span><span class="trilho" aria-hidden="true"></span><b>306 kg</b></li>
-                <li style="--pct: 40%"><span>Consolação</span><span class="trilho" aria-hidden="true"></span><b>203 kg</b></li>
+            <ul class="barras" id="lista-bairros">                
             </ul>
+            <button type="button" id="ver-bairros" hidden>Ver todos os bairros</button>
         </section>
 
         <p><small>Estimativa de CO₂ feita com fatores da EPA WARM v16 (EUA). Só entra o que foi confirmado como recolhido. Dados de exemplo do modo demonstração.</small></p>
 
-        <button type="button">Baixar relatório em PDF</button>
+        <button type="button" id="baixar-pdf">Baixar relatório em PDF</button>
     </main>
     <script type="module" src="./js/dashboard.js"></script> 
 </body>

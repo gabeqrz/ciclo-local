@@ -62,137 +62,31 @@
         <p>Modo demonstração</p>
 
         <section aria-labelledby="titulo">
-            <h1 id="titulo">Coleta aceita!</h1>
-            <p>Retire o material no endereço e depois marque como concluída.</p>
+            <h1 id="titulo">…</h1><p id="subtitulo">…</p>
         </section>
 
         <section aria-labelledby="t-aberto">
-            <h2 id="t-aberto">Em aberto (<span id="n-abertas">2</span>)</h2>
+            <h2 id="t-aberto">Em aberto (<span id="n-abertas">0</span>)</h2>
             <p class="aviso" id="aviso" role="status" tabindex="-1"></p>
             <p id="sem-abertas" hidden>Nenhuma coleta em aberto por enquanto.</p>
-            <article>
-                <p class="etiqueta">Nova</p>
-                <h3>Sé</h3>
-                <p>Retirar em: <strong>Praça da Sé, 100</strong></p>
-                <ul class="materiais">
-                    <li>PET: 2 kg</li>
-                    <li>Papelão: 5 kg</li>
-                </ul>
-
-                <details>
-                    <summary>Coleta feita</summary>
-                    <form>
-                        <fieldset>
-                            <legend>Quanto você recolheu?</legend>
-                            <p>Ajuste o peso de cada material se for diferente do combinado.</p>
-                        <div>
-                            <label for="kg-1-pet">PET</label>
-                            <select id="kg-1-pet" name="kg-pet">
-                                <option value="0.5">0,5 kg</option>
-                                <option value="1">1 kg</option>
-                                <option value="1.5">1,5 kg</option>
-                                <option value="2" selected>2 kg</option>
-                                <option value="2.5">2,5 kg</option>
-                                <option value="3">3 kg</option>
-                                <option value="3.5">3,5 kg</option>
-                                <option value="4">4 kg</option>
-                                <option value="4.5">4,5 kg</option>
-                                <option value="5">5 kg</option>
-                                <option value="6">6 kg</option>
-                                <option value="7">7 kg</option>
-                                <option value="8">8 kg</option>
-                                <option value="9">9 kg</option>
-                                <option value="10">10 kg</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="kg-1-papelao">Papelão</label>
-                            <select id="kg-1-papelao" name="kg-papelao">
-                                <option value="0.5">0,5 kg</option>
-                                <option value="1">1 kg</option>
-                                <option value="1.5">1,5 kg</option>
-                                <option value="2">2 kg</option>
-                                <option value="2.5">2,5 kg</option>
-                                <option value="3">3 kg</option>
-                                <option value="3.5">3,5 kg</option>
-                                <option value="4">4 kg</option>
-                                <option value="4.5">4,5 kg</option>
-                                <option value="5" selected>5 kg</option>
-                                <option value="6">6 kg</option>
-                                <option value="7">7 kg</option>
-                                <option value="8">8 kg</option>
-                                <option value="9">9 kg</option>
-                                <option value="10">10 kg</option>
-                            </select>
-                        </div>
-                        </fieldset>
-                        <p>Total recolhido: <output>7 kg</output></p>
-                        <button type="submit">Marcar como concluída</button>
-                        <button type="reset">Cancelar</button>
-                    </form>
-                </details>
-                <button type="button" class="desistir">Desistir da coleta</button>
-            </article>
-            <article>
-                <p class="etiqueta etiqueta-aceita">Aguardando coleta</p>
-                <h3>Liberdade</h3>
-                <p>Retirar em: <strong>Rua Galvão Bueno, 200</strong></p>
-                <ul class="materiais">
-                    <li>Alumínio: 1,5 kg</li>
-                </ul>
-
-                <details>
-                    <summary>Coleta feita</summary>
-                    <form>
-                        <fieldset>
-                            <legend>Quanto você recolheu?</legend>
-                            <p>Ajuste o peso de cada material se for diferente do combinado.</p>
-                        <div>
-                            <label for="kg-2-aluminio">Alumínio</label>
-                            <select id="kg-2-aluminio" name="kg-aluminio">
-                                <option value="0.5">0,5 kg</option>
-                                <option value="1">1 kg</option>
-                                <option value="1.5" selected>1,5 kg</option>
-                                <option value="2">2 kg</option>
-                                <option value="2.5">2,5 kg</option>
-                                <option value="3">3 kg</option>
-                                <option value="3.5">3,5 kg</option>
-                                <option value="4">4 kg</option>
-                                <option value="4.5">4,5 kg</option>
-                                <option value="5">5 kg</option>
-                                <option value="6">6 kg</option>
-                                <option value="7">7 kg</option>
-                                <option value="8">8 kg</option>
-                                <option value="9">9 kg</option>
-                                <option value="10">10 kg</option>
-                            </select>
-                        </div>
-                        </fieldset>
-                        <p>Total recolhido: <output>1,5 kg</output></p>
-                        <button type="submit">Marcar como concluída</button>
-                        <button type="reset">Cancelar</button>
-                    </form>
-                </details>
-                <button type="button" class="desistir">Desistir da coleta</button>
-            </article>
+            <div id="lista-abertas"></div>  
 
             <a class="botao botao-sec" href="./perfil-coletor.html">Ver mais pedidos</a>
         </section>
         <section aria-labelledby="t-feitas">
-            <h2 id="t-feitas">Últimas entregas concluídas (<span id="n-concluidas">3</span>)</h2>
-            <ul>
-                <li><strong>Bela Vista</strong> <small>Vidro: 3 kg · Papel branco: 2 kg</small> <time datetime="2026-10-28">28 out</time></li>
-                <li><strong>Consolação</strong> <small>Papelão: 6 kg</small> <time datetime="2026-10-21">21 out</time></li>
-                <li><strong>Sé</strong> <small>PET: 4 kg · Alumínio 1 kg</small> <time datetime="2026-10-14">14 out</time></li>
-            </ul>
+            
+            <ul class="entregas" id="lista-feitas"></ul>
+            <p id="total-concluidas"></p>
+            <button type="button" id="ver-todas" hidden>Ver todas as entregas concluídas</button>
+            <h2 id="t-feitas">Últimas entregas concluídas (3)</h2>
             <a class="link-centro" href="./historico-coletas.html">Ver coletas anteriores</a>
         </section>
 
-        <section aria-labelledby="t-cta">
-            <h2 id="t-cta">Suas coletas concluídas contam na meta do bairro</h2>
-            <label for="meta-bairro">352 kg este mês · meta de 500 kg</label>
-            <progress id="meta-bairro" value="352" max="500">70%</progress>
-            <a href="./dashboard.html">Ver resultados da reciclagem</a>
+        <section id="chamada" aria-labelledby="t-cta">
+            <h2 id="t-cta"></h2>
+            <label id="meta-rotulo" for="meta-bairro"></label>
+            <progress id="meta-bairro" value="0" max="1"></progress>
+            <a href="./dashboard.html">…</a>
         </section>
     </main>
     

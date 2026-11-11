@@ -67,16 +67,17 @@
             <p>Agora é só esperar um coletor aceitar. Você acompanha o andamento aqui.</p>
         </section>
 
-        <section aria-labelledby="t-pedido">
+        <section id="secao-pedido" aria-labelledby="t-pedido">
             <h2 id="t-pedido">Seu pedido</h2>
-            <p><strong>Sé</strong> · São Paulo - SP</p>
-            <ul class="materiais">
+            <p id="pedido-local"></p>
+            <p id="pedido-endereco"></p>
+            <ul class="materiais" id="pedido-materiais">
                 <li>PET: 2 kg</li>
                 <li>Papelão: 5 kg</li>
             </ul>
-            <p>Total: 7 kg</p>
+            <p>Total: <strong id="pedido-total">7 kg</strong></p>
 
-            <ol aria-label="Andamento do pedido">
+            <ol id="andamento" aria-label="Andamento do pedido">
                 <li class="feito">Pedido enviado</li>
                 <li aria-current="step">Aceito por um coletor</li>
                 <li>Material recolhido</li>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloLocal | Coletas anteriores</title>
+  <meta name="description" content="Veja todas as entregas de recicláveis que você já concluiu, com filtro por mês e por bairro.">
+  <link rel="canonical" href="https://gabeqrz.github.io/ciclo-local/historico-coletas.html">
+<!-- Ícones -->
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+
+    <!-- Prévia social: Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="CicloLocal">
+    <meta property="og:title" content="CicloLocal | Doe seus Materiais">
+    <meta property="og:description" content="Avise que você tem material reciclável para doar: informe o CEP, os materiais e o peso aproximado.">
+    <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta property="og:url" content="https://gabeqrz.github.io/ciclo-local/perfil-doador.html">
+
+    <!-- Prévia para X (Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CicloLocal | Doe seus Materiais">
+    <meta name="twitter:description" content="Avise que você tem material reciclável para doar: informe o CEP, os materiais e o peso aproximado.">
+    <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta name="twitter:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+
+    <!-- Fontes: Plus Jakarta Sans (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./tokens.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./print.css" media="print">
+</head>
+<body>
+" <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header>
+      <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
+      <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
+      </a>
+  </header>"
+
+  <nav aria-label="Menu principal">
+    <ul>
+      <li><a href="./index.html">Início</a></li>
+      <li><a href="./selecao-de-perfil.html">Perfil</a></li>
+      <li><a href="./perfil-coletor.html" aria-current="true">Coletas</a></li>
+      <li><a href="./dashboard.html">Resultados</a></li>
+    </ul>
+  </nav>
+
+  <main id="conteudo" tabindex="-1">
+    <a href="./confirmacao-coletor.html">Voltar</a>
+    <p>Modo demonstração</p>
+    <h1>Coletas anteriores</h1>
+
+    <section aria-labelledby="t-filtros">
+      <h2 id="t-filtros">Filtrar entregas</h2>
+      <div class="filtros-historico">
+        <div>
+          <label for="filtro-mes">Mês</label>
+          <select id="filtro-mes"><option value="">Todos os meses</option></select>
+        </div>
+        <div>
+          <label for="filtro-bairro-hist">Bairro</label>
+          <select id="filtro-bairro-hist"><option value="">Todos os bairros</option></select>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="t-resumo">
+      <h2 id="t-resumo">Resumo</h2>
+      <ul class="resumo-historico" id="resumo-historico"></ul>
+    </section>
+
+    <section aria-labelledby="t-entregas">
+      <h2 id="t-entregas">Entregas concluídas</h2>
+      <p class="escopo" id="status-historico" role="status" tabindex="-1"></p>
+      <p id="sem-historico" hidden></p>
+      <div id="lista-historico"></div>
+      <button type="button" id="mais-historico" hidden>Mostrar mais</button>
+    </section>
+  </main>
+
+  <!-- Copie o <footer> das outras páginas -->
+
+  <script type="module" src="./js/historico-coletas.js"></script>
+</body>
+</html>

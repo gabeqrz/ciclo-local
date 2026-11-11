@@ -3,6 +3,9 @@ import { ler, atualizar } from './storage.js';
 import { el, formatarKg, totalKg, hojeISO, dataCurta } from './util.js';
 import { MATERIAIS } from './dados.js';
 import { preencherChamada } from './resultados.js';
+import { linhaMaterial } from './util.js';
+import { descricaoMateriais } from './util.js'; 
+import { ordenarConcluidas } from './util.js';
 
 const MAX_RECENTES = 5;
 const PESOS = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 6, 7, 8, 9, 10];
@@ -28,7 +31,6 @@ const novas = new Set(inicial.coletas
   .map((c) => c.id));
 atualizar((e) => { e.ultimaVisitaAceitas = Date.now(); });
 
-const descricao = (materiais) => materiais.map((m) => `${MATERIAIS[m.id]} ${formatarKg(m.kg)}`).join(' · ');
 const pesosDo = (form) => [...form.querySelectorAll('select')].map((s) => ({ id: s.name, kg: Number(s.value) }));
 function avisar(mensagem) { aviso.textContent = mensagem; aviso.focus(); }
 
@@ -85,14 +87,11 @@ function cartaoAberto(coleta) {
 
 function renderizarConcluidas() {
   // mais recentes primeiro (na mesma data, a última registrada vem antes)
-  const todas = ler().concluidas
-    .map((item, i) => ({ item, i }))
-    .sort((a, b) => b.item.data.localeCompare(a.item.data) || b.i - a.i)
-    .map(({ item }) => item);
+  const todas = ordenarConcluidas(ler().concluidas);
   const exibidas = mostrarTodas ? todas : todas.slice(0, MAX_RECENTES);
   listaFeitas.replaceChildren(...exibidas.map((item) => el('li', {},
     el('strong', {}, item.bairro), ' ',
-    el('small', {}, descricao(item.materiais)), ' ',
+    el('small', {}, descricaoMateriais(item.materiais)), ' ',
     el('time', { datetime: item.data }, dataCurta(item.data)))));
   totalFeitas.textContent = `${todas.length} ${todas.length === 1 ? 'entrega concluída' : 'entregas concluídas'} no total`;
   botaoTodas.hidden = todas.length <= MAX_RECENTES;

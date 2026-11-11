@@ -187,9 +187,6 @@ article details form button { width: 100%; min-height: 3.25rem; font-size: var(-
 [role="group"] .chip-mais::after { content: "▾"; }
 [role="group"] .chip-mais[aria-expanded="true"]::after { content: "▴"; }
 
-.cabeca-cartao { display: flex; align-items: center; justify-content: space-between; gap: var(--esp-3); }
-.selecionar { display: flex; align-items: center; gap: var(--esp-2); margin: 0; font-size: var(--fs-base); cursor: pointer; }
-
 /* Barra fixa acima do menu inferior */
 .barra-aceite {
   position: fixed; left: 0; right: 0; bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px)); z-index: 4;
@@ -235,6 +232,8 @@ main > p:has(> small) { font-size: var(--fs-sm); }
 .barras { display: flex; flex-direction: column; gap: var(--esp-3); }
 .barras li { display: grid; grid-template-columns: 7rem 1fr 4.125rem; align-items: center; gap: var(--esp-2); font-size: var(--fs-sm); }
 .barras li > span:first-child { font-weight: var(--fw-bold); }
+.barras li.destaque > span:first-child { color: var(--cl-terracota-700); }
+.barras li.destaque .trilho::before { background: var(--cl-terracota-700); }
 .barras b { text-align: right; }
 .trilho { height: 0.75rem; border-radius: var(--raio-pill); background: var(--cor-superficie-alt); overflow: hidden; }
 .trilho::before { content: ""; display: block; height: 100%; width: var(--pct); background: var(--cl-petroleo-900); }
@@ -349,11 +348,8 @@ section[aria-labelledby="t-feitas"] li time { grid-area: data; font-size: 0.8125
   form > div > :is(p, button) { max-width: 28rem; }
 
   /* --- Coletor: pedidos em grade --- */
-  section[aria-labelledby='t-lista'] { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--esp-4); align-items: start; }
-  section[aria-labelledby='t-lista'] > * { margin-top: 0; }
-  section[aria-labelledby='t-lista'] > h2 { grid-column: 1 / -1; }
-  .barra-aceite { bottom: 0; }
-  body:has(.barra-aceite:not([hidden])) { padding-bottom: 6rem; }
+ #lista-pedidos { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--esp-4); align-items: start; }
+ #lista-pedidos > article { margin-top: 0; }
 
   /* --- Pedido enviado: cartão do pedido e chamada lado a lado --- */
   main:has([aria-labelledby='t-pedido']) { display: grid; grid-template-columns: 1fr 1fr; gap: var(--esp-4) var(--esp-5); }

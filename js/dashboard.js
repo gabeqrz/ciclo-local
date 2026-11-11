@@ -90,6 +90,7 @@ botaoBairros.addEventListener('click', () => { mostrarTodosBairros = !mostrarTod
 document.getElementById('trocar-cidade').addEventListener('click', () => {
   abrirTrocaDeCidade(() => { avisoLocal.textContent = ''; renderizar(); });
 });
+document.getElementById('baixar-pdf').addEventListener('click', () => window.print());
 
 renderizar();
 obterLocal({ aoAviso: (mensagem) => { avisoLocal.textContent = mensagem; } }).then(renderizar);
