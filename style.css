@@ -167,6 +167,7 @@ article details select { margin-bottom: var(--esp-2); }
 [role="group"] { display: flex; flex-wrap: wrap; gap: var(--esp-2); }
 [role="group"] button { padding: 0 var(--esp-4); }
 [role="group"] button[aria-pressed="true"] { background: var(--cl-petroleo-900); color: #fff; }
+[role="group"] button { font-size: var(--fs-lg) }
 article details form button { width: 100%; min-height: 3.25rem; font-size: var(--fs-lg); }
 
 /* Cidade + botão "Trocar cidade" na mesma linha */
@@ -284,7 +285,6 @@ section[aria-labelledby="titulo"]::before {
 }
 /* "Seu pedido" em cartão */
 section[aria-labelledby="t-pedido"] { padding: var(--esp-4); background: var(--cor-superficie); border: var(--borda); border-radius: var(--raio-md); box-shadow: var(--sombra-sm); }
-section[aria-labelledby="t-pedido"] ul > li + li { margin-top: var(--esp-1); }
 /* "Marcar como concluída": botão cheio nos dois cartões */
 article details > summary { min-height: 3.25rem; font-size: var(--fs-lg); background: var(--cor-acao); border-color: var(--cor-acao); color: var(--cor-sobre-acao); }
 article details > summary:hover { background: var(--cor-acao-hover); border-color: var(--cor-acao-hover); }

@@ -5,7 +5,7 @@
   html body:has(> nav[aria-label="Menu principal"]) { background: #fff; padding-bottom: 0; }
   html body > :is(header, main, footer) { max-width: none; padding-inline: 0; }
 
-  /* some na impressão: menu, link de salto, botões, "Voltar" e selo de demonstração */
+  /* some na impressão: menu, link de salto, botões e "Voltar" */
   nav[aria-label="Menu principal"], .pular, button, main > a:first-child { display: none !important; }
 
   /* cartões não quebram entre páginas */
