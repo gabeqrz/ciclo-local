@@ -10,9 +10,12 @@
   --cl-petroleo-700: #2F4B73;
   --cl-petroleo-100: #E4E9F0;
   --cl-terracota-100: #F8E3DA;
-  --cl-terracota-400: #D96B43; /* destaque decorativo / texto grande */
-  --cl-terracota-600: #B5502B; /* AÇÃO: botões e links (AA com branco e com areia) */
-  --cl-terracota-700: #933F20; /* hover / pressed */
+  --cl-terracota-400: #D96B43;
+  /* destaque decorativo / texto grande */
+  --cl-terracota-600: #B5502B;
+  /* AÇÃO: botões e links (AA com branco e com areia) */
+  --cl-terracota-700: #933F20;
+  /* hover / pressed */
   --cl-cinza-600: #4B5563;
 
   /* Estados */
@@ -74,7 +77,8 @@
   --sombra-md: 0 6px 18px rgba(29, 53, 87, 0.12);
 
   /* Interação */
-  --alvo-min: 2.75rem; /* 44 px: alvo de toque mínimo */
+  --alvo-min: 2.75rem;
+  /* 44 px: alvo de toque mínimo */
   --tempo-rapido: 150ms;
   --tempo-base: 250ms;
   --ease: cubic-bezier(0.2, 0, 0, 1);
@@ -82,5 +86,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root { --tempo-rapido: 0.01ms; --tempo-base: 0.01ms; }
+  :root {
+    --tempo-rapido: 0.01ms;
+    --tempo-base: 0.01ms;
+  }
 }

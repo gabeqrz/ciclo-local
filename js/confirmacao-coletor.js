@@ -4,7 +4,7 @@ import { el, formatarKg, totalKg, hojeISO, dataCurta } from './util.js';
 import { MATERIAIS } from './dados.js';
 import { preencherChamada } from './resultados.js';
 import { linhaMaterial } from './util.js';
-import { descricaoMateriais } from './util.js'; 
+import { descricaoMateriais } from './util.js';
 import { ordenarConcluidas } from './util.js';
 
 const MAX_RECENTES = 5;

@@ -1,14 +1,40 @@
 /* Relatório em PDF (window.print). Só vale na impressão. */
-@page { size: A4; margin: 16mm; }
+@page {
+  size: A4;
+  margin: 16mm;
+}
+
 @media print {
+
   html body,
-  html body:has(> nav[aria-label="Menu principal"]) { background: #fff; padding-bottom: 0; }
-  html body > :is(header, main, footer) { max-width: none; padding-inline: 0; }
+  html body:has(> nav[aria-label="Menu principal"]) {
+    background: #fff;
+    padding-bottom: 0;
+  }
+
+  html body> :is(header, main, footer) {
+    max-width: none;
+    padding-inline: 0;
+  }
 
   /* some na impressão: menu, link de salto, botões e "Voltar" */
-  nav[aria-label="Menu principal"], .pular, button, main > a:first-child { display: none !important; }
+  nav[aria-label="Menu principal"],
+  .pular,
+  button,
+  main>a:first-child {
+    display: none !important;
+  }
 
   /* cartões não quebram entre páginas */
-  article, main:has(dl) > section, dl > div { break-inside: avoid; border: 1px solid #999; }
-  a { color: #000; text-decoration: none; }
+  article,
+  main:has(dl)>section,
+  dl>div {
+    break-inside: avoid;
+    border: 1px solid #999;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
 }

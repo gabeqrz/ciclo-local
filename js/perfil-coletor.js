@@ -24,9 +24,9 @@ function cartao(coleta) {
   }, aceita ? 'Coleta aceita · Desfazer' : 'Aceitar coleta');
   return el('article', { 'aria-labelledby': `p-${coleta.id}` },
     el('h3', { id: `p-${coleta.id}` }, coleta.bairro),
-    el('ul', { class: 'materiais' }, ...coleta.materiais.map((m) => el('li', {}, linhaMaterial(m))),
+    el('ul', { class: 'materiais' }, ...coleta.materiais.map((m) => el('li', {}, linhaMaterial(m)))),
     el('p', {}, 'Total: ', el('strong', {}, formatarKg(totalKg(coleta.materiais)))),
-    botao));
+    botao);
 }
 
 function renderizar() {
