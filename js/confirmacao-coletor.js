@@ -18,10 +18,8 @@ const semAbertas = document.getElementById('sem-abertas');
 const listaAbertas = document.getElementById('lista-abertas');
 const listaFeitas = document.getElementById('lista-feitas');
 const totalFeitas = document.getElementById('total-concluidas');
-const botaoTodas = document.getElementById('ver-todas');
 const dialogo = document.getElementById('dialogo-desistir');
 
-let mostrarTodas = false;
 let idDesistindo = null;
 
 // "Nova" = aceita depois da última vez que esta página foi aberta
@@ -88,14 +86,12 @@ function cartaoAberto(coleta) {
 function renderizarConcluidas() {
   // mais recentes primeiro (na mesma data, a última registrada vem antes)
   const todas = ordenarConcluidas(ler().concluidas);
-  const exibidas = mostrarTodas ? todas : todas.slice(0, MAX_RECENTES);
+  const exibidas = todas.slice(0, MAX_RECENTES);
   listaFeitas.replaceChildren(...exibidas.map((item) => el('li', {},
     el('strong', {}, item.bairro), ' ',
     el('small', {}, descricaoMateriais(item.materiais)), ' ',
     el('time', { datetime: item.data }, dataCurta(item.data)))));
   totalFeitas.textContent = `${todas.length} ${todas.length === 1 ? 'entrega concluída' : 'entregas concluídas'} no total`;
-  botaoTodas.hidden = todas.length <= MAX_RECENTES;
-  botaoTodas.textContent = mostrarTodas ? `Mostrar só as ${MAX_RECENTES} últimas` : `Ver todas as entregas concluídas (${todas.length})`;
 }
 
 function renderizar() {
@@ -147,7 +143,6 @@ document.getElementById('confirma-desistir').addEventListener('click', () => {
   avisar(`Você desistiu da coleta em ${bairro}. O pedido voltou para a lista de pedidos esperando você.`);
 });
 
-botaoTodas.addEventListener('click', () => { mostrarTodas = !mostrarTodas; renderizarConcluidas(); });
 
 definirTitulo();
 renderizar();

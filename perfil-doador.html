@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CicloLocal | Doe seus Materiais</title>
-    <meta name="description" content="Avise que você tem material reciclável para doar: informe o CEP, os materiais e o peso aproximado.">
+    <meta name="description"
+        content="Avise que você tem material reciclável para doar: informe o CEP, os materiais e o peso aproximado.">
     <meta name="theme-color" content="#F7F5F0">
     <link rel="canonical" href="https://gabeqrz.github.io/ciclo-local/perfil-doador.html">
 
@@ -17,25 +19,30 @@
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="CicloLocal">
     <meta property="og:title" content="CicloLocal | Doe seus Materiais">
-    <meta property="og:description" content="Avise que você tem material reciclável para doar: informe o CEP, os materiais e o peso aproximado.">
+    <meta property="og:description"
+        content="Avise que você tem material reciclável para doar: informe o CEP, os materiais e o peso aproximado.">
     <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta property="og:image:alt"
+        content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
     <meta property="og:url" content="https://gabeqrz.github.io/ciclo-local/perfil-doador.html">
 
     <!-- Prévia para X (Twitter) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CicloLocal | Doe seus Materiais">
-    <meta name="twitter:description" content="Avise que você tem material reciclável para doar: informe o CEP, os materiais e o peso aproximado.">
+    <meta name="twitter:description"
+        content="Avise que você tem material reciclável para doar: informe o CEP, os materiais e o peso aproximado.">
     <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
-    <meta name="twitter:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta name="twitter:image:alt"
+        content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
 
     <!-- Fontes: Plus Jakarta Sans (Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Estilos (a ordem importa: reset, tokens, estilo da página) -->
     <link rel="stylesheet" href="./reset.css">
@@ -43,11 +50,12 @@
     <link rel="stylesheet" href="./print.css" media="print">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
         <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
-        <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
+            <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
         </a>
     </header>
     <nav aria-label="Menu principal">
@@ -68,14 +76,15 @@
 
                 <div>
                     <label for="cep">CEP</label>
-                    <input type="text" id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="00000-000" required>
+                    <input type="text" id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9"
+                        placeholder="00000-000" required>
                 </div>
                 <div>
                     <label for="numero">Número</label>
-                    <input type="text" id="numero" name="numero" inputmode="numeric" autocomplete="off" placeholder="123" required>
+                    <input type="text" id="numero" name="numero" inputmode="numeric" autocomplete="off"
+                        placeholder="123" required>
                 </div>
 
-                <!-- O JavaScript preenche este bloco depois da busca do CEP (ViaCEP). Começa vazio; abaixo, um exemplo do resultado. -->
                 <div id="endereco" aria-live="polite"></div>
             </section>
 
@@ -84,153 +93,157 @@
                     <legend>O que você tem para entregar?</legend>
                     <p>Marque o material e escolha o peso aproximado.</p>
                     <ul>
-                    <li>
-                        <input type="checkbox" id="m-cobre" name="material" value="cobre">
-                        <label for="m-cobre">Cobre</label>
-                        <select id="kg-cobre" name="kg-cobre" aria-label="Peso aproximado de Cobre em kg">
-                            <option value="0.5">0,5 kg</option>
-                            <option value="1">1 kg</option>
-                            <option value="1.5">1,5 kg</option>
-                            <option value="2">2 kg</option>
-                            <option value="2.5">2,5 kg</option>
-                            <option value="3">3 kg</option>
-                            <option value="3.5">3,5 kg</option>
-                            <option value="4">4 kg</option>
-                            <option value="4.5">4,5 kg</option>
-                            <option value="5">5 kg</option>
-                            <option value="6">6 kg</option>
-                            <option value="7">7 kg</option>
-                            <option value="8">8 kg</option>
-                            <option value="9">9 kg</option>
-                            <option value="10">10 kg</option>
-                        </select>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="m-aluminio" name="material" value="aluminio">
-                        <label for="m-aluminio">Alumínio <small>latinhas e panelas</small></label>
-                        <select id="kg-aluminio" name="kg-aluminio" aria-label="Peso aproximado de Alumínio em kg">
-                            <option value="0.5">0,5 kg</option>
-                            <option value="1">1 kg</option>
-                            <option value="1.5">1,5 kg</option>
-                            <option value="2">2 kg</option>
-                            <option value="2.5">2,5 kg</option>
-                            <option value="3">3 kg</option>
-                            <option value="3.5">3,5 kg</option>
-                            <option value="4">4 kg</option>
-                            <option value="4.5">4,5 kg</option>
-                            <option value="5">5 kg</option>
-                            <option value="6">6 kg</option>
-                            <option value="7">7 kg</option>
-                            <option value="8">8 kg</option>
-                            <option value="9">9 kg</option>
-                            <option value="10">10 kg</option>
-                        </select>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="m-pet" name="material" value="pet" aria-describedby="dica-pet">
-                        <label for="m-pet">PET</label>
-                        <select id="kg-pet" name="kg-pet" aria-label="Peso aproximado de PET em kg">
-                            <option value="0.5">0,5 kg</option>
-                            <option value="1">1 kg</option>
-                            <option value="1.5">1,5 kg</option>
-                            <option value="2">2 kg</option>
-                            <option value="2.5">2,5 kg</option>
-                            <option value="3">3 kg</option>
-                            <option value="3.5">3,5 kg</option>
-                            <option value="4">4 kg</option>
-                            <option value="4.5">4,5 kg</option>
-                            <option value="5">5 kg</option>
-                            <option value="6">6 kg</option>
-                            <option value="7">7 kg</option>
-                            <option value="8">8 kg</option>
-                            <option value="9">9 kg</option>
-                            <option value="10">10 kg</option>
-                        </select>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="m-outros-plasticos" name="material" value="outros_plasticos">
-                        <label for="m-outros-plasticos">Outros plásticos <small>baldes, potes e sacolas</small></label>
-                        <select id="kg-outros-plasticos" name="kg-outros-plasticos" aria-label="Peso aproximado de Outros plásticos em kg">
-                            <option value="0.5">0,5 kg</option>
-                            <option value="1">1 kg</option>
-                            <option value="1.5">1,5 kg</option>
-                            <option value="2">2 kg</option>
-                            <option value="2.5">2,5 kg</option>
-                            <option value="3">3 kg</option>
-                            <option value="3.5">3,5 kg</option>
-                            <option value="4">4 kg</option>
-                            <option value="4.5">4,5 kg</option>
-                            <option value="5">5 kg</option>
-                            <option value="6">6 kg</option>
-                            <option value="7">7 kg</option>
-                            <option value="8">8 kg</option>
-                            <option value="9">9 kg</option>
-                            <option value="10">10 kg</option>
-                        </select>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="m-papel-branco" name="material" value="papel_branco">
-                        <label for="m-papel-branco">Papel branco <small>folhas e cadernos</small></label>
-                        <select id="kg-papel-branco" name="kg-papel-branco" aria-label="Peso aproximado de Papel branco em kg">
-                            <option value="0.5">0,5 kg</option>
-                            <option value="1">1 kg</option>
-                            <option value="1.5">1,5 kg</option>
-                            <option value="2">2 kg</option>
-                            <option value="2.5">2,5 kg</option>
-                            <option value="3">3 kg</option>
-                            <option value="3.5">3,5 kg</option>
-                            <option value="4">4 kg</option>
-                            <option value="4.5">4,5 kg</option>
-                            <option value="5">5 kg</option>
-                            <option value="6">6 kg</option>
-                            <option value="7">7 kg</option>
-                            <option value="8">8 kg</option>
-                            <option value="9">9 kg</option>
-                            <option value="10">10 kg</option>
-                        </select>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="m-papelao" name="material" value="papelao">
-                        <label for="m-papelao">Papelão</label>
-                        <select id="kg-papelao" name="kg-papelao" aria-label="Peso aproximado de Papelão em kg">
-                            <option value="0.5">0,5 kg</option>
-                            <option value="1">1 kg</option>
-                            <option value="1.5">1,5 kg</option>
-                            <option value="2">2 kg</option>
-                            <option value="2.5">2,5 kg</option>
-                            <option value="3">3 kg</option>
-                            <option value="3.5">3,5 kg</option>
-                            <option value="4">4 kg</option>
-                            <option value="4.5">4,5 kg</option>
-                            <option value="5">5 kg</option>
-                            <option value="6">6 kg</option>
-                            <option value="7">7 kg</option>
-                            <option value="8">8 kg</option>
-                            <option value="9">9 kg</option>
-                            <option value="10">10 kg</option>
-                        </select>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="m-vidro" name="material" value="vidro">
-                        <label for="m-vidro">Garrafas e potes de vidro</label>
-                        <select id="kg-vidro" name="kg-vidro" aria-label="Peso aproximado de Garrafas e potes de vidro em kg">
-                            <option value="0.5">0,5 kg</option>
-                            <option value="1">1 kg</option>
-                            <option value="1.5">1,5 kg</option>
-                            <option value="2">2 kg</option>
-                            <option value="2.5">2,5 kg</option>
-                            <option value="3">3 kg</option>
-                            <option value="3.5">3,5 kg</option>
-                            <option value="4">4 kg</option>
-                            <option value="4.5">4,5 kg</option>
-                            <option value="5">5 kg</option>
-                            <option value="6">6 kg</option>
-                            <option value="7">7 kg</option>
-                            <option value="8">8 kg</option>
-                            <option value="9">9 kg</option>
-                            <option value="10">10 kg</option>
-                        </select>
-                    </li>
+                        <li>
+                            <input type="checkbox" id="m-cobre" name="material" value="cobre">
+                            <label for="m-cobre">Cobre</label>
+                            <select id="kg-cobre" name="kg-cobre" aria-label="Peso aproximado de Cobre em kg">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5">1,5 kg</option>
+                                <option value="2">2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5">5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="m-aluminio" name="material" value="aluminio">
+                            <label for="m-aluminio">Alumínio <small>latinhas e panelas</small></label>
+                            <select id="kg-aluminio" name="kg-aluminio" aria-label="Peso aproximado de Alumínio em kg">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5">1,5 kg</option>
+                                <option value="2">2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5">5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="m-pet" name="material" value="pet" aria-describedby="dica-pet">
+                            <label for="m-pet">PET</label>
+                            <select id="kg-pet" name="kg-pet" aria-label="Peso aproximado de PET em kg">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5">1,5 kg</option>
+                                <option value="2">2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5">5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="m-outros-plasticos" name="material" value="outros_plasticos">
+                            <label for="m-outros-plasticos">Outros plásticos <small>baldes, potes e
+                                    sacolas</small></label>
+                            <select id="kg-outros-plasticos" name="kg-outros-plasticos"
+                                aria-label="Peso aproximado de Outros plásticos em kg">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5">1,5 kg</option>
+                                <option value="2">2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5">5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="m-papel-branco" name="material" value="papel_branco">
+                            <label for="m-papel-branco">Papel branco <small>folhas e cadernos</small></label>
+                            <select id="kg-papel-branco" name="kg-papel-branco"
+                                aria-label="Peso aproximado de Papel branco em kg">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5">1,5 kg</option>
+                                <option value="2">2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5">5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="m-papelao" name="material" value="papelao">
+                            <label for="m-papelao">Papelão</label>
+                            <select id="kg-papelao" name="kg-papelao" aria-label="Peso aproximado de Papelão em kg">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5">1,5 kg</option>
+                                <option value="2">2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5">5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="m-vidro" name="material" value="vidro">
+                            <label for="m-vidro">Garrafas e potes de vidro</label>
+                            <select id="kg-vidro" name="kg-vidro"
+                                aria-label="Peso aproximado de Garrafas e potes de vidro em kg">
+                                <option value="0.5">0,5 kg</option>
+                                <option value="1">1 kg</option>
+                                <option value="1.5">1,5 kg</option>
+                                <option value="2">2 kg</option>
+                                <option value="2.5">2,5 kg</option>
+                                <option value="3">3 kg</option>
+                                <option value="3.5">3,5 kg</option>
+                                <option value="4">4 kg</option>
+                                <option value="4.5">4,5 kg</option>
+                                <option value="5">5 kg</option>
+                                <option value="6">6 kg</option>
+                                <option value="7">7 kg</option>
+                                <option value="8">8 kg</option>
+                                <option value="9">9 kg</option>
+                                <option value="10">10 kg</option>
+                            </select>
+                        </li>
                     </ul>
                     <p id="dica-pet">PET é a garrafa de refrigerante e de água. O peso pode ser aproximado.</p>
                 </fieldset>
@@ -242,6 +255,8 @@
             </div>
         </form>
     </main>
-    <script type="module" src="./js/perfil-doador.js"></script> 
+    <script type="module" src="./js/perfil-doador.js"></script>
+    <script type="module" src="./js/app.js"></script>
 </body>
+
 </html>

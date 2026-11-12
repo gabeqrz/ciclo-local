@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,25 +18,30 @@
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="CicloLocal">
     <meta property="og:title" content="CicloLocal | Coleta Aceita">
-    <meta property="og:description" content="Acompanhe suas coletas em aberto e concluídas e confirme o que você recolheu.">
+    <meta property="og:description"
+        content="Acompanhe suas coletas em aberto e concluídas e confirme o que você recolheu.">
     <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta property="og:image:alt"
+        content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
     <meta property="og:url" content="https://gabeqrz.github.io/ciclo-local/confirmacao-coletor.html">
 
     <!-- Prévia para X (Twitter) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CicloLocal | Coleta Aceita">
-    <meta name="twitter:description" content="Acompanhe suas coletas em aberto e concluídas e confirme o que você recolheu.">
+    <meta name="twitter:description"
+        content="Acompanhe suas coletas em aberto e concluídas e confirme o que você recolheu.">
     <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
-    <meta name="twitter:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta name="twitter:image:alt"
+        content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
 
     <!-- Fontes: Plus Jakarta Sans (Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Estilos (a ordem importa: reset, tokens, estilo da página) -->
     <link rel="stylesheet" href="./reset.css">
@@ -43,11 +49,12 @@
     <link rel="stylesheet" href="./print.css" media="print">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
         <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
-        <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
+            <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
         </a>
     </header>
     <nav aria-label="Menu principal">
@@ -62,41 +69,42 @@
         <p>Modo demonstração</p>
 
         <section aria-labelledby="titulo">
-            <h1 id="titulo">…</h1><p id="subtitulo">…</p>
+            <h1 id="titulo">…</h1>
+            <p id="subtitulo">…</p>
         </section>
 
         <section aria-labelledby="t-aberto">
             <h2 id="t-aberto">Em aberto (<span id="n-abertas">0</span>)</h2>
             <p class="aviso" id="aviso" role="status" tabindex="-1"></p>
             <p id="sem-abertas" hidden>Nenhuma coleta em aberto por enquanto.</p>
-            <div id="lista-abertas"></div>  
+            <div class="lista" id="lista-abertas"></div>
 
             <a class="botao botao-sec" href="./perfil-coletor.html">Ver mais pedidos</a>
         </section>
         <section aria-labelledby="t-feitas">
-            
-            <ul class="entregas" id="lista-feitas"></ul>
+            <h2 id="t-feitas">Últimas entregas concluídas</h2>
             <p id="total-concluidas"></p>
-            <button type="button" id="ver-todas" hidden>Ver todas as entregas concluídas</button>
-            <h2 id="t-feitas">Últimas entregas concluídas (3)</h2>
-            <a class="link-centro" href="./historico-coletas.html">Ver coletas anteriores</a>
+            <ul id="lista-feitas"></ul>
+            <a class="link-centro" href="./historico-coletas.html">Ver todas as entregas concluídas</a>
         </section>
 
         <section id="chamada" aria-labelledby="t-cta">
             <h2 id="t-cta"></h2>
             <label id="meta-rotulo" for="meta-bairro"></label>
             <progress id="meta-bairro" value="0" max="1"></progress>
-            <a href="./dashboard.html">…</a>
+            <a href="./dashboard.html">Ver resultados da reciclagem</a>
         </section>
     </main>
-    
 
-<dialog id="dialogo-desistir" aria-labelledby="t-desistir">
-    <h2 id="t-desistir">Desistir desta coleta?</h2>
-    <p>Ela volta para a lista de pedidos esperando você, e outro coletor poderá aceitá-la.</p>
-    <button type="button" class="botao-perigo" id="confirma-desistir">Sim, desistir</button>
-    <button type="button" id="cancela-desistir">Voltar</button>
-</dialog>
-<script type="module" src="./js/confirmacao-coletor.js"></script>    
+
+    <dialog id="dialogo-desistir" aria-labelledby="t-desistir">
+        <h2 id="t-desistir">Desistir desta coleta?</h2>
+        <p>Ela volta para a lista de pedidos esperando você, e outro coletor poderá aceitá-la.</p>
+        <button type="button" class="botao-perigo" id="confirma-desistir">Sim, desistir</button>
+        <button type="button" id="cancela-desistir">Voltar</button>
+    </dialog>
+    <script type="module" src="./js/confirmacao-coletor.js"></script>
+    <script type="module" src="./js/app.js"></script>
 </body>
+
 </html>

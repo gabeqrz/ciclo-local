@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CicloLocal | Resultados da Reciclagem</title>
-    <meta name="description" content="Resultados da reciclagem: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
+    <meta name="description"
+        content="Resultados da reciclagem: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
     <meta name="theme-color" content="#F7F5F0">
     <link rel="canonical" href="https://gabeqrz.github.io/ciclo-local/dashboard.html">
 
@@ -17,25 +19,30 @@
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="CicloLocal">
     <meta property="og:title" content="CicloLocal | Resultados da Reciclagem">
-    <meta property="og:description" content="Resultados da reciclagem: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
+    <meta property="og:description"
+        content="Resultados da reciclagem: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
     <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta property="og:image:alt"
+        content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
     <meta property="og:url" content="https://gabeqrz.github.io/ciclo-local/dashboard.html">
 
     <!-- Prévia para X (Twitter) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CicloLocal | Resultados da reciclagem">
-    <meta name="twitter:description" content="Resultados da reciclagem: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
+    <meta name="twitter:description"
+        content="Resultados da reciclagem: meta do mês, quantidade recolhida, coletas feitas e CO₂ evitado (estimativa).">
     <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
-    <meta name="twitter:image:alt" content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta name="twitter:image:alt"
+        content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
 
     <!-- Fontes: Plus Jakarta Sans (Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Estilos (a ordem importa: reset, tokens, estilo da página) -->
     <link rel="stylesheet" href="./reset.css">
@@ -43,14 +50,15 @@
     <link rel="stylesheet" href="./print.css" media="print">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
         <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
-        <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
+            <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
         </a>
     </header>
-     <nav aria-label="Menu principal">
+    <nav aria-label="Menu principal">
         <ul>
             <li><a href="./index.html">Início</a></li>
             <li><a href="./selecao-de-perfil.html">Perfil</a></li>
@@ -64,20 +72,17 @@
         <h1>Resultados da reciclagem</h1>
         <section class="filtros" aria-label="Filtros dos resultados">
             <div class="cidade">
-                <p><img src="./img/icones/ui-pin.svg" alt="" width="24" height="24"> São Paulo - SP</p>
-                <button type="button" class="botao-cidade">Trocar cidade</button>
+                <p><img src="./img/icones/ui-pin.svg" alt="" width="24" height="24"> <span id="cidade-atual">São Paulo -
+                        SP</span></p>
+                <button type="button" class="botao-cidade" id="trocar-cidade">Trocar cidade</button>
             </div>
+            <p class="aviso" id="aviso-local" role="status"></p>
             <div class="bairros">
                 <p class="rotulo" id="t-bairro">Bairro</p>
-                <div role="group" aria-labelledby="t-bairro" id="filtro-bairro">
-                    <button type="button" aria-pressed="true">Todos</button>
-                    <button type="button" aria-pressed="false" data-kg="509">Sé</button>
-                    <button type="button" aria-pressed="false" data-kg="406">Liberdade</button>
-                    <button type="button" aria-pressed="false" data-kg="306">Bela Vista</button>
-                    <button type="button" aria-pressed="false" data-kg="203">Consolação</button>
-                </div>
+                <div role="group" aria-labelledby="t-bairro" id="filtro-bairro"></div>
+                <div id="outro-bairro" hidden></div>
             </div>
-            <p class="escopo" id="escopo" role="status">Mostrando todos os bairros de São Paulo - SP</p>
+            <p class="escopo" id="escopo" role="status"></p>
             <p id="sem-dados" hidden></p>
         </section>
         <section aria-labelledby="t-meta" data-resultado>
@@ -88,33 +93,36 @@
 
         <section aria-labelledby="t-num" data-resultado>
             <h2 id="t-num">Em números</h2>
-            <dl id="numeros">                
+            <dl id="numeros">
             </dl>
         </section>
 
         <section aria-labelledby="t-mat" data-resultado>
             <h2 id="t-mat">O que foi recolhido</h2>
-            <ul class="barras" id="lista-materiais">                
+            <ul class="barras" id="lista-materiais">
             </ul>
         </section>
 
         <section aria-labelledby="t-mes" data-resultado>
             <h2 id="t-mes">Mês a mês (kg)</h2>
-            <ol class="colunas" id="colunas-mes">                
+            <ol class="colunas" id="colunas-mes">
             </ol>
         </section>
 
         <section aria-labelledby="t-bai" data-resultado>
             <h2 id="t-bai">Bairros participando</h2>
-            <ul class="barras" id="lista-bairros">                
+            <ul class="barras" id="lista-bairros">
             </ul>
-            <button type="button" id="ver-bairros" hidden>Ver todos os bairros</button>
+            <button class="botao botao-sec" type=button id="ver-bairros" hidden>Ver todos os bairros</button>
         </section>
 
-        <p><small>Estimativa de CO₂ feita com fatores da EPA WARM v16 (EUA). Só entra o que foi confirmado como recolhido. Dados de exemplo do modo demonstração.</small></p>
+        <p><small>Estimativa de CO₂ feita com fatores da EPA WARM v16 (EUA). Só entra o que foi confirmado como
+                recolhido. Dados de exemplo do modo demonstração.</small></p>
 
         <button type="button" id="baixar-pdf">Baixar relatório em PDF</button>
     </main>
-    <script type="module" src="./js/dashboard.js"></script> 
+    <script type="module" src="./js/dashboard.js"></script>
+    <script type="module" src="./js/app.js"></script>
 </body>
+
 </html>
