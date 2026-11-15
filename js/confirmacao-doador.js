@@ -3,6 +3,7 @@ import { ler } from './storage.js';
 import { el, formatarKg, totalKg } from './util.js';
 import { linhaMaterial } from './util.js';
 import { preencherChamada } from './resultados.js';
+import { MATERIAIS } from './dados.js';
 
 const { pedidoDoador: pedido, coletas } = ler();
 const secao = document.getElementById('secao-pedido');
