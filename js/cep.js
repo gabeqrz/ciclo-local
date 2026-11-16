@@ -13,7 +13,16 @@ export function mascararCep(texto) {
 export async function consultarCep(cep) {
   const digitos = soDigitos(cep);
   if (digitos.length !== 8) return null;
-  const resposta = await fetch(`https://viacep.com.br/ws/${digitos}/json/`);
+
+  let resposta;
+  try {
+    resposta = await fetch(`https://viacep.com.br/ws/${digitos}/json/`);
+  } catch {
+    const erro = new Error('Sem conexão');
+    erro.offline = true;
+    throw erro;
+  }
+
   if (!resposta.ok) throw new Error('Falha na consulta do CEP');
   const dados = await resposta.json();
   if (dados.erro) return null;

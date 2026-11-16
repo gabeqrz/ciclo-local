@@ -1,0 +1,20 @@
+{
+  "name": "CicloLocal",
+  "short_name": "CicloLocal",
+  "description": "Conecta doadores e coletores de recicláveis por bairro e mostra o impacto da reciclagem.",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F7F5F0",
+  "theme_color": "#F7F5F0",
+  "icons": [
+    { "src": "./img/icones/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./img/icones/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "./img/icones/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+  { "src": "./img/screenshots/desktop.png", "sizes": "1280x720", "type": "image/png", "form_factor": "wide", "label": "Painel de resultados da reciclagem" },
+  { "src": "./img/screenshots/mobile.png", "sizes": "390x844", "type": "image/png", "label": "Pedido de coleta do doador" }
+]
+}

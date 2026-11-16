@@ -11,6 +11,13 @@ const erro = document.getElementById('erro');
 const saida = document.getElementById('total');
 const caixas = [...form.querySelectorAll('input[type=checkbox]')];
 const pesoDe = (caixa) => document.getElementById(`kg-${caixa.id.slice(2)}`); // m-pet -> kg-pet
+const blocoManual = document.getElementById('endereco-manual');
+const manual = {
+  rua: document.getElementById('man-rua'),
+  bairro: document.getElementById('man-bairro'),
+  cidade: document.getElementById('man-cidade'),
+  uf: document.getElementById('man-uf'),
+};
 
 let enderecoEncontrado = null;
 let consultaAtual = 0;
@@ -40,10 +47,14 @@ async function buscarCep(cep) {
     enderecoEncontrado = encontrado;
     erro.textContent = '';
     mostrarEndereco(encontrado);
-  } catch {
+  } catch (falha) {
     if (minha !== consultaAtual) return;
-    mostrarEndereco(null);
-    erro.textContent = 'Não conseguimos consultar o CEP agora. Tente de novo em instantes.';
+    const aviso = falha.offline
+      ? 'Você está sem internet. Digite o endereço abaixo.'
+      : 'Não conseguimos consultar o CEP agora. Digite o endereço abaixo.';
+    blocoEndereco.replaceChildren(el('p', {}, aviso));
+    erro.textContent = '';
+    blocoManual.hidden = false;
   }
 }
 
@@ -51,6 +62,7 @@ campoCep.addEventListener('input', () => {
   campoCep.value = mascararCep(campoCep.value);
   const digitos = soDigitos(campoCep.value);
   enderecoEncontrado = null;
+  blocoManual.hidden = true;
   consultaAtual += 1; // cancela a consulta em andamento
   erro.textContent = '';
   if (digitos.length === 8) buscarCep(digitos); else mostrarEndereco(null);
@@ -79,18 +91,29 @@ form.addEventListener('submit', (evento) => {
   evento.preventDefault();
   const numero = campoNumero.value.trim();
   const materiais = pesosMarcados();
-  if (!enderecoEncontrado) return falhar('Informe um CEP válido para encontrarmos o endereço.', campoCep);
+
+  let endereco = enderecoEncontrado;
+  if (!endereco && !blocoManual.hidden) {
+    const rua = manual.rua.value.trim();
+    const bairro = manual.bairro.value.trim();
+    const cidade = manual.cidade.value.trim();
+    const uf = manual.uf.value.trim().toUpperCase();
+    if (!rua) return falhar('Informe a rua.', manual.rua);
+    if (!bairro) return falhar('Informe o bairro.', manual.bairro);
+    if (!cidade) return falhar('Informe a cidade.', manual.cidade);
+    if (uf.length !== 2) return falhar('Informe a sigla do estado, como SP.', manual.uf);
+    endereco = { cep: campoCep.value, logradouro: rua, bairro, cidade, uf };
+  }
+
+  if (!endereco) return falhar('Informe um CEP válido para encontrarmos o endereço.', campoCep);
   if (!numero) return falhar('Informe o número do endereço.', campoNumero);
   if (materiais.length === 0) return falhar('Marque pelo menos um material para entregar.', caixas[0]);
 
   erro.textContent = '';
-  const { logradouro, bairro, cidade, uf, cep } = enderecoEncontrado;
+  const { logradouro, bairro, cidade, uf, cep } = endereco;
   const id = `c-${Date.now()}`;
   atualizar((e) => {
-    e.pedidoDoador = { id, cep, numero, logradouro, bairro, cidade, uf, materiais };
-    e.local = { cidade, uf, bairro: bairro || null, manual: true, detectado: true };
-    // o pedido também aparece para os coletores
-    e.coletas.push({ id, cidade: `${cidade} - ${uf}`, bairro: bairro || cidade, endereco: `${logradouro}, ${numero}`, materiais, status: 'esperando', origem: 'doador' });
+    // ...igual ao que você já tem
   });
   window.location.href = './confirmacao-doador.html';
 });

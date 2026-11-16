@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="./tokens.css">
     <link rel="stylesheet" href="./print.css" media="print">
     <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="./manifest.webmanifest">
 </head>
 
 <body>
@@ -86,6 +87,25 @@
                 </div>
 
                 <div id="endereco" aria-live="polite"></div>
+                <fieldset id="endereco-manual" hidden>
+                    <legend>Digite o endereço</legend>
+                    <div>
+                        <label for="man-rua">Rua</label>
+                        <input type="text" id="man-rua" autocomplete="address-line1">
+                    </div>
+                    <div>
+                        <label for="man-bairro">Bairro</label>
+                        <input type="text" id="man-bairro">
+                    </div>
+                    <div>
+                        <label for="man-cidade">Cidade</label>
+                        <input type="text" id="man-cidade" autocomplete="address-level2">
+                    </div>
+                    <div>
+                        <label for="man-uf">UF</label>
+                        <input type="text" id="man-uf" maxlength="2" autocomplete="address-level1" placeholder="SP">
+                    </div>
+                </fieldset>
             </section>
 
             <div>
