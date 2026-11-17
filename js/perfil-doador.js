@@ -109,11 +109,14 @@ form.addEventListener('submit', (evento) => {
   if (!numero) return falhar('Informe o número do endereço.', campoNumero);
   if (materiais.length === 0) return falhar('Marque pelo menos um material para entregar.', caixas[0]);
 
-  erro.textContent = '';
+   erro.textContent = '';
   const { logradouro, bairro, cidade, uf, cep } = endereco;
   const id = `c-${Date.now()}`;
   atualizar((e) => {
-    // ...igual ao que você já tem
+    e.pedidoDoador = { id, cep, numero, logradouro, bairro, cidade, uf, materiais };
+    e.local = { cidade, uf, bairro: bairro || null, manual: true, detectado: true };
+    // o pedido também aparece para os coletores
+    e.coletas.push({ id, cidade: `${cidade} - ${uf}`, bairro: bairro || cidade, endereco: `${logradouro}, ${numero}`, materiais, status: 'esperando', origem: 'doador' });
   });
   window.location.href = './confirmacao-doador.html';
 });

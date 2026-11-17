@@ -180,6 +180,7 @@ main>a:first-child+p {
   font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   border-radius: var(--raio-pill);
+  align-self: start;
 }
 
 /* Entrada: logo no topo, conteúdo centralizado na vertical, link no rodapé */
@@ -1351,9 +1352,10 @@ section[aria-labelledby="t-feitas"] li time {
 
   /* --- Pedido enviado: cartão do pedido e chamada lado a lado --- */
   main:has([aria-labelledby='t-pedido']) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--esp-4) var(--esp-5);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--esp-4) var(--esp-5);
+  align-content: start;   /* linhas do tamanho do conteúdo */
   }
 
   main:has([aria-labelledby='t-pedido'])>* {
