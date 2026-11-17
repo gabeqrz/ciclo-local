@@ -224,6 +224,10 @@ main>a:first-child+p {
   color: var(--cl-petroleo-900);
 }
 
+#botao-instalar {
+  margin-top: var(--esp-7);
+}
+
 .link-centro {
   display: flex;
   align-items: center;
