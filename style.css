@@ -225,7 +225,22 @@ main>a:first-child+p {
 }
 
 #botao-instalar {
-  margin-top: var(--esp-7);
+  display: flex;
+  width: fit-content;          /* não ocupa a largura toda como o gov.br */
+  margin-top: var(--esp-8);
+  margin-inline: auto;         /* centralizado */
+  min-height: var(--alvo-min);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  background: transparent;
+  border-color: var(--cl-petroleo-900);
+  color: var(--cl-petroleo-900);
+}
+
+#botao-instalar:hover {
+  background: var(--cl-petroleo-100);
+  border-color: var(--cl-petroleo-900);
+  color: var(--cl-petroleo-900);
 }
 
 .link-centro {
