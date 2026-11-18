@@ -675,6 +675,15 @@ article>.botao {
   content: "▴";
 }
 
+#link-historico {
+  width: 100%;
+  justify-content: center;
+}
+
+body:has(.barra-aceite:not([hidden])) #link-historico {
+  display: none;
+}
+
 /* Barra fixa acima do menu inferior */
 .barra-aceite {
   position: fixed;

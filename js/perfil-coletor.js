@@ -37,7 +37,9 @@ function renderizar() {
     && (c.status === 'esperando' || aceitasAgora.has(c.id)));
   lista.replaceChildren(...visiveis.map(cartao));
   vazio.hidden = visiveis.length > 0;
-  vazio.textContent = `Nenhum pedido esperando em ${local.bairro || rotulo} agora.`;
+  vazio.textContent = local.bairro
+  ? `Nenhum pedido esperando em ${local.bairro} agora. Tente outro bairro ou veja suas coletas aceitas.`
+  : `Nenhum pedido esperando em ${rotulo} agora. Volte mais tarde ou veja suas coletas aceitas.`;
 
   const aceitas = coletas.filter((c) => aceitasAgora.has(c.id) && c.status === 'aceita');
   barra.hidden = aceitas.length === 0;
