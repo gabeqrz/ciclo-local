@@ -1087,26 +1087,32 @@ article details>summary:hover {
 }
 
 /* Concluídas: check à esquerda, nome e materiais ao centro, data à direita */
-section[aria-labelledby="t-feitas"] ul {
+
+/* Entregas concluídas: check à esquerda, bairro e materiais ao centro, data à direita */
+section[aria-labelledby="t-feitas"] ul,
+.entregas {
   display: flex;
   flex-direction: column;
-  gap: var(--esp-4);
+  gap: var(--esp-3);
 }
 
-section[aria-labelledby="t-feitas"] li {
+section[aria-labelledby="t-feitas"] li,
+.entregas li {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: "icone nome data" "icone materiais data";
   align-items: center;
   column-gap: var(--esp-3);
-  padding: 0.625rem 0.875rem;
+  row-gap: var(--esp-1);          /* espaço entre bairro e materiais */
+  padding: var(--esp-3) var(--esp-4);
   background: var(--cor-superficie);
   border: var(--borda);
   border-radius: var(--raio-md);
   font-size: 0.9375rem;
 }
 
-section[aria-labelledby="t-feitas"] li::before {
+section[aria-labelledby="t-feitas"] li::before,
+.entregas li::before {
   content: "";
   grid-area: icone;
   width: 1.5rem;
@@ -1114,20 +1120,28 @@ section[aria-labelledby="t-feitas"] li::before {
   background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F6B3F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E");
 }
 
-section[aria-labelledby="t-feitas"] li strong {
+section[aria-labelledby="t-feitas"] li strong,
+.entregas li strong {
   grid-area: nome;
 }
 
-section[aria-labelledby="t-feitas"] li small {
+section[aria-labelledby="t-feitas"] li small,
+.entregas li small {
   grid-area: materiais;
-  font-size: 0.8125rem;
-}
-
-section[aria-labelledby="t-feitas"] li time {
-  grid-area: data;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
   color: var(--cor-texto-suave);
 }
+
+section[aria-labelledby="t-feitas"] li time,
+.entregas li time {
+  grid-area: data;
+  font-size: 0.875rem;
+  font-weight: var(--fw-bold);
+  color: var(--cl-petroleo-900);   /* mais escura, melhor leitura */
+  white-space: nowrap;
+}
+
 
 /* ===== 12. Logo com a fonte da marca (use se trocar o <img> do logotipo por símbolo + texto) =====
    <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
