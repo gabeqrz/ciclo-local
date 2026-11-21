@@ -1,5 +1,5 @@
 // app.js: carregado em todas as páginas
-import { reiniciar } from './storage.js';
+import { reiniciar, ler, atualizar } from './storage.js';
 
 const USAR_PWA = true; 
 
@@ -8,6 +8,48 @@ window.reiniciarDemo = () => {
   reiniciar();
   window.location.reload();
 };
+
+/* ----- Menu principal: uma definição só, igual em todas as páginas -----
+   Início · Coletas (ou Pedidos, para quem doa) · Resultados · Sair.
+   "Sair" apaga o localStorage (reiniciar) antes de voltar para a entrada. */
+const pagina = location.pathname.split('/').pop() || 'index.html';
+const paginaDoador = /doador/.test(pagina);
+const paginaColetor = /coletor|coletas/.test(pagina);
+
+function perfilAtual() {
+  if (paginaDoador || paginaColetor) {
+    const perfil = paginaDoador ? 'doador' : 'coletor';
+    if (ler().perfil !== perfil) atualizar((e) => { e.perfil = perfil; });
+    return perfil;
+  }
+  return ler().perfil ?? 'coletor';
+}
+
+const listaMenu = document.querySelector('nav[aria-label="Menu principal"] ul');
+if (listaMenu) {
+  const doador = perfilAtual() === 'doador';
+  const itens = [
+    { href: './selecao-de-perfil.html', texto: 'Início', atual: ['selecao-de-perfil.html', 'perfil-doador.html'].includes(pagina) },
+    doador
+      ? { href: './confirmacao-doador.html', texto: 'Pedidos', atual: pagina === 'confirmacao-doador.html' }
+      : { href: './perfil-coletor.html', texto: 'Coletas', atual: paginaColetor },
+    { href: './dashboard.html', texto: 'Resultados', atual: pagina === 'dashboard.html' },
+    { href: './index.html', texto: 'Sair', sair: true },
+  ];
+  listaMenu.replaceChildren(...itens.map(({ href, texto, atual, sair }) => {
+    const link = document.createElement('a');
+    link.href = href;
+    link.textContent = texto;
+    if (atual) link.setAttribute('aria-current', 'page');
+    if (sair) link.dataset.sair = '';
+    const item = document.createElement('li');
+    item.append(link);
+    return item;
+  }));
+  listaMenu.addEventListener('click', (evento) => {
+    if (evento.target.closest('[data-sair]')) reiniciar();
+  });
+}
 
 if (USAR_PWA && 'serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js').catch(() => { /* sem service worker: o site segue funcionando */ });

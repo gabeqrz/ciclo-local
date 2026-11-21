@@ -1002,15 +1002,19 @@ nav[aria-label="Menu principal"] a::before {
 }
 
 nav[aria-label="Menu principal"] a[href$="index.html"] {
-  --icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11l9-8 9 8v10H3z'/%3E%3C/svg%3E");
+  --icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5V3h4M16 17l5-5-5-5M21 12H9'/%3E%3C/svg%3E");
 }
 
 nav[aria-label="Menu principal"] a[href$="selecao-de-perfil.html"] {
-  --icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21a8 8 0 0 1 16 0'/%3E%3C/svg%3E");
+  --icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11l9-8 9 8v10H3z'/%3E%3C/svg%3E");
 }
 
 nav[aria-label="Menu principal"] a[href$="perfil-coletor.html"] {
   --icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01'/%3E%3C/svg%3E");
+}
+
+nav[aria-label="Menu principal"] a[href$="confirmacao-doador.html"] {
+  --icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 3h6v4H9z'/%3E%3Cpath d='M9 5H5v16h14V5h-4M9 12h6M9 16h4'/%3E%3C/svg%3E");
 }
 
 nav[aria-label="Menu principal"] a[href$="dashboard.html"] {
