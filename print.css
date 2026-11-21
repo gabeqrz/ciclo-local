@@ -25,16 +25,68 @@
     display: none !important;
   }
 
-  /* cartões não quebram entre páginas */
-  article,
-  main:has(dl)>section,
-  dl>div {
-    break-inside: avoid;
-    border: 1px solid #999;
-  }
-
   a {
     color: #000;
     text-decoration: none;
+  }
+
+  /* ---- Acabamento do relatório (revisão de UX, 19/11/2026) ----
+     Este arquivo carrega ANTES do style.css, então os ajustes abaixo usam
+     seletores mais específicos e !important para valer sobre as regras de tela. */
+
+  /* "Modo demonstração" sai do topo; o aviso de dados de exemplo continua na nota do rodapé */
+  html body main> p:first-child {
+    display: none !important;
+  }
+
+  /* logotipo maior e centralizado */
+  html body> header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8mm;
+  }
+
+  html body> header .logo {
+    font-size: 1.75rem;
+  }
+
+  html body> header .logo img {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* resultados centralizados */
+  html body main :is(h1, h2),
+  html body main #meta-texto {
+    text-align: center;
+  }
+
+  html body main progress {
+    display: block;
+    margin-inline: auto;
+  }
+
+  /* sem moldura nas seções; só os cartões de números mantêm uma borda leve */
+  html body main> section {
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    break-inside: avoid;
+  }
+
+  html body main dl> div {
+    border: 1px solid #ccc !important;
+    border-radius: 8px;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  html body article {
+    break-inside: avoid;
+  }
+
+  /* os botões de bairro somem na impressão, então o rótulo "Bairro" ficaria solto */
+  html body main .filtros .rotulo {
+    display: none;
   }
 }

@@ -39,6 +39,11 @@
   --cor-aviso: var(--cl-ambar-700);
   --cor-erro: var(--cl-vermelho-700);
 
+  /* Estado "coleta aceita" (distinto do terracota de ação) */
+  --cor-estado-fundo: #D96B433B;  /* terracota-400 a ~23%: ≈ #F6DDD4 sobre o branco do card */
+  --cor-estado-borda: var(--cl-terracota-700);
+  --cor-estado-texto: var(--cl-terracota-700); /* ≈ 4,8:1 sobre o fundo acima */
+
   /* Tipografia */
   --fonte-base: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --fs-xs: 0.75rem;
@@ -76,6 +81,7 @@
   --borda: 1px solid var(--cor-borda);
   --sombra-sm: 0 1px 2px rgba(29, 53, 87, 0.08);
   --sombra-md: 0 6px 18px rgba(29, 53, 87, 0.12);
+  --sombra-topo: 0 -6px 18px rgba(29, 53, 87, 0.12); /* sombra-md espelhada, para barras coladas no rodapé */
 
   /* Interação */
   --alvo-min: 2.75rem;

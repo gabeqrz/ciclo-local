@@ -27,11 +27,11 @@
 **Para corrigir ou conferir no código**
 
 - [x] **Pré-cache de `sw.js` completo:** a lista cobre as 8 páginas, os 5 CSS e os 16 módulos JS (corrigido na versão `ciclolocal-v5`).
-- [ ] Os caminhos `./img/icones/icon-*.png` do pré-cache existem no repositório? Um arquivo ausente faz o `addAll` falhar e o service worker não instala.
+- [x] Os caminhos `./img/icones/icon-*.png` do pré-cache existem no repositório? Um arquivo ausente faz o `addAll` falhar e o service worker não instala.
 - [ ] Os arquivos `img/screenshots/desktop.png` e `mobile.png` do manifest existem?
-- [ ] `pwa.js` e `app.js` registram o mesmo service worker. Confirmar se `pwa.js` é carregado em alguma página; se não, remover. Atualizar o comentário de `USAR_PWA`.
-- [ ] O botão `#botao-instalar` existe em alguma página? Todas as páginas têm `<link rel="manifest">` e `apple-touch-icon`?
-- [ ] Os fluxos que dependem de rede (CEP, IBGE, geolocalização) mostram mensagem compreensível offline?
+- [x] `pwa.js` e `app.js` registram o mesmo service worker. Confirmar se `pwa.js` é carregado em alguma página; se não, remover. Atualizar o comentário de `USAR_PWA`.
+- [x] O botão `#botao-instalar` existe em alguma página? Todas as páginas têm `<link rel="manifest">` e `apple-touch-icon`?
+- [x] Os fluxos que dependem de rede (CEP, IBGE, geolocalização) mostram mensagem compreensível offline?
 
 **Testes (registrar dispositivo, navegador, data e resultado)**
 

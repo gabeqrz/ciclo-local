@@ -22,7 +22,7 @@ function cartao(coleta) {
     'data-id': coleta.id,
     'aria-label': `${aceita ? 'Desfazer o aceite da' : 'Aceitar'} coleta em ${coleta.bairro}`,
   }, aceita ? 'Coleta aceita · Desfazer' : 'Aceitar coleta');
-  return el('article', { 'aria-labelledby': `p-${coleta.id}` },
+  return el('article', { 'aria-labelledby': `p-${coleta.id}`, ...(aceita ? { class: 'coleta-aceita' } : {}) },
     el('h3', { id: `p-${coleta.id}` }, coleta.bairro),
     el('ul', { class: 'materiais' }, ...coleta.materiais.map((m) => el('li', {}, linhaMaterial(m)))),
     el('p', {}, 'Total: ', el('strong', {}, formatarKg(totalKg(coleta.materiais)))),

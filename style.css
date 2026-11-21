@@ -1472,3 +1472,38 @@ section[aria-labelledby="t-feitas"] li time,
     grid-template-rows: auto 12rem auto;
   }
 }
+
+/* CicloLocal — correções de interface da seção 1.1 do roadmap.
+   Colar no FINAL do CSS onde já existem .barra-aceite e os estilos de card/botão da tela de coletas
+   (precisa vir depois das regras atuais). Tokens novos estão em tokens.css. */
+
+/* 1) Barra de aceite: um pouco mais alta, sombra no topo no lugar da borda */
+.barra-aceite {
+  padding: var(--esp-4);
+  border-top: 0;
+  box-shadow: var(--sombra-topo);
+}
+/* Colada no rodapé onde o menu NÃO fica embaixo.
+   Use o MESMO breakpoint em que o menu sobe para o topo (48em = 768px é o palpite). */
+@media (min-width: 48em) {
+  .barra-aceite { bottom: 0; }
+}
+
+/* 2) Estado "coleta aceita": card e botão com cor própria, diferente do terracota de ação.
+   A classe .coleta-aceita é aplicada ao <article> em perfil-coletor.js */
+article.coleta-aceita {
+  border-color: var(--cor-estado-borda);
+  box-shadow: var(--sombra-sm);
+}
+article.coleta-aceita .botao {
+  background: var(--cor-estado-fundo);
+  border-color: var(--cor-estado-borda);
+  color: var(--cor-estado-texto);
+}
+/* No hover o fundo não escurece: mais terracota no fundo derrubaria o contraste abaixo de 4,5:1 */
+article.coleta-aceita .botao:hover {
+  background: var(--cor-estado-fundo);
+  border-color: var(--cor-estado-borda);
+  color: var(--cor-estado-texto);
+  box-shadow: var(--sombra-sm);
+}

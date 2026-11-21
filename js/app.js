@@ -1,7 +1,7 @@
 // app.js: carregado em todas as páginas
 import { reiniciar } from './storage.js';
 
-const USAR_PWA = true; // ligar quando existirem sw.js e o manifest
+const USAR_PWA = true; 
 
 // Para recomeçar a demonstração, digite reiniciarDemo() no Console do navegador
 window.reiniciarDemo = () => {
