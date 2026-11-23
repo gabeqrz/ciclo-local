@@ -6,27 +6,32 @@ import { MATERIAIS } from './dados.js';
 
 const MAX_RECENTES = 3;
 
-// Só os passos que ainda faltam: o que já aconteceu está no título e na etiqueta de situação
+// Uma só forma de acompanhar: as próximas etapas, cada uma explicada. O título já diz onde o pedido está.
+const ETAPAS = {
+  aceito: {
+    titulo: 'Aceito por um coletor',
+    texto: 'Um coletor aceita o seu pedido. Quando isso acontecer, o andamento muda aqui.',
+  },
+  recolhido: {
+    titulo: 'Material recolhido',
+    texto: 'O coletor vai até o endereço e confirma o peso. Depois disso, o pedido entra nos resultados da reciclagem.',
+  },
+};
+
 const ESTADOS = {
   esperando: {
     titulo: 'Pedido enviado!',
     subtitulo: 'Agora é só esperar um coletor aceitar. Você acompanha o andamento aqui.',
-    situacao: 'Aguardando um coletor aceitar',
-    classe: 'etiqueta',
-    faltam: ['Aceito por um coletor', 'Material recolhido'],
+    faltam: ['aceito', 'recolhido'],
   },
   aceita: {
     titulo: 'Um coletor aceitou o seu pedido!',
     subtitulo: 'Ele vai ao endereço recolher o material. Você acompanha o andamento aqui.',
-    situacao: 'Aceito por um coletor',
-    classe: 'etiqueta etiqueta-aceita',
-    faltam: ['Material recolhido'],
+    faltam: ['recolhido'],
   },
   concluida: {
     titulo: 'Material recolhido!',
     subtitulo: 'Obrigado por reciclar. O seu pedido já entrou nos resultados da reciclagem.',
-    situacao: 'Material recolhido',
-    classe: 'etiqueta etiqueta-aceita',
     faltam: [],
   },
 };
@@ -41,10 +46,6 @@ function mostrarPedido(pedido, coletas) {
   porId('subtitulo').textContent = estado.subtitulo;
   porId('t-pedido').textContent = status === 'concluida' ? 'O seu pedido foi recolhido' : 'O seu pedido já foi enviado para a coleta';
 
-  const situacao = porId('situacao');
-  situacao.className = estado.classe;
-  situacao.textContent = estado.situacao;
-
   const primeira = pedido.bairro
     ? [el('strong', {}, pedido.bairro), ` · ${pedido.cidade} - ${pedido.uf}`]
     : [el('strong', {}, `${pedido.cidade} - ${pedido.uf}`)];
@@ -55,20 +56,19 @@ function mostrarPedido(pedido, coletas) {
   );
   porId('pedido-total').textContent = formatarKg(totalKg(pedido.materiais));
 
-  const lista = porId('andamento');
-  lista.replaceChildren(...estado.faltam.map((etapa, i) => el('li', i === 0 ? { 'aria-current': 'step' } : {}, etapa)));
-  lista.hidden = estado.faltam.length === 0;
-  porId('nota-andamento').hidden = estado.faltam.length === 0;
+  porId('andamento').replaceChildren(...estado.faltam.map((chave, i) => el('li', i === 0 ? { 'aria-current': 'step' } : {},
+    el('div', {}, el('strong', {}, ETAPAS[chave].titulo), el('span', {}, ETAPAS[chave].texto)))));
+  porId('secao-etapas').hidden = estado.faltam.length === 0;
 }
 
-// Últimos pedidos concluídos: só os do próprio doador (o endereço costuma ser o mesmo, então não mostra bairro)
+// Últimos pedidos concluídos: só os do próprio doador. A data identifica o pedido (o endereço costuma ser o mesmo)
 function mostrarConcluidos(coletas, concluidas) {
   const meus = new Set(coletas.filter((c) => c.origem === 'doador').map((c) => c.id));
   const feitos = ordenarConcluidas(concluidas.filter((h) => meus.has(h.id)));
   porId('lista-feitas').replaceChildren(...feitos.slice(0, MAX_RECENTES).map((item) => el('li', {},
-    el('strong', {}, formatarKg(totalKg(item.materiais))), ' ',
+    el('strong', {}, `Recolhido em ${dataCurta(item.data)}`), ' ',
     el('small', {}, descricaoMateriais(item.materiais)), ' ',
-    el('time', { datetime: item.data }, dataCurta(item.data)))));
+    el('span', { class: 'kg-pedido' }, formatarKg(totalKg(item.materiais))))));
   porId('sem-feitos').hidden = feitos.length > 0;
 }
 

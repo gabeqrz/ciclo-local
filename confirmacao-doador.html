@@ -78,19 +78,23 @@
         <section id="secao-pedido" aria-labelledby="t-pedido">
             <h2 id="t-pedido">O seu pedido já foi enviado para a coleta</h2>
             <p id="sem-pedido" hidden>Você ainda não avisou que tem material. <a href="./perfil-doador.html">Avisar que tenho material</a></p>
-            <div id="dados-pedido">
-                <p id="situacao" class="etiqueta">Aguardando um coletor aceitar</p>
-                <p id="pedido-local"></p>
-                <p id="pedido-endereco"></p>
-                <ul class="materiais" id="pedido-materiais"></ul>
-                <p>Total: <strong id="pedido-total"></strong></p>
-
-                <ol id="andamento" aria-label="Andamento do pedido">
-                    <li aria-current="step">Aceito por um coletor</li>
-                    <li>Material recolhido</li>
-                </ol>
-                <p id="nota-andamento">Quando o material for recolhido, ele entra nos resultados da reciclagem.</p>
+            <div id="dados-pedido" class="pedido-dados">
+                <div class="pedido-bloco">
+                    <p class="pedido-rotulo">Retirada em</p>
+                    <p id="pedido-local"></p>
+                    <p id="pedido-endereco"></p>
+                </div>
+                <div class="pedido-bloco">
+                    <p class="pedido-rotulo">Materiais</p>
+                    <ul class="materiais" id="pedido-materiais"></ul>
+                </div>
+                <p class="pedido-total"><span>Total</span> <strong id="pedido-total"></strong></p>
             </div>
+        </section>
+
+        <section id="secao-etapas" aria-labelledby="t-etapas">
+            <h2 id="t-etapas">Próximas etapas</h2>
+            <ol id="andamento" aria-label="Andamento do pedido"></ol>
         </section>
 
         <section aria-labelledby="t-feitas">

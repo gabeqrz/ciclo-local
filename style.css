@@ -1511,3 +1511,100 @@ article.coleta-aceita .botao:hover {
   color: var(--cor-estado-texto);
   box-shadow: var(--sombra-sm);
 }
+
+/* ===== Pedidos do doador (confirmacao-doador e historico-pedidos) ===== */
+
+/* Cartão "Próximas etapas": mesmo visual do cartão do pedido */
+section[aria-labelledby="t-etapas"] {
+  padding: var(--esp-4);
+  background: var(--cor-superficie);
+  border: var(--borda);
+  border-radius: var(--raio-md);
+  box-shadow: var(--sombra-sm);
+}
+
+/* Respiro entre o título e o conteúdo dos dois cartões */
+section[aria-labelledby="t-pedido"]>h2,
+section[aria-labelledby="t-etapas"]>h2 {
+  margin-bottom: var(--esp-4);
+}
+
+/* Dados do pedido com respiro entre os blocos (o <div> de dentro desligava o espaçamento de section>*+*) */
+.pedido-dados {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-4);
+}
+
+.pedido-bloco {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-1);
+}
+
+.pedido-rotulo {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--cor-texto-suave);
+}
+
+/* um material por linha dentro do cartão */
+.pedido-bloco .materiais {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-1);
+  color: var(--cor-texto);
+}
+
+.pedido-bloco .materiais li {
+  display: block;
+}
+
+.pedido-bloco .materiais li:not(:last-child)::after {
+  content: none;
+}
+
+.pedido-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: var(--esp-3);
+  border-top: var(--borda);
+  font-size: var(--fs-lg);
+}
+
+/* Próximas etapas: círculo ao lado de título + explicação */
+#andamento {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-4);
+}
+
+#andamento>li+li {
+  margin-top: 0;
+}
+
+#andamento li {
+  align-items: flex-start;
+}
+
+#andamento li>div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-1);
+}
+
+#andamento li span {
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--cor-texto-suave);
+}
+
+/* Pedidos concluídos: a data identifica o pedido; o total de kg fica à direita */
+.entregas li .kg-pedido {
+  grid-area: data;
+  font-size: 0.875rem;
+  font-weight: var(--fw-bold);
+  color: var(--cl-petroleo-900);
+  white-space: nowrap;
+}

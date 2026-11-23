@@ -1,7 +1,7 @@
 // A cada deploy que mude QUALQUER arquivo do app (HTML, CSS, JS, imagens), troque este valor.
 // É a troca de um único caractere neste arquivo que faz o navegador instalar a nova versão.
 // Sugestão: 'ciclolocal-AAAA-MM-DD-n' (ex.: 'ciclolocal-2026-11-16-1').
-const VERSAO = 'ciclolocal-2026-11-22-1';
+const VERSAO = 'ciclolocal-2026-11-22-2';
 const ARQUIVOS = [
   // Páginas (8)
   './', './index.html', './selecao-de-perfil.html',

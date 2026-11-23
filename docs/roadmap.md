@@ -1,6 +1,6 @@
 # CicloLocal — Roadmap, status e evoluções
 
-**Atualizado em 20 de novembro de 2026.** Une o acompanhamento de execução e o backlog de evoluções. Detalhes técnicos ficam na [referência](./referencia.md).
+**Atualizado em 22 de novembro de 2026.** Une o acompanhamento de execução e o backlog de evoluções. Detalhes técnicos ficam na [referência](./referencia.md).
 
 **Convenção de status:** *Implementado* (está no código; pode exigir teste) · *Validação pendente* (executar o teste e registrar evidência) · *Em andamento* · *Fora do escopo atual*. Nunca marque como aprovado só porque existe código.
 
@@ -8,11 +8,13 @@
 
 | Frente | Status | O que falta validar |
 |---|---|---|
-| Base, identidade e 8 páginas | Implementado | HTML no W3C, reflow, zoom, contraste, teclado |
+| Base, identidade e 9 páginas | Implementado | HTML no W3C, reflow, zoom, contraste, teclado |
 | Entrada demonstrativa e preloader | Implementado | Navegação e redução de movimento |
 | Doador, ViaCEP e pedido | Implementado | CEP válido/inexistente/incompleto, falha de rede, persistência |
 | Coletor (filtro, aceite, desistência, conclusão) | Implementado | Estados, peso inválido, persistência após recarregar |
 | Histórico de coletas | Implementado | Filtros por mês/bairro, exibição progressiva |
+| Menu principal (Início, Coletas/Pedidos, Resultados, Sair) | Implementado; teste pendente | "Sair" apaga o `localStorage`; menu igual nas 9 páginas, sem "piscar" |
+| Pedidos do doador (acompanhamento e histórico) | Implementado; teste pendente | Os 3 estados (esperando, aceita, concluída), outra aba, botão "Voltar", 320 px |
 | Localização | Implementado | Permissão concedida, negada, serviço indisponível |
 | Dashboard, CO₂ e impressão | Implementado | Conferir 19,60 kg CO₂e no exemplo; testar `print.css` em navegadores diferentes |
 | Dados de demonstração e `reiniciarDemo()` | Implementado | Confirmar que `reiniciar()` limpa todo o estado e recarrega |
@@ -35,12 +37,16 @@ Só o que é urgente. O restante fica no backlog (seção 5). Origem: revisão e
 **Documentação**
 
 - [ ] README: preencher os nomes completos da equipe. A reinicialização dos dados de exemplo existe só pelo console (`reiniciarDemo()`); não há botões e não serão implantados.
+- [ ] README e referência: incluir `historico-pedidos.html` (9 páginas), o menu com "Sair" e a página de pedidos do doador.
 
 **Fluxo e navegação** (apontamentos 3 e 4 do mentor; implementado, falta testar)
 
 - [ ] Menu: Início · Coletas (ou Pedidos, para quem doa) · Resultados · Sair, com ícone novo em "Sair". O "Sair" apaga o `localStorage` e volta para a entrada. Testar nas 8 páginas e conferir se o menu não "pisca" ao carregar.
 - [ ] Menu "Pedidos" ativo na tela de confirmação do doador; "Coletas" para o coletor.
-- [ ] Acompanhamento do doador em `confirmacao-doador.html`: título e situação por status, só os passos que faltam, "O seu pedido já foi enviado para a coleta" e as últimas entregas concluídas. Testar os 3 estados (esperando, aceita, concluída) alternando doador e coletor no mesmo navegador.
+- [ ] Acompanhamento do doador em `confirmacao-doador.html`: uma só forma de acompanhar (título por status + cartão "Próximas etapas", só as que faltam, cada uma explicada), sem selo colorido; cartão do pedido em blocos com respiro (retirada, materiais, total). Testar os 3 estados (esperando, aceita, concluída) alternando doador e coletor, inclusive com a página aberta em outra aba e voltando com o botão "Voltar".
+- [ ] "Últimos pedidos concluídos" (só os do doador): cada pedido identificado pela data ("Recolhido em …"), com materiais e o total de kg à direita, sem bairro. Mesmo formato na página de histórico.
+- [ ] Nova página `historico-pedidos.html` (resumo, em andamento e concluídos). Incluir `historico-pedidos.html` e `js/historico-pedidos.js` no `ARQUIVOS` do `sw.js` e subir a `VERSAO`.
+- [ ] Link fixo "Ver meus pedidos" no `perfil-doador.html`, para o doador chegar aos pedidos anteriores sem fazer um novo (mesmo caso do `#link-historico` do coletor).
 
 **PWA e testes (mínimo para a demonstração)**
 
@@ -70,7 +76,7 @@ Só o que é urgente. O restante fica no backlog (seção 5). Origem: revisão e
 - [ ] DevTools → Application: manifest sem erros, "Installable" e service worker ativo; Cache Storage com todos os arquivos.
 - [ ] Instalar no Android (Chrome) e abrir como app standalone.
 - [ ] Adicionar à Tela de Início no iPhone (Safari).
-- [ ] Modo avião: abrir cada uma das 8 páginas e completar o fluxo doador → coletor → painel.
+- [ ] Modo avião: abrir cada uma das 9 páginas e completar o fluxo doador → coletor → painel.
 - [ ] Após um deploy com `VERSAO` nova, confirmar que o app instalado atualiza.
 
 > O Lighthouse atual não tem mais categoria PWA; use o painel Application e o teste em dispositivo como evidência.
@@ -84,6 +90,8 @@ Só o que é urgente. O restante fica no backlog (seção 5). Origem: revisão e
 - [ ] Desfazer o aceite e aceitar de novo.
 - [ ] Alterar pelo menos um peso em relação ao estimado e concluir.
 - [ ] Confirmar a coleta no histórico e que o painel só mudou após a conclusão.
+- [ ] Como doador, abrir "Pedidos" e conferir o título e as próximas etapas nos 3 estados; depois conferir o pedido em "Últimos pedidos concluídos" e no histórico de pedidos.
+- [ ] Clicar em "Sair" e confirmar que os dados de exemplo voltam e que o menu fica igual em todas as páginas.
 - [ ] Conferir cálculo de CO₂e e filtros por bairro e mês.
 - [ ] Testar impressão/PDF e repetir o fluxo essencial por teclado e em 320 px.
 
@@ -96,6 +104,8 @@ Só o que é urgente. O restante fica no backlog (seção 5). Origem: revisão e
 | Dados fictícios confundidos com reais | Manter o selo "Modo demonstração" e separar os registros |
 | Fatores de CO₂ dos EUA | Falar sempre em estimativa e citar EPA WARM v16 |
 | Cache antigo após deploy | Atualizar `VERSAO` em `sw.js` a cada mudança de arquivos do app |
+| "Sair" apaga todos os dados do aparelho durante a demonstração | Não tocar em "Sair" no meio do fluxo; é o plano B visível para recomeçar |
+| Menu montado por JavaScript pode "piscar" ao carregar | Colar o menu estático (`menu-principal.html`) nas páginas que ainda têm o antigo |
 | Acessibilidade só no fim | Testar teclado e semântica a cada mudança |
 | Alegar qualidade sem medição | Registrar evidências antes de marcar como concluído |
 
@@ -106,7 +116,7 @@ Não são compromisso de implementação. Quando uma evolução for iniciada, mo
 **Interface**
 
 - **Mapa por bairro** (ex.: Leaflet + OpenStreetMap), sem expor endereços pessoais e com alternativa sem permissão de localização.
-- **Visões personalizadas** (doador, coletor, comunidade) e **histórico individual**: dependem de identificação confiável e, entre dispositivos, de infraestrutura compartilhada.
+- **Visões personalizadas** (doador, coletor, comunidade) e **histórico individual entre dispositivos**: dependem de identificação confiável e de infraestrutura compartilhada. Hoje o histórico de pedidos do doador existe, mas só no mesmo navegador.
 - **Metas e selos** de participação, sem incentivar competição inadequada ou metas ambientais sem comprovação.
 - **Filtros por material** no painel e no histórico.
 - **Orientação para ecopontos**, com fonte confiável e atualizada.

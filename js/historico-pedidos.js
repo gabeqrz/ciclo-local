@@ -33,9 +33,9 @@ function renderizar() {
   }));
 
   porId('lista-feitas').replaceChildren(...feitos.map((item) => el('li', {},
-    el('strong', {}, formatarKg(totalKg(item.materiais))), ' ',
+    el('strong', {}, `Recolhido em ${dataCurta(item.data)}`), ' ',
     el('small', {}, descricaoMateriais(item.materiais)), ' ',
-    el('time', { datetime: item.data }, dataCurta(item.data)))));
+    el('span', { class: 'kg-pedido' }, formatarKg(totalKg(item.materiais))))));
 }
 
 renderizar();
