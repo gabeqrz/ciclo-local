@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CicloLocal | Histórico de Pedidos</title>
+    <meta name="description"
+        content="Veja os pedidos de coleta que você fez: os concluídos e os que ainda estão em andamento.">
+    <meta name="theme-color" content="#F7F5F0">
+    <link rel="canonical" href="https://gabeqrz.github.io/ciclo-local/historico-pedidos.html">
+
+    <!-- Ícones -->
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+
+    <!-- Prévia social: Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="CicloLocal">
+    <meta property="og:title" content="CicloLocal | Histórico de Pedidos">
+    <meta property="og:description"
+        content="Veja os pedidos de coleta que você fez: os concluídos e os que ainda estão em andamento.">
+    <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt"
+        content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+    <meta property="og:url" content="https://gabeqrz.github.io/ciclo-local/historico-pedidos.html">
+
+    <!-- Prévia para X (Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CicloLocal | Histórico de Pedidos">
+    <meta name="twitter:description"
+        content="Veja os pedidos de coleta que você fez: os concluídos e os que ainda estão em andamento.">
+    <meta name="twitter:image" content="https://gabeqrz.github.io/ciclo-local/img/previa-social-1200x630.png">
+    <meta name="twitter:image:alt"
+        content="CicloLocal: símbolo de duas setas circulares em azul-petróleo e terracota e o lema “A reciclagem começa perto. O impacto transforma tudo.”">
+
+    <!-- Fontes: Plus Jakarta Sans (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Estilos (a ordem importa: reset, tokens, estilo da página) -->
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./tokens.css">
+    <link rel="stylesheet" href="./print.css" media="print">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="./manifest.webmanifest">
+</head>
+
+<body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <header>
+        <a class="logo" href="./index.html" aria-label="CicloLocal, página inicial">
+            <img src="./img/cicloLocal-simbolo.svg" alt="" width="34" height="34"><span>Ciclo<b>Local</b></span>
+        </a>
+    </header>
+    <nav aria-label="Menu principal">
+        <ul>
+            <li><a href="./selecao-de-perfil.html">Início</a></li>
+            <li><a href="./confirmacao-doador.html" aria-current="page">Pedidos</a></li>
+            <li><a href="./dashboard.html">Resultados</a></li>
+            <li><a href="./index.html" data-sair>Sair</a></li>
+        </ul>
+    </nav>
+    <main id="conteudo" tabindex="-1">
+        <p>Modo demonstração</p>
+
+        <h1>Histórico de pedidos</h1>
+        <p>Todos os pedidos que você fez neste aparelho.</p>
+
+        <ul class="resumo-historico" aria-label="Resumo dos seus pedidos">
+            <li><b id="n-concluidos">0</b><span>pedidos concluídos</span></li>
+            <li><b id="kg-recolhidos">0 kg</b><span>recolhidos</span></li>
+            <li><b id="n-andamento">0</b><span>em andamento</span></li>
+        </ul>
+
+        <p id="sem-pedidos" hidden>Você ainda não fez pedidos. <a href="./perfil-doador.html">Avisar que tenho material</a></p>
+
+        <section id="secao-andamento" aria-labelledby="t-andamento" hidden>
+            <h2 id="t-andamento">Em andamento</h2>
+            <div id="lista-andamento"></div>
+        </section>
+
+        <section id="secao-feitos" aria-labelledby="t-feitas" hidden>
+            <h2 id="t-feitas">Concluídos</h2>
+            <ul id="lista-feitas" class="entregas"></ul>
+        </section>
+
+        <a class="link-centro" href="./confirmacao-doador.html">Voltar ao pedido atual</a>
+        <a class="link-centro" href="./perfil-doador.html">Fazer outro aviso</a>
+    </main>
+    <script type="module" src="./js/historico-pedidos.js"></script>
+    <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>

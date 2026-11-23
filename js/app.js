@@ -13,7 +13,7 @@ window.reiniciarDemo = () => {
    Início · Coletas (ou Pedidos, para quem doa) · Resultados · Sair.
    "Sair" apaga o localStorage (reiniciar) antes de voltar para a entrada. */
 const pagina = location.pathname.split('/').pop() || 'index.html';
-const paginaDoador = /doador/.test(pagina);
+const paginaDoador = /doador|pedidos/.test(pagina);
 const paginaColetor = /coletor|coletas/.test(pagina);
 
 function perfilAtual() {
@@ -22,7 +22,8 @@ function perfilAtual() {
     if (ler().perfil !== perfil) atualizar((e) => { e.perfil = perfil; });
     return perfil;
   }
-  return ler().perfil ?? 'coletor';
+  const estado = ler();
+  return estado.perfil ?? (estado.pedidoDoador ? 'doador' : 'coletor');
 }
 
 const listaMenu = document.querySelector('nav[aria-label="Menu principal"] ul');
@@ -31,7 +32,7 @@ if (listaMenu) {
   const itens = [
     { href: './selecao-de-perfil.html', texto: 'Início', atual: ['selecao-de-perfil.html', 'perfil-doador.html'].includes(pagina) },
     doador
-      ? { href: './confirmacao-doador.html', texto: 'Pedidos', atual: pagina === 'confirmacao-doador.html' }
+      ? { href: './confirmacao-doador.html', texto: 'Pedidos', atual: ['confirmacao-doador.html', 'historico-pedidos.html'].includes(pagina) }
       : { href: './perfil-coletor.html', texto: 'Coletas', atual: paginaColetor },
     { href: './dashboard.html', texto: 'Resultados', atual: pagina === 'dashboard.html' },
     { href: './index.html', texto: 'Sair', sair: true },

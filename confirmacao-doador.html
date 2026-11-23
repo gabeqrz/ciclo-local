@@ -77,26 +77,27 @@
 
         <section id="secao-pedido" aria-labelledby="t-pedido">
             <h2 id="t-pedido">O seu pedido já foi enviado para a coleta</h2>
-            <p id="pedido-local"></p>
-            <p id="pedido-endereco"></p>
-            <ul class="materiais" id="pedido-materiais">
-                <li>PET: 2 kg</li>
-                <li>Papelão: 5 kg</li>
-            </ul>
-            <p>Total: <strong id="pedido-total">7 kg</strong></p>
+            <p id="sem-pedido" hidden>Você ainda não avisou que tem material. <a href="./perfil-doador.html">Avisar que tenho material</a></p>
+            <div id="dados-pedido">
+                <p id="situacao" class="etiqueta">Aguardando um coletor aceitar</p>
+                <p id="pedido-local"></p>
+                <p id="pedido-endereco"></p>
+                <ul class="materiais" id="pedido-materiais"></ul>
+                <p>Total: <strong id="pedido-total"></strong></p>
 
-            <p id="situacao"><strong>Aguardando um coletor aceitar.</strong></p>
-            <ol id="andamento" aria-label="Andamento do pedido">
-                <li aria-current="step">Aceito por um coletor</li>
-                <li>Material recolhido</li>
-            </ol>
-            <p id="nota-andamento">Quando o material for recolhido, ele entra nos resultados da reciclagem.</p>
+                <ol id="andamento" aria-label="Andamento do pedido">
+                    <li aria-current="step">Aceito por um coletor</li>
+                    <li>Material recolhido</li>
+                </ol>
+                <p id="nota-andamento">Quando o material for recolhido, ele entra nos resultados da reciclagem.</p>
+            </div>
         </section>
 
         <section aria-labelledby="t-feitas">
-            <h2 id="t-feitas">Últimas entregas concluídas</h2>
-            <ul id="lista-feitas"></ul>
-            <p id="total-concluidas"></p>
+            <h2 id="t-feitas">Últimos pedidos concluídos</h2>
+            <ul id="lista-feitas" class="entregas"></ul>
+            <p id="sem-feitos" hidden>Quando um coletor recolher o seu material, o pedido aparece aqui.</p>
+            <a class="link-centro" href="./historico-pedidos.html">Ver histórico de pedidos</a>
         </section>
 
         <section id="chamada" aria-labelledby="t-cta">

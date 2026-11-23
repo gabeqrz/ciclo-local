@@ -1,11 +1,11 @@
 // A cada deploy que mude QUALQUER arquivo do app (HTML, CSS, JS, imagens), troque este valor.
 // É a troca de um único caractere neste arquivo que faz o navegador instalar a nova versão.
 // Sugestão: 'ciclolocal-AAAA-MM-DD-n' (ex.: 'ciclolocal-2026-11-16-1').
-const VERSAO = 'ciclolocal-2026-11-17-3';
+const VERSAO = 'ciclolocal-2026-11-22-1';
 const ARQUIVOS = [
   // Páginas (8)
   './', './index.html', './selecao-de-perfil.html',
-  './perfil-doador.html', './confirmacao-doador.html',
+  './perfil-doador.html', './confirmacao-doador.html', './historico-pedidos.html',
   './perfil-coletor.html', './confirmacao-coletor.html',
   './historico-coletas.html', './dashboard.html',
 
@@ -16,7 +16,7 @@ const ARQUIVOS = [
   // Módulos JavaScript (16)
   './js/app.js', './js/cep.js', './js/confirmacao-coletor.js',
   './js/confirmacao-doador.js', './js/dados.js', './js/dashboard.js',
-  './js/esg.js', './js/filtro-bairro.js', './js/historico-coletas.js',
+  './js/esg.js', './js/filtro-bairro.js', './js/historico-coletas.js', './js/historico-pedidos.js',
   './js/local.js', './js/perfil-coletor.js', './js/perfil-doador.js',
   './js/preloader.js', './js/resultados.js', './js/storage.js', './js/util.js',
 
