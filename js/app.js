@@ -53,7 +53,15 @@ if (listaMenu) {
 }
 
 if (USAR_PWA && 'serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js').catch(() => { /* sem service worker: o site segue funcionando */ });
+  const tinhaControlador = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.register('./sw.js').catch(() => { /* segue sem service worker */ });
+
+  let recarregou = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!tinhaControlador || recarregou) return; // ignora a primeira instalação
+    recarregou = true;
+    window.location.reload();
+  });
 }
 
 let eventoInstalar = null;

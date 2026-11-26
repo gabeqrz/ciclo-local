@@ -34,14 +34,9 @@ const OPCIONAIS = [
 
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(VERSAO).then(async c => {
-      // Essenciais: se faltar algum, a instalação falha de propósito (o erro aparece no console)
-      // cache: 'reload' ignora o cache HTTP do navegador/GitHub Pages (que pode guardar
-      // arquivos por ~10 min) e garante que o novo cache nasça com os arquivos do deploy
-      await c.addAll(ARQUIVOS.map(a => new Request(a, { cache: 'reload' })));
-      // Opcionais: imagens e ícones; se faltar algum, a instalação segue
-      await Promise.allSettled(OPCIONAIS.map(a => c.add(new Request(a, { cache: 'reload' }))));
-    })
+    caches.open(VERSAO).then(c =>
+      c.addAll(ARQUIVOS.map(u => new Request(u, { cache: 'reload' })))
+    )
   );
   self.skipWaiting();
 });
@@ -73,12 +68,20 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Arquivos do app: cache primeiro, rede como reserva
-  e.respondWith(
-  caches.match(e.request)
-    .then(r => r || fetch(e.request))
-    .catch(() => {
-      if (e.request.mode === 'navigate') return caches.match('./index.html');
-      return new Response('', { status: 503 });
+e.respondWith(
+  fetch(e.request, { cache: 'no-cache' })
+    .then(resposta => {
+      if (resposta.ok && url.origin === self.location.origin) {
+        const copia = resposta.clone();
+        caches.open(VERSAO).then(c => c.put(e.request, copia));
+      }
+      return resposta;
     })
-)})
+    .catch(() =>
+      caches.match(e.request).then(r =>
+        r || (e.request.mode === 'navigate'
+          ? caches.match('./index.html')
+          : new Response('', { status: 503 }))
+      )
+    )
+);})

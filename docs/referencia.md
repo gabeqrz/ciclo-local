@@ -163,7 +163,7 @@ ciclo-local/
 
 - Branch `main` como referência estável; branches curtas (`feature/...`, `fix/...`); mudanças por Pull Request; commits `feat:`, `fix:`, `docs:`, `style:`, `refactor:`.
 - Ao alterar arquivos do app, lembre de atualizar `VERSAO` em `sw.js`.
-- **Equipe:** Gabe Queiroz (líder técnico/arquitetura). Preencher os demais nomes e frentes conforme a composição real do grupo; não atribuir tarefas sem confirmação.
+- **Equipe:** Gabe Queiroz, Alisson Amarante, Daniel Costa, Pedro Camilo, Pedro Santos, Ryan Silva.
 
 ## 9. Roteiro de apresentação
 

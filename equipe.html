@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipe & Links — CicloLocal</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Carrega os tokens visuais do seu próprio projeto, se desejar -->
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    :root {
+      --bg-color: #f4f7f5;
+      --card-bg: #ffffff;
+      --primary: #1b6b43;
+      --primary-hover: #145233;
+      --text-main: #1a241f;
+      --text-muted: #52635a;
+      --border: #dce5e0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 540px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    header p.tagline {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    header p.desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .project-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: block;
+      text-align: center;
+      background-color: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.9rem 1.25rem;
+      border-radius: 12px;
+      transition: background-color 0.2s;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-outline {
+      display: block;
+      text-align: center;
+      background-color: var(--card-bg);
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.85rem 1.25rem;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background-color: #eaf3ee;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .member-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.15rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    .member-info {
+      margin-bottom: 0.85rem;
+    }
+
+    .member-info h2 {
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    .member-info span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .social-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      background-color: #fafcfb;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: #f0f7f3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>CicloLocal</h1>
+      <p class="tagline">A reciclagem começa perto. O impacto transforma tudo.</p>
+      <p class="desc">Plataforma web comunitária de coleta seletiva — Projeto de TCC</p>
+    </header>
+
+    <!-- Links principais do projeto -->
+    <section class="project-links">
+      <a href="https://github.io" class="btn-primary" target="_blank">
+        🌱 Acessar Plataforma CicloLocal
+      </a>
+      <a href="https://github.com/gabeqrz/ciclo-local" class="btn-outline" target="_blank">
+        💻 Repositório no GitHub
+      </a>
+    </section>
+
+    <h3 class="section-title">Integrantes do Grupo</h3>
+
+    <!-- INTEGRANTE 1 -->
+    <div class="member-card">
+      <div class="member-info">
+        <h2>Gabriel Queiroz (exemplo)</h2>
+        <span>Desenvolvimento Front-end & Arquitetura PWA</span>
+      </div>
+      <div class="social-row">
+        <a href="https://linkedin.com" class="social-btn" target="_blank">LinkedIn</a>
+        <a href="https://github.com/gabeqrz" class="social-btn" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <!-- INTEGRANTE 2 (Copie e cole este bloco para adicionar mais pessoas) -->
+    <div class="member-card">
+      <div class="member-info">
+        <h2>Nome do Integrante 2</h2>
+        <span>Função no TCC (ex: UX/UI & Documentação)</span>
+      </div>
+      <div class="social-row">
+        <a href="https://linkedin.com" class="social-btn" target="_blank">LinkedIn</a>
+        <a href="https://github.com" class="social-btn" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <!-- INTEGRANTE 3 -->
+    <div class="member-card">
+      <div class="member-info">
+        <h2>Nome do Integrante 3</h2>
+        <span>Função no TCC (ex: Pesquisa & Dados)</span>
+      </div>
+      <div class="social-row">
+        <a href="https://linkedin.com" class="social-btn" target="_blank">LinkedIn</a>
+        <a href="https://github.com" class="social-btn" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <footer>
+      Projeto Acadêmico (TCC) • CicloLocal
+    </footer>
+  </main>
+</body>
+</html>
