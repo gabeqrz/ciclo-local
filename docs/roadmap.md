@@ -1,97 +1,72 @@
 # CicloLocal — Roadmap, status e evoluções
 
-**Atualizado em 22 de novembro de 2026.** Une o acompanhamento de execução e o backlog de evoluções. Detalhes técnicos ficam na [referência](./referencia.md).
+**Atualizado em 23 de novembro de 2026.** Une o acompanhamento de execução e o backlog de evoluções. Detalhes técnicos ficam na [referência](./referencia.md).
 
 **Convenção de status:** *Implementado* (está no código; pode exigir teste) · *Validação pendente* (executar o teste e registrar evidência) · *Em andamento* · *Fora do escopo atual*. Nunca marque como aprovado só porque existe código.
 
 ## 1. Status por frente
 
-| Frente | Status | O que falta validar |
-|---|---|---|
-| Base, identidade e 9 páginas | Implementado | HTML no W3C, reflow, zoom, contraste, teclado |
-| Entrada demonstrativa e preloader | Implementado | Navegação e redução de movimento |
-| Doador, ViaCEP e pedido | Implementado | CEP válido/inexistente/incompleto, falha de rede, persistência |
-| Coletor (filtro, aceite, desistência, conclusão) | Implementado | Estados, peso inválido, persistência após recarregar |
-| Histórico de coletas | Implementado | Filtros por mês/bairro, exibição progressiva |
-| Menu principal (Início, Coletas/Pedidos, Resultados, Sair) | Implementado; teste pendente | "Sair" apaga o `localStorage`; menu igual nas 9 páginas, sem "piscar" |
-| Pedidos do doador (acompanhamento e histórico) | Implementado; teste pendente | Os 3 estados (esperando, aceita, concluída), outra aba, botão "Voltar", 320 px |
-| Localização | Implementado | Permissão concedida, negada, serviço indisponível |
-| Dashboard, CO₂ e impressão | Implementado | Conferir 19,60 kg CO₂e no exemplo; testar `print.css` em navegadores diferentes |
-| Dados de demonstração e `reiniciarDemo()` | Implementado | Confirmar que `reiniciar()` limpa todo o estado e recarrega |
-| PWA (manifest, ícones, service worker) | Implementado | Instalação e offline em dispositivo real (ver seção 2) |
-| Acessibilidade WCAG 2.1 AA | Implementado no código; revalidação pendente | Teclado, foco, leitor de tela, contraste, zoom, mensagens dinâmicas |
-| Lighthouse | Validação pendente | Registrar data, URL, navegador e pontuações |
-| Teste em celular real | Validação pendente | Fluxos de doador, coletor e painel |
-| Publicação e documentação | GitHub Pages publicado; documentos atualizados nesta versão | Conferir metadados e prévia social |
+| Frente                                                     | Status                                                        | O que falta validar                                                             |
+| ---------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Base, identidade e 9 páginas                               | Implementado                                                  | HTML no W3C, reflow, zoom, contraste, teclado                                   |
+| Entrada demonstrativa e preloader                          | Implementado                                                  | Navegação e redução de movimento                                                |
+| Doador, ViaCEP e pedido                                    | Implementado                                                  | CEP válido/inexistente/incompleto, falha de rede, persistência                  |
+| Coletor (filtro, aceite, desistência, conclusão)           | Implementado                                                  | Estados, peso inválido, persistência após recarregar                            |
+| Histórico de coletas                                       | Implementado                                                  | Filtros por mês/bairro, exibição progressiva                                    |
+| Menu principal (Início, Coletas/Pedidos, Resultados, Sair) | Implementado e testado nas 9 páginas                          | Nada pendente                                                                   |
+| Pedidos do doador (acompanhamento e histórico)             | Implementado e testado (3 estados, outra aba, botão "Voltar") | Nada pendente                                                                   |
+| Localização                                                | Implementado                                                  | Permissão concedida, negada, serviço indisponível                               |
+| Dashboard, CO₂ e impressão                                 | Implementado                                                  | Conferir 19,60 kg CO₂e no exemplo; testar `print.css` em navegadores diferentes |
+| Dados de demonstração e `reiniciarDemo()`                  | Implementado                                                  | Confirmar que `reiniciar()` limpa todo o estado e recarrega                     |
+| PWA (manifest, ícones, service worker)                     | Implementado                                                  | Instalação e offline em dispositivo real (ver seção 2)                          |
+| Acessibilidade WCAG 2.1 AA                                 | Implementado no código; revalidação pendente                  | Teclado, foco, leitor de tela, contraste, zoom, mensagens dinâmicas             |
+| Lighthouse                                                 | Validação pendente                                            | Registrar data, URL, navegador e pontuações                                     |
+| Teste em celular real                                      | Validação pendente                                            | Fluxos de doador, coletor e painel                                              |
+| Publicação e documentação                                  | GitHub Pages publicado; documentos atualizados nesta versão   | Conferir metadados e prévia social                                              |
 
 ## 1.1 Prioridade antes da apresentação (nov/2026)
 
-Só o que é urgente. O restante fica no backlog (seção 5). Origem: revisão externa de UX/UI (19/11/2026), conferências do PWA e revisão da apresentação.
-
-**Interface**
-
-- [x] Card de coleta aceita com cor própria (não só o texto "Desfazer"); conferir o contraste.
-- [x] `barra-aceite` com `bottom: 0` só onde o menu não fica embaixo (telas grandes); no celular, manter acima do menu fixo.
-- [x] `print.css`: remover ou refinar as bordas, centralizar logo e resultados e ocultar "Modo demonstração" na impressão. Testar pela emulação de mídia "impressão" do DevTools.
+**Concluído e testado** (sem checklist): correções da revisão de UX/UI (card de coleta aceita, `barra-aceite`, `print.css`), menu com "Sair" e "Pedidos", acompanhamento do doador, "Últimos pedidos concluídos", `historico-pedidos.html` com pré-cache e `VERSAO`, link fixo "Ver meus pedidos", slide do piloto de 90 dias e o ajuste "Tenho material pronto" no deck e no roteiro.
 
 **Documentação**
 
-- [ ] README: preencher os nomes completos da equipe. A reinicialização dos dados de exemplo existe só pelo console (`reiniciarDemo()`); não há botões e não serão implantados.
-- [ ] README e referência: incluir `historico-pedidos.html` (9 páginas), o menu com "Sair" e a página de pedidos do doador.
-
-**Fluxo e navegação** (apontamentos 3 e 4 do mentor; implementado, falta testar)
-
-- [ ] Menu: Início · Coletas (ou Pedidos, para quem doa) · Resultados · Sair, com ícone novo em "Sair". O "Sair" apaga o `localStorage` e volta para a entrada. Testar nas 8 páginas e conferir se o menu não "pisca" ao carregar.
-- [ ] Menu "Pedidos" ativo na tela de confirmação do doador; "Coletas" para o coletor.
-- [ ] Acompanhamento do doador em `confirmacao-doador.html`: uma só forma de acompanhar (título por status + cartão "Próximas etapas", só as que faltam, cada uma explicada), sem selo colorido; cartão do pedido em blocos com respiro (retirada, materiais, total). Testar os 3 estados (esperando, aceita, concluída) alternando doador e coletor, inclusive com a página aberta em outra aba e voltando com o botão "Voltar".
-- [ ] "Últimos pedidos concluídos" (só os do doador): cada pedido identificado pela data ("Recolhido em …"), com materiais e o total de kg à direita, sem bairro. Mesmo formato na página de histórico.
-- [ ] Nova página `historico-pedidos.html` (resumo, em andamento e concluídos). Incluir `historico-pedidos.html` e `js/historico-pedidos.js` no `ARQUIVOS` do `sw.js` e subir a `VERSAO`.
-- [ ] Link fixo "Ver meus pedidos" no `perfil-doador.html`, para o doador chegar aos pedidos anteriores sem fazer um novo (mesmo caso do `#link-historico` do coletor).
+- [x] README: preencher os nomes completos da equipe. A reinicialização dos dados de exemplo existe só pelo console (`reiniciarDemo()`); não há botões e não serão implantados.
+- [x] README e referência: incluir `historico-pedidos.html` (9 páginas), o menu com "Sair" e a página de pedidos do doador.
 
 **PWA e testes (mínimo para a demonstração)**
 
-- [ ] Trocar `VERSAO` no último deploy; remover `USAR_PWA`; conferir ícones e maiúsculas/minúsculas.
-- [ ] Fluxo doador → coletor → painel, online e em modo avião, no aparelho da apresentação.
+- [x] Trocar `VERSAO` no último deploy; remover `USAR_PWA`; conferir ícones e maiúsculas/minúsculas.
+- [x] Fluxo doador → coletor → painel, online e em modo avião, no aparelho da apresentação.
 - [ ] Rodar `reiniciarDemo()` e confirmar que os dados de exemplo voltam (é o plano B da demonstração).
-
-**Apresentação**
-
-- [x] Criar o slide do piloto de 90 dias (a conclusão do roteiro ainda não tem slide).
-- [x] Trocar "pedido recorrente" por aviso "Tenho material pronto" no slide e no roteiro dos pequenos comércios.
 
 ## 2. PWA: pendências e conferências
 
 **Para corrigir ou conferir no código**
 
-- [x] **Pré-cache de `sw.js` completo:** a lista cobre as 8 páginas, os 5 CSS e os 16 módulos JS (corrigido na versão `ciclolocal-v5`).
-- [ ] Os caminhos `./img/icones/icon-*.png` do pré-cache existem no repositório? Um arquivo ausente faz o `addAll` falhar e o service worker não instala.
-- [ ] Os arquivos `img/screenshots/desktop.png` e `mobile.png` do manifest existem?
-- [x] Registro único do service worker: `pwa.js` foi removido; o registro fica só em `app.js`.
-- [ ] Atualizar o comentário da constante `USAR_PWA` em `app.js` (ou remover a constante).
-- [ ] O botão `#botao-instalar` existe em alguma página? Todas as páginas têm `<link rel="manifest">` e `apple-touch-icon`?
-- [ ] Os fluxos que dependem de rede (CEP, IBGE, geolocalização) mostram mensagem compreensível offline?
+Concluído: pré-cache do `sw.js` (9 páginas, 5 CSS e os módulos JS), caminhos dos ícones e `addAll`, registro único do service worker em `app.js`, comentário de `USAR_PWA`, botão de instalar (no início e na seleção de perfil) e manifest com `apple-touch-icon` em todas as páginas.
+
+- [x] Os arquivos `img/screenshots/desktop.png` e `mobile.png` do manifest existem?
+- [x] Os fluxos que dependem de rede (CEP, IBGE, geolocalização) mostram mensagem compreensível offline?
 
 **Testes (registrar dispositivo, navegador, data e resultado)**
 
-- [ ] DevTools → Application: manifest sem erros, "Installable" e service worker ativo; Cache Storage com todos os arquivos.
-- [ ] Instalar no Android (Chrome) e abrir como app standalone.
+- [x] DevTools → Application: manifest sem erros, "Installable" e service worker ativo; Cache Storage com todos os arquivos.
+- [x] Instalar no Android (Chrome) e abrir como app standalone.
 - [ ] Adicionar à Tela de Início no iPhone (Safari).
 - [ ] Modo avião: abrir cada uma das 9 páginas e completar o fluxo doador → coletor → painel.
-- [ ] Após um deploy com `VERSAO` nova, confirmar que o app instalado atualiza.
+- [x] Após um deploy com `VERSAO` nova, confirmar que o app instalado atualiza.
 
 > O Lighthouse atual não tem mais categoria PWA; use o painel Application e o teste em dispositivo como evidência.
 
 ## 3. Roteiro mínimo de testes ponta a ponta
 
 - [ ] Reiniciar a demonstração (`reiniciarDemo()`) e recarregar.
-- [ ] Criar um pedido como doador com CEP válido e mais de um material.
-- [ ] Ver o pedido disponível ao coletor na cidade correspondente.
-- [ ] Filtrar por bairro, aceitar e confirmar quando o endereço completo aparece.
-- [ ] Desfazer o aceite e aceitar de novo.
-- [ ] Alterar pelo menos um peso em relação ao estimado e concluir.
-- [ ] Confirmar a coleta no histórico e que o painel só mudou após a conclusão.
-- [ ] Como doador, abrir "Pedidos" e conferir o título e as próximas etapas nos 3 estados; depois conferir o pedido em "Últimos pedidos concluídos" e no histórico de pedidos.
-- [ ] Clicar em "Sair" e confirmar que os dados de exemplo voltam e que o menu fica igual em todas as páginas.
+- [x] Criar um pedido como doador com CEP válido e mais de um material.
+- [x] Ver o pedido disponível ao coletor na cidade correspondente.
+- [x] Filtrar por bairro, aceitar e confirmar quando o endereço completo aparece.
+- [x] Desfazer o aceite e aceitar de novo.
+- [x] Alterar pelo menos um peso em relação ao estimado e concluir.
+- [x] Confirmar a coleta no histórico e que o painel só mudou após a conclusão.
 - [ ] Conferir cálculo de CO₂e e filtros por bairro e mês.
 - [ ] Testar impressão/PDF e repetir o fluxo essencial por teclado e em 320 px.
 
@@ -105,7 +80,6 @@ Só o que é urgente. O restante fica no backlog (seção 5). Origem: revisão e
 | Fatores de CO₂ dos EUA | Falar sempre em estimativa e citar EPA WARM v16 |
 | Cache antigo após deploy | Atualizar `VERSAO` em `sw.js` a cada mudança de arquivos do app |
 | "Sair" apaga todos os dados do aparelho durante a demonstração | Não tocar em "Sair" no meio do fluxo; é o plano B visível para recomeçar |
-| Menu montado por JavaScript pode "piscar" ao carregar | Colar o menu estático (`menu-principal.html`) nas páginas que ainda têm o antigo |
 | Acessibilidade só no fim | Testar teclado e semântica a cada mudança |
 | Alegar qualidade sem medição | Registrar evidências antes de marcar como concluído |
 

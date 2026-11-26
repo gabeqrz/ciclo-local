@@ -94,10 +94,14 @@ Conferência: 2 kg de PET + 5 kg de papelão = (2 × 1,15) + (5 × 3,46) = **19,
 | Elemento | Situação no código |
 |---|---|
 | `manifest.webmanifest` | Nome e nome curto "CicloLocal", `lang` pt-BR, `start_url` `./index.html`, `scope` `./`, `display` `standalone`, cores `#F7F5F0`, ícones 192, 512 e maskable 512, duas capturas de tela (wide 1280×720 e mobile 390×844) |
-| `sw.js` | Cache `ciclolocal-v4`; pré-cache na instalação (`skipWaiting`); ativação remove caches antigos e assume as abas (`clients.claim`) |
+| `sw.js` | Cache nomeado pela constante `VERSAO` (formato `ciclolocal-AAAA-MM-DD-n`). Pré-cache na instalação, ignorando o cache HTTP (`cache: 'reload'`): arquivos essenciais (páginas, CSS, JS e manifest; se faltar algum, a instalação falha) e opcionais (imagens e ícones; a falta de um não impede a instalação). Usa `skipWaiting`; a ativação remove caches antigos e assume as abas (`clients.claim`) |
 | Estratégia de cache | Arquivos do app: cache primeiro, rede como reserva. Google Fonts: cache no primeiro uso. ViaCEP: sempre rede. Navegação sem cache e sem rede cai em `index.html`. Outros pedidos `GET` (IBGE, Nominatim) vão à rede, sem cache |
-| Registro | Em `js/app.js` (carregado em todas as páginas), controlado pela constante `USAR_PWA`; falhas de registro são silenciosas |
-| Instalação | Botão `#botao-instalar` aparece quando o navegador dispara `beforeinstallprompt` (Chromium). No iOS, a instalação é manual (Compartilhar → Adicionar à Tela de Início) |
+| Registro | Em `js/app.js` (carregado em todas as páginas); falhas de registro são silenciosas. Quando uma nova versão do service worker assume o controle, a página recarrega sozinha (não recarrega na primeira instalação) |
+| Instalação | Botão "Instalar app" (`#botao-instalar`), na página inicial, aparece quando o navegador dispara `beforeinstallprompt` (Chromium). No iOS, a instalação é manual (Compartilhar → Adicionar à Tela de Início) |
+
+**Atualizações:** como o cache é "cache primeiro", todo deploy que altere arquivos do app exige mudar o valor de `VERSAO` em `sw.js`; senão o navegador não instala a nova versão e o usuário continua vendo a antiga. Quando a nova versão é instalada, a página aberta recarrega automaticamente.
+
+**Limites:** o armazenamento continua local por navegador. Serviços externos (ViaCEP, IBGE, Nominatim) precisam de internet; sem conexão, o app mostra mensagem compreensível. Instalação e uso offline foram validados no Android (Chrome); o teste no iPhone (Safari) ainda está pendente (ver roadmap).
 
 **Atualizações:** como o cache é "cache primeiro", todo deploy que altere arquivos do app exige mudar o valor de `VERSAO` em `sw.js`; senão o usuário continua vendo a versão antiga.
 

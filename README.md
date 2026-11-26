@@ -15,7 +15,7 @@ Projeto de TCC feito com **HTML5, CSS3 e JavaScript puro**, sem frameworks, back
 
 ## Como funciona
 
-1. **Doador:** informa o CEP, marca os materiais e estima os pesos. O pedido fica disponível para os coletores da região.
+1. **Doador:** informa o CEP, marca os materiais e estima os pesos. O pedido fica disponível para os coletores da região. Doador pode conferir o histórico de pedidos na plataforma.
 2. **Coletor:** consulta os pedidos, filtra por bairro e aceita uma coleta. O endereço completo só aparece depois do aceite. Depois de recolher, confirma o peso real de cada material.
 3. **Comunidade:** acompanha o histórico e o painel de resultados, com indicadores por material, evolução mensal, ranking de bairros e estimativa de CO₂ equivalente.
 
@@ -44,6 +44,8 @@ O projeto usa módulos JavaScript, então precisa de um servidor local (abrir o 
 2. Abra a pasta no VS Code e inicie o **Live Server** a partir do `index.html`.
 
 Para reiniciar a demonstração, execute `reiniciarDemo()` no Console do navegador. Não há botão para isso na interface.
+
+- **Equipe:** Gabe Queiroz, Alisson Amarante, Daniel Costa, Pedro Camilo, Pedro Santos, Ryan Silva.
 
 ## Instalar como aplicativo
 
