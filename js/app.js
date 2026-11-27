@@ -71,3 +71,37 @@ botaoInstalar?.addEventListener('click', async () => {
 window.addEventListener('appinstalled', () => {
   if (botaoInstalar) botaoInstalar.hidden = true;
 });
+
+// VLibras (acessibilidade em Libras)
+function iniciarVLibras() {
+  const script = document.createElement('script');
+  script.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
+
+  script.onload = () => {
+    new window.VLibras.Widget({
+      rootPath: 'https://vlibras.gov.br/app',
+      avatar: 'icaro',
+      position: 'R',
+    });
+
+    // personalização do botão (opcional)
+    let tentativas = 0;
+    const esperar = setInterval(() => {
+      const btn = window.VLibrasWidget && window.VLibrasWidget.initBtn;
+      if (btn) {
+        clearInterval(esperar);
+        btn.style.border = '2px solid #F7F5F0';
+        // teste aqui o deslocamento vertical, ex.: btn.style.bottom = '80px';
+      } else if (++tentativas > 30) {
+        clearInterval(esperar);
+      }
+    }, 300);
+  };
+
+  // offline ou bloqueado: o site segue normal, sem erro
+  script.onerror = () => {};
+
+  document.body.appendChild(script);
+}
+
+iniciarVLibras();

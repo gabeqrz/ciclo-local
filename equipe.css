@@ -1,0 +1,374 @@
+/* ==========================================================
+   CicloLocal — Página da equipe (equipe.html)
+   Direção Visual 2 "Industrial Orgânico"
+   Mobile-first. Não depende do style.css do app.
+   Em telas ≥ 64rem todo o conteúdo cabe numa única tela.
+   ========================================================== */
+
+:root {
+  /* Cores da marca */
+  --areia: #F7F5F0;
+  --petroleo: #1D3557;
+  --petroleo-escuro: #14263F;
+  --terracota: #D96B43;
+  --terracota-escuro: #933F20; /* texto e foco: contraste AA sobre areia e branco */
+
+  /* Apoio */
+  --superficie: #FFFFFF;
+  --texto: #1D3557;
+  --texto-suave: #46566D;
+  --borda: #D9D4C7;
+  --petroleo-claro: #E3E8EE;
+
+  /* Tipografia */
+  --fonte: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Espaçamento */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+
+  /* Forma */
+  --raio-card: 20px;
+  --raio-botao: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--areia);
+  color: var(--texto);
+  font-family: var(--fonte);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Acessibilidade ---------- */
+
+.pular-link {
+  position: absolute;
+  top: var(--esp-2);
+  left: var(--esp-2);
+  z-index: 10;
+  padding: var(--esp-2) var(--esp-4);
+  border-radius: var(--raio-botao);
+  background-color: var(--terracota-escuro);
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.pular-link:focus-visible {
+  transform: translateY(0);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--terracota-escuro);
+  outline-offset: 3px;
+}
+
+/* ---------- Estrutura ---------- */
+
+.pagina {
+  width: 100%;
+  max-width: 34rem;
+  margin-inline: auto;
+  padding: var(--esp-5) var(--esp-4) var(--esp-4);
+}
+
+/* ---------- Cabeçalho (logo + lema) ---------- */
+
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--esp-5);
+  text-align: center;
+}
+
+.logo {
+  width: 15rem;
+  max-height: 6rem;
+  height: auto;
+  margin-bottom: var(--esp-3);
+  margin-left: 2rem;
+  object-fit: contain;
+}
+
+.lema {
+  max-width: 26ch;
+  color: var(--petroleo);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+/* ---------- Botões ---------- */
+
+.botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: var(--esp-2) var(--esp-3);
+  border: 2px solid var(--petroleo);
+  border-radius: var(--raio-botao);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.botao-principal {
+  background-color: var(--petroleo);
+  color: #FFFFFF;
+}
+
+.botao-principal:hover {
+  background-color: var(--petroleo-escuro);
+  border-color: var(--petroleo-escuro);
+}
+
+.botao-secundario {
+  background-color: transparent;
+  color: var(--petroleo);
+}
+
+.botao-secundario:hover {
+  background-color: var(--petroleo-claro);
+}
+
+.botao-social {
+  min-height: 2.75rem;
+  border-color: var(--borda);
+  background-color: var(--superficie);
+  color: var(--petroleo);
+}
+
+.botao-social:hover {
+  border-color: var(--terracota-escuro);
+  color: var(--terracota-escuro);
+}
+
+/* ---------- Links do projeto (sempre lado a lado) ---------- */
+
+.links-projeto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--esp-3);
+  max-width: 28rem;
+  margin-inline: auto;
+  margin-bottom: var(--esp-6);
+}
+
+/* ---------- Equipe ---------- */
+
+.equipe h2 {
+  margin-bottom: var(--esp-4);
+  color: var(--petroleo);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.lista-equipe {
+  display: grid;
+  gap: var(--esp-3);
+}
+
+.integrante {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: var(--esp-4);
+  row-gap: var(--esp-2);
+  padding: var(--esp-3) var(--esp-4);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-card);
+  background-color: var(--superficie);
+}
+
+/* Os filhos (foto e nome) viram itens da grade do card */
+.integrante-id {
+  display: contents;
+}
+
+.nome {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* Foto com iniciais como reserva (aparecem se a imagem não carregar) */
+
+.avatar {
+  position: relative;
+  flex-shrink: 0;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background-color: var(--petroleo-claro);
+  box-shadow: 0 0 0 3px var(--superficie), 0 0 0 5px var(--terracota);
+}
+
+.avatar span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--petroleo);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.links-integrante {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--esp-2);
+}
+
+.links-integrante .botao-social {
+  padding-inline: var(--esp-2);
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  margin-top: var(--esp-5);
+  color: var(--texto-suave);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* ---------- Tablet: 2 colunas ---------- */
+
+@media (min-width: 48rem) {
+  .pagina {
+    max-width: 52rem;
+    padding-top: var(--esp-6);
+  }
+
+  .lista-equipe {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- Desktop: tudo numa tela, 3 colunas ---------- */
+
+@media (min-width: 64rem) {
+  .pagina {
+    max-width: 62rem;
+    padding-top: var(--esp-5);
+  }
+
+  .cabecalho {
+    margin-bottom: var(--esp-4);
+  }
+
+  .logo {
+    width: auto;
+    max-height: none;
+    height: 4.5rem;
+    margin-bottom: var(--esp-2);
+  }
+
+  .lema {
+    max-width: none;
+    font-size: 1.5rem;
+  }
+
+  .links-projeto {
+    margin-bottom: var(--esp-5);
+  }
+
+  .equipe h2 {
+    margin-bottom: var(--esp-3);
+    font-size: 1.125rem;
+  }
+
+  .lista-equipe {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--esp-4);
+  }
+
+  .integrante {
+    padding: var(--esp-3);
+  }
+
+  .botao-social {
+    min-height: 2.5rem;
+  }
+
+  .rodape {
+    margin-top: var(--esp-4);
+  }
+}
+
+@media (max-width: 23rem) {
+  .avatar {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .integrante {
+    column-gap: var(--esp-3);
+  }
+
+  .links-integrante .botao-social {
+    font-size: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

@@ -167,6 +167,12 @@ footer a {
   min-height: var(--alvo-min);
 }
 
+:root {
+  --vlibras-btn-focus-visible-outline: 2px solid #F7F5F0;
+  --vlibras-btn-focus-visible-shadow: 0 0 0 4px #1D3557;
+  --vlibras-btn-hover-filter: brightness(1.1);
+}
+
 /* links soltos com alvo de toque de 44 px */
 
 p[data-demo],

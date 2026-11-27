@@ -3,230 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Equipe & Links — CicloLocal</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Carrega os tokens visuais do seu próprio projeto, se desejar -->
-  <link rel="stylesheet" href="tokens.css">
-  <style>
-    :root {
-      --bg-color: #f4f7f5;
-      --card-bg: #ffffff;
-      --primary: #1b6b43;
-      --primary-hover: #145233;
-      --text-main: #1a241f;
-      --text-muted: #52635a;
-      --border: #dce5e0;
-    }
+  <title>Equipe | CicloLocal</title>
+  <meta name="description" content="Conheça a equipe do CicloLocal, plataforma web comunitária de coleta seletiva. Acesse o app, o repositório e os perfis dos integrantes.">
+  <meta name="theme-color" content="#1D3557">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  <!-- Open Graph (prévia ao compartilhar o link) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Equipe | CicloLocal">
+  <meta property="og:description" content="A reciclagem começa perto. Conheça quem construiu o CicloLocal.">
+  <!-- Quando tiver a imagem de prévia (1200x630), descomente e ajuste a URL:
+  <meta property="og:image" content="https://gabeqrz.github.io/ciclo-local/assets/og-equipe.png">
+  -->
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.5;
-      padding: 2rem 1rem;
-      display: flex;
-      justify-content: center;
-    }
+  <!-- Fonte da marca -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-    .container {
-      width: 100%;
-      max-width: 540px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    header h1 {
-      font-size: 1.75rem;
-      color: var(--primary);
-      margin-bottom: 0.25rem;
-    }
-
-    header p.tagline {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text-main);
-      margin-bottom: 0.5rem;
-    }
-
-    header p.desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .project-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-
-    .btn-primary {
-      display: block;
-      text-align: center;
-      background-color: var(--primary);
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.9rem 1.25rem;
-      border-radius: 12px;
-      transition: background-color 0.2s;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--primary-hover);
-    }
-
-    .btn-outline {
-      display: block;
-      text-align: center;
-      background-color: var(--card-bg);
-      color: var(--primary);
-      border: 1.5px solid var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.85rem 1.25rem;
-      border-radius: 12px;
-      transition: all 0.2s;
-    }
-
-    .btn-outline:hover {
-      background-color: #eaf3ee;
-    }
-
-    .section-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .member-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.15rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-    }
-
-    .member-info {
-      margin-bottom: 0.85rem;
-    }
-
-    .member-info h2 {
-      font-size: 1.05rem;
-      color: var(--text-main);
-    }
-
-    .member-info span {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .social-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.65rem;
-    }
-
-    .social-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.6rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      background-color: #fafcfb;
-      transition: all 0.2s;
-    }
-
-    .social-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      background-color: #f0f7f3;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-  </style>
+  <link rel="stylesheet" href="./equipe.css">
 </head>
 <body>
-  <main class="container">
-    <header>
-      <h1>CicloLocal</h1>
-      <p class="tagline">A reciclagem começa perto. O impacto transforma tudo.</p>
-      <p class="desc">Plataforma web comunitária de coleta seletiva — Projeto de TCC</p>
+  <a class="pular-link" href="#equipe">Pular para a equipe</a>
+
+  <div class="pagina">
+    <header class="cabecalho">
+      <img class="logo" src="img/logo-ciclolocal.svg" alt="Logo da Ciclo Local" width="72" height="72">
+      <h1 class="lema">A reciclagem começa perto. O impacto transforma tudo.</h1>
     </header>
 
-    <!-- Links principais do projeto -->
-    <section class="project-links">
-      <a href="https://github.io" class="btn-primary" target="_blank">
-        🌱 Acessar Plataforma CicloLocal
-      </a>
-      <a href="https://github.com/gabeqrz/ciclo-local" class="btn-outline" target="_blank">
-        💻 Repositório no GitHub
-      </a>
-    </section>
+    <nav class="links-projeto" aria-label="Links do projeto">
+      <a class="botao botao-principal" href="https://gabeqrz.github.io/ciclo-local/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o app CicloLocal (abre em nova aba)">Abrir o app</a>
+      <a class="botao botao-secundario" href="https://github.com/gabeqrz/ciclo-local" target="_blank" rel="noopener noreferrer" aria-label="Ver o código do CicloLocal no GitHub (abre em nova aba)">Ver o código</a>
+    </nav>
 
-    <h3 class="section-title">Integrantes do Grupo</h3>
+    <main id="equipe" class="equipe" tabindex="-1">
+      <h2>Equipe</h2>
 
-    <!-- INTEGRANTE 1 -->
-    <div class="member-card">
-      <div class="member-info">
-        <h2>Gabriel Queiroz (exemplo)</h2>
-        <span>Desenvolvimento Front-end & Arquitetura PWA</span>
-      </div>
-      <div class="social-row">
-        <a href="https://linkedin.com" class="social-btn" target="_blank">LinkedIn</a>
-        <a href="https://github.com/gabeqrz" class="social-btn" target="_blank">GitHub</a>
-      </div>
-    </div>
+      <ul class="lista-equipe">
+        <li class="integrante">
+          <div class="integrante-id">
+            <div class="avatar">
+              <span aria-hidden="true">AA</span>
+              <img src="assets/equipe/alisson-amarante.jpg" alt="" width="72" height="72">
+            </div>
+            <h3 class="nome">Alisson Amarante</h3>
+          </div>
+          <div class="links-integrante">
+            <a class="botao botao-social" href="https://www.linkedin.com/in/alisson-gabriel-0260a6452/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Alisson Amarante (abre em nova aba)">LinkedIn</a>
+            <a class="botao botao-social" href="https://github.com/alissongabriel4909-collab" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Alisson Amarante (abre em nova aba)">GitHub</a>
+          </div>
+        </li>
 
-    <!-- INTEGRANTE 2 (Copie e cole este bloco para adicionar mais pessoas) -->
-    <div class="member-card">
-      <div class="member-info">
-        <h2>Nome do Integrante 2</h2>
-        <span>Função no TCC (ex: UX/UI & Documentação)</span>
-      </div>
-      <div class="social-row">
-        <a href="https://linkedin.com" class="social-btn" target="_blank">LinkedIn</a>
-        <a href="https://github.com" class="social-btn" target="_blank">GitHub</a>
-      </div>
-    </div>
+        <li class="integrante">
+          <div class="integrante-id">
+            <div class="avatar">
+              <span aria-hidden="true">DC</span>
+              <img src="assets/equipe/daniel-costa.jpg" alt="" width="72" height="72">
+            </div>
+            <h3 class="nome">Daniel Costa</h3>
+          </div>
+          <div class="links-integrante">
+            <a class="botao botao-social" href="https://www.linkedin.com/in/daniel-costa-7374833b8/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Daniel Costa (abre em nova aba)">LinkedIn</a>
+            <a class="botao botao-social" href="https://github.com/dcosta-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Daniel Costa (abre em nova aba)">GitHub</a>
+          </div>
+        </li>
 
-    <!-- INTEGRANTE 3 -->
-    <div class="member-card">
-      <div class="member-info">
-        <h2>Nome do Integrante 3</h2>
-        <span>Função no TCC (ex: Pesquisa & Dados)</span>
-      </div>
-      <div class="social-row">
-        <a href="https://linkedin.com" class="social-btn" target="_blank">LinkedIn</a>
-        <a href="https://github.com" class="social-btn" target="_blank">GitHub</a>
-      </div>
-    </div>
+        <li class="integrante">
+          <div class="integrante-id">
+            <div class="avatar">
+              <span aria-hidden="true">GQ</span>
+              <img src="assets/equipe/gabe-queiroz.jpg" alt="" width="72" height="72">
+            </div>
+            <h3 class="nome">Gabe Queiroz</h3>
+          </div>
+          <div class="links-integrante">
+            <a class="botao botao-social" href="https://www.linkedin.com/in/gabeqrz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Gabe Queiroz (abre em nova aba)">LinkedIn</a>
+            <a class="botao botao-social" href="https://github.com/gabeqrz" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Gabe Queiroz (abre em nova aba)">GitHub</a>
+          </div>
+        </li>
 
-    <footer>
-      Projeto Acadêmico (TCC) • CicloLocal
+        <li class="integrante">
+          <div class="integrante-id">
+            <div class="avatar">
+              <span aria-hidden="true">PC</span>
+              <img src="assets/equipe/pedro-camilo.jpg" alt="" width="72" height="72">
+            </div>
+            <h3 class="nome">Pedro Camilo</h3>
+          </div>
+          <div class="links-integrante">
+            <a class="botao botao-social" href="https://www.linkedin.com/in/pedro-henrique-781104452/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Pedro Camilo (abre em nova aba)">LinkedIn</a>
+            <a class="botao botao-social" href="https://github.com/pedrohenriquecamilodesouza" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Pedro Camilo (abre em nova aba)">GitHub</a>
+          </div>
+        </li>
+
+        <li class="integrante">
+          <div class="integrante-id">
+            <div class="avatar">
+              <span aria-hidden="true">PS</span>
+              <img src="assets/equipe/pedro-santos.jpg" alt="" width="72" height="72">
+            </div>
+            <h3 class="nome">Pedro Santos</h3>
+          </div>
+          <div class="links-integrante">
+            <a class="botao botao-social" href="https://www.linkedin.com/in/pedro-henrique-souza-santos-340577289/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Pedro Santos (abre em nova aba)">LinkedIn</a>
+            <a class="botao botao-social" href="https://github.com/pedrohenrique-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Pedro Santos (abre em nova aba)">GitHub</a>
+          </div>
+        </li>
+
+        <li class="integrante">
+          <div class="integrante-id">
+            <div class="avatar">
+              <span aria-hidden="true">RS</span>
+              <img src="assets/equipe/ryan-silva.jpg" alt="" width="72" height="72">
+            </div>
+            <h3 class="nome">Ryan Silva</h3>
+          </div>
+          <div class="links-integrante">
+            <a class="botao botao-social" href="https://www.linkedin.com/in/ryan-souza-b4a3aa286/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Ryan Silva (abre em nova aba)">LinkedIn</a>
+            <a class="botao botao-social" href="https://github.com/ryansilvaa79" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Ryan Silva (abre em nova aba)">GitHub</a>
+          </div>
+        </li>
+      </ul>
+    </main>
+
+    <footer class="rodape">
+      <p>Projeto de TCC da Formação Profissional em Desenvolvimento Web, Instituto Percorre.</p>
     </footer>
-  </main>
+  </div>
 </body>
 </html>
